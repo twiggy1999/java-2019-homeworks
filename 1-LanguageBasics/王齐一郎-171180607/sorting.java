@@ -1,5 +1,3 @@
-import org.jetbrains.annotations.NotNull;
-
 public class sorting {
 
     private static void mySort(int[] a) {
