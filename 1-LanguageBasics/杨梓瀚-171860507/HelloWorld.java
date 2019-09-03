@@ -4,8 +4,6 @@
     implement the sort algorithm to sort the integer array
  */
 
-package com.hit.demo;
-
 public class HelloWorld {
     public static void main(String[] args){
         int size=10;
