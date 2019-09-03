@@ -55,7 +55,7 @@
     <configuration name="HelloWorld" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="10" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.hit.demo.HelloWorld" />
+      <option name="MAIN_CLASS_NAME" value="HelloWorld" />
       <module name="test" />
       <method v="2">
         <option name="Make" enabled="true" />
