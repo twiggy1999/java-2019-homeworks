@@ -11,7 +11,7 @@
 # 忽略所有的 .pdf 文件 在 doc/ directory 下的
 #doc/**/*.pdf
 
-FirstWork_SortArray/
+/FirstWork_SortArray/*
 
 # .settings/
 
@@ -19,4 +19,4 @@ FirstWork_SortArray/
 
 # bin/
 
-!App.java
+!/FirstWork_SortArray/src/app/App.java
