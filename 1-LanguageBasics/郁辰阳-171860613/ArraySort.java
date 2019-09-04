@@ -4,6 +4,7 @@ public class ArraySort {
 	
 	public static void main(String[] args) {
 		int [] array = {3,2,6,1,67,32,12,23,43};
+		System.out.println("Before sorting: "+Arrays.toString(array));
 		for(int cnt=1;cnt<array.length;cnt++) {
 			int temp=0;
 			for(int i=1;i<array.length;i++) {
@@ -14,6 +15,6 @@ public class ArraySort {
 				}
 			}
 		}
-		System.out.println(Arrays.toString(array));
+		System.out.println("After sorting: "+Arrays.toString(array));
 	}
 }
