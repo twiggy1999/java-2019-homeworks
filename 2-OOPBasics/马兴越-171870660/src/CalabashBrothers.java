@@ -52,7 +52,7 @@ public class CalabashBrothers {
     }
 
     /*
-     * 按颜色进行二分法排序。从末端开始，每次将最后一个元素插入前面。
+     * 按颜色进行二分法排序。
      */
     public void sortByColor(){
         int n=members.size();

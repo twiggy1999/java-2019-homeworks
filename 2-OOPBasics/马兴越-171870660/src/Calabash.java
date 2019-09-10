@@ -9,10 +9,6 @@ public class Calabash {
         this.color=order;
     }
 
-    public int getOrder(){
-        return order;
-    }
-
     public String getName(){
         switch (order){
             case 1:return "老大";
@@ -24,10 +20,6 @@ public class Calabash {
             case 7:return "老七";
             default:return "Invalid order!";
         }
-    }
-
-    public int getColor(){
-        return color;
     }
 
     public String getColorName(){
