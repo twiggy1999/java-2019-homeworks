@@ -54,10 +54,12 @@ public class CalabashBro {
         for (int i = 0; i < size - 1; i++){
             for (int j = 0; j < size - 1 - i; j++){
                 if (calabashBros.get(j+1).getSeq() < calabashBros.get(j).getSeq()){
+                    System.out.print(name[calabashBros.get(j).getSeq()]+":"+j+"->"+(j+1)+"  ");
                     Collections.swap(calabashBros,j+1,j);
                 }
             }
         }
+        System.out.print('\n');
     }
 
     private void binarySort(){
@@ -77,8 +79,10 @@ public class CalabashBro {
             for (int j = i - 1; j >= left; j--){
                 calabashBros.set(j+1,calabashBros.get(j));
             }
+            System.out.print(name[calabash.getSeq()]+":"+i+"->"+left+"  ");
             calabashBros.set(left,calabash);
         }
+        System.out.print('\n');
     }
 
     private void print(int tag){
@@ -105,6 +109,8 @@ public class CalabashBro {
         calabashBro.bubbleSort();
         System.out.println("排序后:");
         calabashBro.print(0);
+
+        System.out.println("************************");
 
         Collections.shuffle(calabashBro.calabashBros);
         System.out.println("排序前:");
