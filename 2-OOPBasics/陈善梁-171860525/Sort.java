@@ -7,7 +7,7 @@ public class Sort {
     public void bubbleSort(Huluwa[]huluwas){
         for(int i=huluwas.length-1;i>=1;--i){//put ith huluwa in the right place
             for(int j=0;j<i;++j){
-                if(huluwas[j+1].compareTo(huluwas[j])<=0){
+                if(huluwas[j+1].compareTo(huluwas[j])<0){
                     //j+1 < j
                     Huluwa temp=huluwas[j];
                     huluwas[j+1].descMove(j+1,j);
@@ -52,7 +52,7 @@ public class Sort {
                 ++k;
             }
             while(j<=end){
-                huluwas[j].descMove(i,k+start);
+                huluwas[j].descMove(j,k+start);
                 ret[k]=huluwas[j];
                 ++j;
                 ++k;
