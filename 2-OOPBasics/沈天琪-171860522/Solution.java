@@ -32,13 +32,13 @@ class XiongDi {
         for (int i = 0; i < bro.length; i++) {
             if (state == 0) {
                 System.out.println("我是" + bro[i].name + "，我的颜色为" + bro[i].color + "，我的编号为" + bro[i].no + "。");
-            }//print all
+            } // print all
             else if (state == 1) {
-                System.out.println("我是" + bro[i].name +/*"，我的颜色为"+bro[i].color+*/"。");
-            }//print name
+                System.out.println("我是" + bro[i].name + /* "，我的颜色为"+bro[i].color+ */"。");
+            } // print name
             else if (state == 2) {
-                System.out.println(/*"我是" + bro[i].name + "，*/"我的颜色为" + bro[i].color + "。");
-            }//print color
+                System.out.println(/* "我是" + bro[i].name + "， */"我的颜色为" + bro[i].color + "。");
+            } // print color
             else {
                 System.out.println("参数错误！");
                 return;
@@ -68,7 +68,8 @@ class XiongDi {
 
     public void bubbleSortIt() {
         int n = bro.length;
-        if (n <= 1) return;
+        if (n <= 1)
+            return;
         for (int i = 0; i < n; i++) {
             boolean flag = false;
             for (int j = 0; j < n - 1 - i; j++) {
@@ -77,7 +78,8 @@ class XiongDi {
                     flag = true;
                 }
             }
-            if (!flag) break;
+            if (!flag)
+                break;
         }
     }
 
@@ -104,12 +106,11 @@ class XiongDi {
     }
 }
 
-
 public class Solution {
     public static void main(String[] args) {
-        //System.out.println("123");
-        String[] namesText = new String[]{"老大", "老二", "老三", "老四", "老五", "老六", "老七"};
-        String[] colorsText = new String[]{"赤", "橙", "黄", "绿", "青", "蓝", "紫"};
+        // System.out.println("123");
+        String[] namesText = new String[] { "老大", "老二", "老三", "老四", "老五", "老六", "老七" };
+        String[] colorsText = new String[] { "赤", "橙", "黄", "绿", "青", "蓝", "紫" };
         XiongDi a = new XiongDi();
         a.init(namesText, colorsText);
         System.out.println("进行随机化");
@@ -125,36 +126,25 @@ public class Solution {
         a.binaryInsertSortIt();
         a.report(2);
         /*
-        a.report(0);
-        a.randomIt();
-        a.report(0);
-        */
+         * a.report(0); a.randomIt(); a.report(0);
+         */
         /*
-        a.report(0);
-        a.swapTest();
-        a.report(0);
-        */
+         * a.report(0); a.swapTest(); a.report(0);
+         */
         /*
-        a.report(0);
-        System.out.println("\n以下测试state==1");
-        a.report(1);
-        System.out.println("\n以下测试state==2");
-        a.report(2);
-        */
+         * a.report(0); System.out.println("\n以下测试state==1"); a.report(1);
+         * System.out.println("\n以下测试state==2"); a.report(2);
+         */
         /*
-        HuLuWa[] temp = new HuLuWa[namesText.length];
-        for(int i=0;i<temp.length;i++)
-            temp[i]=new HuLuWa(namesText[i],colorsText[i],i);
-        */
+         * HuLuWa[] temp = new HuLuWa[namesText.length]; for(int i=0;i<temp.length;i++)
+         * temp[i]=new HuLuWa(namesText[i],colorsText[i],i);
+         */
         /*
-        temp[0] = new HuLuWa("老大", "赤", 1);
-        temp[1] = new HuLuWa("老大", "赤", 1);
-        temp[2] = new HuLuWa("老大", "赤", 1);
-        temp[3] = new HuLuWa("老大", "赤", 1);
-        temp[4] = new HuLuWa("老大", "赤", 1);
-        temp[5] = new HuLuWa("老大", "赤", 1);
-        temp[6] = new HuLuWa("老大", "赤", 1);
-        */
+         * temp[0] = new HuLuWa("老大", "赤", 1); temp[1] = new HuLuWa("老大", "赤", 1);
+         * temp[2] = new HuLuWa("老大", "赤", 1); temp[3] = new HuLuWa("老大", "赤", 1);
+         * temp[4] = new HuLuWa("老大", "赤", 1); temp[5] = new HuLuWa("老大", "赤", 1);
+         * temp[6] = new HuLuWa("老大", "赤", 1);
+         */
 
     }
 }
