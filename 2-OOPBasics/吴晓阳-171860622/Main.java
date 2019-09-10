@@ -14,8 +14,8 @@ public class Main{
         Collections.shuffle(calabashes);
         System.out.println("打乱序列： " + calabashes);
 
-        Commands.sort(calabashes, Calabash.FROM_RED_TO_PURPLE, new SortStragegies.MergeSort<>());
-        System.out.print("排序序列（归并算法）： ");
+        Commands.sort(calabashes, Calabash.FROM_RED_TO_PURPLE, new SortStragegies.BinarySort<>());
+        System.out.print("排序序列（二分算法）： ");
         System.out.print("[");
         for(Calabash calabash : calabashes){
             System.out.print(calabash.color + ", ");

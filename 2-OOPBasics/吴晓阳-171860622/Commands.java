@@ -6,7 +6,19 @@ class Commands{
         strategy.sort(list, comparator);
     }
 
+    public static <T> int indexOf(List<T> list, Comparator<T> comparator, SearchStrategy<T> strategy, T elem){
+        return strategy.indexOf(list, comparator, elem);
+    }
+
+    public static <T> T searchOf(List<T> list, Comparator<T> comparator, SearchStrategy<T> strategy, T elem){
+        return strategy.searchOf(list, comparator,elem);
+    }
+
     public static <T> String moveInfo(List<T> list, int indexFrom, int indexTo){
         return list.get(indexFrom) + ": " + indexFrom + "->" + indexTo;
+    }
+
+    public static <T> String moveInfo(List<T> list, int indexFrom, int indexTo, T elem){
+        return elem + ": " + indexFrom + "->" + indexTo;
     }
 }

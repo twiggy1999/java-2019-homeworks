@@ -130,4 +130,45 @@ class SortStragegies{
             Collections.copy(list.subList(indexFrom, indexTo), bufferList);
         }
     }
+
+    static class BinarySort<T> implements SortStrategy<T>{
+        List<T> list;
+
+        Comparator<T> comparator;
+
+        SearchStrategy<T> searchStrategy;
+
+        @Override
+        public void sort(List<T> list, Comparator<T> comparator) {
+            this.list = list;
+            this.comparator = comparator;
+            this.searchStrategy = new SearchStrategies.BinarySearch<>();
+
+            binarySort(0, list.size());
+        }
+
+        private void binarySort(int indexFrom, int indexTo){
+            for(int i = 0; i < list.size(); i++){
+                T elem = list.get(i);
+                int indexInsert = Collections.binarySearch(list.subList(0, i), elem, comparator);
+                if(indexInsert < 0){
+                    indexInsert = -indexInsert - 1;
+                }
+                insert(indexInsert, i, elem);
+            }
+        }
+
+        private void insert(int indexInsert, int indexFrom, T elem){
+            if(indexFrom == indexInsert){
+                return;
+            }
+
+            for(int i = indexFrom - 1; i >= indexInsert; i--){
+                System.out.print(Commands.moveInfo(list, i, i + 1) + "    ");
+                list.set(i + 1, list.get(i));
+            }
+            System.out.println(Commands.moveInfo(list, indexFrom, indexInsert, elem));
+            list.set(indexInsert, elem);
+        }
+    }
 }
