@@ -6,7 +6,14 @@ import java.util.Comparator;
 public class CalabashBrotherSorter {
     private CalabashBrother[] brothers;
 
-    private class CalabashComparator implements Comparator<CalabashBrother> {
+    private class CalabashColorComparator implements Comparator<CalabashBrother> {
+        @Override
+        public int compare(CalabashBrother brotherOne, CalabashBrother brotherTwo) {
+            return brotherOne.getRank() - brotherTwo.getRank();
+        }
+    }
+
+    private class CalabashRankComparator implements Comparator<CalabashBrother> {
         @Override
         public int compare(CalabashBrother brotherOne, CalabashBrother brotherTwo) {
             return brotherOne.getRank() - brotherTwo.getRank();
@@ -29,7 +36,7 @@ public class CalabashBrotherSorter {
     }
 
     private int partition(int start, int end) {
-        CalabashComparator comparator = new CalabashComparator();
+        CalabashColorComparator comparator = new CalabashColorComparator();
         CalabashBrother pivot = brothers[start];
         int firstLess = start;
         for (int i = start + 1; i <= end; i++) {
@@ -60,10 +67,11 @@ public class CalabashBrotherSorter {
     public void bubbleSort() {
         shuffle();
         /* Sort according to their order */
+        CalabashRankComparator comparator = new CalabashRankComparator();
         int num = brothers.length;
         for (int i = 0; i < num; i++) {
             for (int j = 0; j < num - i - 1; j++) {
-                if (brothers[j].getRank() > brothers[j + 1].getRank()) {
+                if (comparator.compare(brothers[j], brothers[j + 1]) >= 0) {
                     yield(j, j + 1);
                     yield(j + 1, j);
                     CalabashBrother temp = brothers[j];
