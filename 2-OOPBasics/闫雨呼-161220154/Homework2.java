@@ -1,5 +1,9 @@
 import java.util.Random;
 
+enum countKind{
+    NAME,COLOR
+}
+
 //葫芦娃类
 class HuLuWa{
     //葫芦娃的次序（排序的依据，老大为0，老二为1，以此类推）
@@ -10,37 +14,34 @@ class HuLuWa{
     HuLuWa(int mRank){
         rank=mRank;
     }
-    //公共接口，获取名字、颜色以及次序
-    public String getName(){
-        return HuLuWa.names[rank];
+    //葫芦娃进行报数
+    public void count(countKind kind){
+        if(kind==countKind.NAME)
+            System.out.println(HuLuWa.names[rank]);
+        else
+            System.out.println(HuLuWa.colors[rank]);
     }
-    public String getColor(){
-        return HuLuWa.colors[rank];
-    }
+    //获取
     public int getRank(){
         return rank;
     }
-    //葫芦娃位置移动
-    public void runTo(HuLuWa[] huLuWaBrothers,int start,int end){
-        huLuWaBrothers[end]=this;
-        System.out.println(this.getName()+":"+(start+1)+"->"+(end+1));
+    //葫芦娃位置移动，这里的src和dst表示的含义不是数组下标，而是第[src+1]个葫芦娃移动到第[dst+1]个葫芦娃的位置
+    public void runTo(HuLuWa[] huLuWaBrothers,int src,int dst){
+        System.out.println(HuLuWa.names[rank]+":"+(src+1)+"->"+(dst+1));
+        huLuWaBrothers[dst]=this;
     }
 }
 
-//实现本次作业所要求任务
-public class Homework2 {
-    //葫芦娃个数
-    private static int HULUWA_NUM=7;
+//葫芦娃队列：建立在葫芦娃与上帝之间的媒介，上帝只能操纵队列，不能直接操纵葫芦娃
+class HuluwaQueue{
     private HuLuWa[] huLuWaBrothers;
-    //枚举类型（区分报数的不同方式）
-    enum countKind{
-        NAME,COLOR
-    }
-    //初始化7个葫芦娃
-    private void init(){
-        for(int i=0;i<HULUWA_NUM;i++){
+    private int numberOfHuLuWa;
+    HuluwaQueue(int number){
+        huLuWaBrothers=new HuLuWa[number];
+        numberOfHuLuWa=number;
+        //初始化7个葫芦娃
+        for(int i=0;i<number;i++)
             huLuWaBrothers[i]=new HuLuWa(i);
-        }
     }
     //交换下标为p1,p2处的两个葫芦娃的位置
     private void swap(int p1,int p2){
@@ -49,27 +50,27 @@ public class Homework2 {
         temp.runTo(huLuWaBrothers,p2,p1);
     }
     //葫芦娃随机排序
-    private void shuffle(){
+    public void shuffle(){
         Random rand=new Random();
-        for(int i=HULUWA_NUM;i>0;i--){
+        for(int i=numberOfHuLuWa;i>1;i--){
             int randPos=rand.nextInt(i);
             swap(randPos,i-1);
         }
     }
     //冒泡排序
-    private void bubbleSort(){
-        for(int i=0;i<HULUWA_NUM-1;i++){
-            for(int j=0;j<HULUWA_NUM-1-i;j++){
+    public void bubbleSort(){
+        for(int i=0;i<numberOfHuLuWa-1;i++){
+            for(int j=0;j<numberOfHuLuWa-1-i;j++){
                 if(huLuWaBrothers[j].getRank()>huLuWaBrothers[j+1].getRank())
                     swap(j,j+1);
             }
         }
     }
     //二分法插入排序
-    private void binarySort(){
+    public void binarySort(){
         int start,end,mid=-1,insertPos;
         HuLuWa temp=null;
-        for(int i=1;i<HULUWA_NUM;i++){
+        for(int i=1;i<numberOfHuLuWa;i++){
             temp=huLuWaBrothers[i];
             start=0;
             end=i-1;
@@ -90,41 +91,55 @@ public class Homework2 {
         }
     }
     //报数函数，传入的参数用来区分是根据名字报数还是根据颜色报数
-    private void count(countKind kind){
-        for(int i=0;i<HULUWA_NUM;i++){
+    public void count(countKind kind){
+        for(int i=0;i<numberOfHuLuWa;i++){
             if(kind==countKind.NAME)
-                System.out.println(huLuWaBrothers[i].getName());
+                huLuWaBrothers[i].count(countKind.NAME);
             else
-                System.out.println(huLuWaBrothers[i].getColor());
+                huLuWaBrothers[i].count(countKind.COLOR);
         }
     }
-    public static void main(String[] args){
-        Homework2 god=new Homework2();
-        god.huLuWaBrothers=new HuLuWa[HULUWA_NUM];
-        god.init();
+}
 
+//虚拟一个上帝用来指挥葫芦娃队列完成各种操作
+class God{
+    //葫芦娃个数
+    private static int HULUWA_NUM=7;
+    private HuluwaQueue huLuWaQueue;
+    God(){
+        huLuWaQueue = new HuluwaQueue(HULUWA_NUM);
+    }
+    public void run(){
         System.out.println("Shuffle Begins!");
-        god.shuffle();
+        huLuWaQueue.shuffle();
         System.out.println(" ");
 
         System.out.println("BubbleSort Begins!");
-        god.bubbleSort();
+        huLuWaQueue.bubbleSort();
         System.out.println(" ");
 
         System.out.println("Count Begins(according to names)!");
-        god.count(countKind.NAME);
+        huLuWaQueue.count(countKind.NAME);
         System.out.println(" ");
 
         System.out.println("Shuffle Begins!");
-        god.shuffle();
+        huLuWaQueue.shuffle();
         System.out.println(" ");
 
         System.out.println("BinarySort Begins!");
-        god.binarySort();
+        huLuWaQueue.binarySort();
         System.out.println(" ");
 
         System.out.println("Count Begins(according to colors)!");
-        god.count(countKind.COLOR);
+        huLuWaQueue.count(countKind.COLOR);
         System.out.println(" ");
+    }
+}
+
+//实现本次作业所要求任务
+public class Homework2 {
+    public static void main(String[] args){
+        God god = new God();
+        god.run();
     }
 }
