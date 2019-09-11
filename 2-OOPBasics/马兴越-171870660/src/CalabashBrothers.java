@@ -20,10 +20,10 @@ public class CalabashBrothers {
         boolean flag;//标志某一轮是否交换过
         for(int i=0;i<n-1;i++){
             flag=false;
-            for(int j=i+1;j<n;j++){
-                if(members.get(j).orderBefore(members.get(i))) {//j<i
-                    swap(i, j);
-                    flag = true;
+            for(int j=0;j<n-i-1;j++){
+                if(members.get(j+1).orderBefore(members.get(j))){
+                    swap(j,j+1);
+                    flag=true;
                 }
             }
             if(!flag)
