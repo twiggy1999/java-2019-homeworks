@@ -18,9 +18,7 @@ enum CalabashBrother {
         this.num = num;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
     public String getColor() {
         return color;
@@ -32,7 +30,7 @@ enum CalabashBrother {
 }
 
 public class CalabashSort {
-    public void RandomSequence(CalabashBrother[] queue) {
+    public void Shuffle(CalabashBrother[] queue) {
         Random rand = new Random();
         for (int i = 6; i > 0; i--) {
             int r = rand.nextInt(i);
@@ -42,13 +40,13 @@ public class CalabashSort {
         }
     }
 
-    public void CountName(CalabashBrother[] queue) {
+    public void CountByName(CalabashBrother[] queue) {
         for (int i = 0; i < 7; i++)
             System.out.print(queue[i].getName() + ' ');
         System.out.println(' ');
     }
 
-    public void CountColor(CalabashBrother[] queue) {
+    public void CountByColor(CalabashBrother[] queue) {
         for (int i = 0; i < 7; i++)
             System.out.print(queue[i].getColor() + ' ');
         System.out.println(' ');
@@ -99,20 +97,20 @@ public class CalabashSort {
             queue[i] = CalabashBrother.values()[i];
         CalabashSort cs = new CalabashSort();
 
-        System.out.print("冒泡排序\n排序前队列\n");
-        cs.RandomSequence(queue);
-        cs.CountName(queue);
+        System.out.println("冒泡排序\n排序前队列");
+        cs.Shuffle(queue);
+        cs.CountByName(queue);
         System.out.println("排序过程");
         cs.BubbleSort(queue);
         System.out.println("排序后队列");
-        cs.CountName(queue);
+        cs.CountByName(queue);
 
-        System.out.print("\n二分排序\n排序前队列\n");
-        cs.RandomSequence(queue);
-        cs.CountColor(queue);
+        System.out.println("\n二分排序\n排序前队列");
+        cs.Shuffle(queue);
+        cs.CountByColor(queue);
         System.out.println("排序过程");
         cs.BinarySort(queue);
         System.out.println("排序后队列");
-        cs.CountColor(queue);
+        cs.CountByColor(queue);
     }
 }
