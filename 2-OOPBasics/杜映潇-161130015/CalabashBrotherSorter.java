@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class CalabashBrotherSorter {
-    private static final int N = 7; /* There are seven calabash brothers */
     private CalabashBrother[] brothers;
 
     private class CalabashComparator implements Comparator<CalabashBrother> {
@@ -14,18 +13,14 @@ public class CalabashBrotherSorter {
         }
     }
 
-    public CalabashBrotherSorter() {
-        /* Make seven calabash brothers */
-        brothers = new CalabashBrother[N];
-        for (int i = 0; i < N; i++) {
-            brothers[i] = new CalabashBrother(i);
-        }
+    public CalabashBrotherSorter(CalabashBrother[] brothers) {
+        this.brothers = brothers;
     }
 
     private void shuffle() {
         ArrayList<CalabashBrother> tempList = new ArrayList<>(Arrays.asList(brothers));
         Collections.shuffle(tempList);
-        brothers = tempList.toArray(new CalabashBrother[N]);
+        brothers = tempList.toArray(new CalabashBrother[brothers.length]);
     }
 
     private void yield(int from, int to) {
