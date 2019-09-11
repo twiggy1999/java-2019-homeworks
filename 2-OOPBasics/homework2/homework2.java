@@ -89,12 +89,12 @@ class huluwajiuyeye {
             HuLuWas[i].print_rank();
         System.out.print("\n");
     }
-    public void sort_color(){//调用快速排序然后报颜色
+    public void sort_color(){//调用归并排序然后报颜色
         quick_sort(0,6);
         for(int i =0;i<7;i++)
             HuLuWas[i].print_color();
     }
-    public void quick_sort(int left,int right){//根据颜色进行快速排序
+    public void quick_sort(int left,int right){//根据颜色进行归并排序
          if(left<right){
              int mid = (left+right)/2;
              quick_sort(left,mid);//划分为两个分支
