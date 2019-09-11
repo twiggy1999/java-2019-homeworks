@@ -3,10 +3,12 @@
  */
 public class Calabash {
     private int order,color;//排行
+    private Position position;
 
     public Calabash(int order){
         this.order=order;
         this.color=order;
+        this.position=new Position(order);
     }
 
     public String getName(){
@@ -33,6 +35,23 @@ public class Calabash {
             case 7:return "紫色";
             default:return "Invalid color!";
         }
+    }
+
+    /*
+     * 向前和向后只能通过这里来操作，记录当前位置。
+     */
+    public void moveForward(){
+        System.out.print(getName()+":");
+        position.moveForward();
+    }
+
+    public void moveBackward(){
+        System.out.print(getName()+":");
+        position.moveBackward();
+    }
+
+    public int currentPosition(){
+        return position.currentPosition();
     }
 
     /*
