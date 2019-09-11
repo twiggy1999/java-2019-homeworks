@@ -4,6 +4,56 @@ enum Color{RED,ORANGE,YELLOW,GREEN,CYAN,BLUE,PURPLE};
 
 public class Sorting
 {
+    public static void moveTo(int x,int xPosition)
+    {
+        int y=1;                //表示葫芦兄弟y轴的位置
+        int lastX=x,lastY=y;    //用于每次移动之前的位置
+        boolean flag=false;
+
+        if(xPosition<x)         //如果目标排位比当前排位考前，则从队伍上方换到目的位置
+            y=2;
+        else if(xPosition>x)    //否则从队伍的下方换到目的位置
+        {
+            y = 0;
+            flag = true;
+        }
+        else
+            return;
+        System.out.print("Current position:("+lastX+","+lastY+")->("+x+","+y+")");
+        if(flag)
+            System.out.println("\t向下走");
+        else
+            System.out.println("\t向上走");
+        lastY=y;
+        while(x!=xPosition)
+        {
+            if(!flag)
+                x--;
+            else
+                x++;
+            System.out.print("Current position:("+lastX+","+lastY+")->("+x+","+y+")");
+            if(!flag)
+                System.out.println("\t向前走");
+            else
+                System.out.println("\t向后走");
+            lastX=x;
+            lastY=y;
+            /*
+            try
+            {
+                Thread.sleep(1);
+            }
+            catch (InterruptedException e) { return;}
+            */
+        }
+        y=1;        //回复y轴位置，
+        System.out.print("Current position:("+lastX+","+lastY+")->("+x+","+y+")");
+        if(flag)
+            System.out.println("\t向上走，回到队伍");
+        else
+            System.out.println("\t向下走，回到队伍");
+    }
+
     //get a n-size random array (min~max)
     public static int[] randomArray(int min, int max, int n){
         if (n > (max - min + 1) || max < min) {
@@ -45,7 +95,9 @@ public class Sorting
                     bros[j] = tmp;
 
                     System.out.println(bros[i].getRank()+":"+j+"->"+i);
+                    moveTo(j,i);
                     System.out.println(bros[j].getRank()+":"+i+"->"+j);
+                    moveTo(i,j);
                 }
             }
         }
@@ -66,14 +118,18 @@ public class Sorting
             if(i<j)
             {
                 System.out.println(bros[i].getRank()+":"+i+"->"+j);
+                moveTo(i,j);
                 System.out.println(bros[j].getRank()+":"+j+"->"+i);
+                moveTo(j,i);
                 bros[i] = bros[j];
             }
             while((i<j)&&(bros[i].getColor().ordinal()<=tmp.getColor().ordinal()))   i++;
             if(i<j)
             {
                 System.out.println(bros[i].getRank()+":"+i+"->"+j);
+                moveTo(i,j);
                 System.out.println(bros[j].getRank()+":"+j+"->"+i);
+                moveTo(j,i);
                 bros[j] = bros[i];
             }
         }
@@ -137,6 +193,63 @@ public class Sorting
         System.out.println();
     }
 }
+/*
+class Position
+{
+    int x;
+    int y=1;
+    public Position(int xPosition,int yPosition)
+    {
+        x=xPosition;
+        y=yPosition;
+    }
+
+    public int getX()
+    {
+        return x;
+    }
+
+    public int getY()
+    {
+        return y;
+    }
+
+    public void moveTo(int xPosition,int yPosition)
+    {
+        int lastX=x,lastY=y;    //用于每次移动之前的位置
+        boolean flag=false;
+
+        if(xPosition<x)         //如果目标排位比当前排位考前，则从队伍上方换到目的位置
+            y=2;
+        else if(xPosition>x)    //否则从队伍的下方换到目的位置
+        {
+            y = 0;
+            flag = true;
+        }
+        else
+            return;
+
+        while(x!=xPosition)
+        {
+            if(!flag)
+                x--;
+            else
+                x++;
+            System.out.println("Current position:("+lastX+","+lastY+")->("+x+","+y+")");
+            lastX=x;
+            lastY=y;
+
+            try
+            {
+                Thread.sleep(1);
+            }
+            catch (InterruptedException e) { return;}
+        }
+        y=1;        //回复y轴位置，葫芦兄弟回到队伍
+    }
+
+}
+*/
 
 class CalabashBrother
 {
