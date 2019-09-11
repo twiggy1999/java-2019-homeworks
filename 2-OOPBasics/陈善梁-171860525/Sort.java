@@ -20,47 +20,42 @@ public class Sort {
 //        System.out.println("bubbleSort:");
     }
 
-    public void mergeSort(Huluwa[]huluwas,int start,int end){
-        if(start>=end){
-            return;
+    public int findPlace(ArrayList<Huluwa>list,int start,int end,Huluwa h){
+        //[start,end] is sorted
+        int left=start;
+        int right=end;
+        int mid=(left+right)/2;
+        while(left<=right){
+            mid=(left+right)/2;
+            if(list.get(mid).compareTo(h)==0){
+                //equals,insert h in mid position
+                return mid+1;
+            }
+            else if(list.get(mid).compareTo(h)>0){
+                right=mid-1;
+            }
+            else{
+                left=mid+1;
+            }
         }
-        else{
-            int mid=(start+end)/2;
-            mergeSort(huluwas,start,mid);
-            mergeSort(huluwas,mid+1,end);
-            Huluwa[]ret=new Huluwa[end-start+1];
-            int i=start;
-            int j=mid+1;
-            int k=0;
-            while(i<=mid&&j<=end){
-                if(huluwas[i].compareTo(huluwas[j])<=0){
-                    huluwas[i].descMove(i,k+start);
-                    ret[k]=huluwas[i];
-                    ++i;
-                }
-                else{
-                    huluwas[j].descMove(j,k+start);
-                    ret[k]=huluwas[j];
-                    ++j;
-                }
-                ++k;
-            }
-            while(i<=mid){
-                huluwas[i].descMove(i,k+start);
-                ret[k]=huluwas[i];
-                ++i;
-                ++k;
-            }
-            while(j<=end){
-                huluwas[j].descMove(j,k+start);
-                ret[k]=huluwas[j];
-                ++j;
-                ++k;
-            }
-            System.arraycopy(ret,0,huluwas,start,end-start+1);
+        return left;
+    }
 
-
+    public  void binarySort(Huluwa[]huluwas){
+        ArrayList<Huluwa>list=new ArrayList<>(Arrays.asList(huluwas));
+        for(int i=1;i<list.size();++i){
+            //put the ith element in the right place
+            //find right place in 0~i
+            Huluwa h=list.get(i);
+            int putIndex=findPlace(list,0,i-1,h);
+            if(putIndex!=i){
+                list.remove(i);
+                list.add(putIndex,h);
+                h.descMove(i,putIndex);
+            }
         }
+        System.arraycopy(list.toArray(),0,huluwas,0,huluwas.length);
+//        showAllColor(huluwas);
     }
 
     public void shuffle(Huluwa[]huluwas){
@@ -95,7 +90,7 @@ public class Sort {
     public static  void main(String[]args){
         String[]names={"老大","老二","老三","老四","老五","老六","老七"};
         String[]colors={"红","橙","黄","绿","青","蓝","紫"};
-        Huluwa[]huluwas=new Huluwa[7];
+        Huluwa[]huluwas=new Huluwa[7];//create huluwas
         for(int i=0;i<7;++i){
             huluwas[i]=new Huluwa(i,names[i],colors[i]);
         }
@@ -105,9 +100,10 @@ public class Sort {
         s.shuffle(huluwas);
         s.bubbleSort(huluwas);
         s.showAllName(huluwas);
-        System.out.println("mergeSort:");
+        System.out.println("binarySort:");
         s.shuffle(huluwas);
-        s.mergeSort(huluwas,0,huluwas.length-1);
+//        s.showAllName(huluwas);
+        s.binarySort(huluwas);
         s.showAllColor(huluwas);
     }
 }
