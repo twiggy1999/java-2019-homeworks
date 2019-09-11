@@ -20,13 +20,9 @@ enum CalabashBrother {
 
     public String getName() { return name; }
 
-    public String getColor() {
-        return color;
-    }
+    public String getColor() { return color; }
 
-    public int getNum() {
-        return num;
-    }
+    public int getNum() { return num; }
 }
 
 public class CalabashSort {
