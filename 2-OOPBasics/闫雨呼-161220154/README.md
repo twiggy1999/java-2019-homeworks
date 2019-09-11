@@ -29,6 +29,7 @@
 1. getName( )：获取葫芦娃名称，用于报数
 2. getColor( )：获取葫芦娃颜色，用于报数
 3. getRank( )：获取葫芦娃次序，用作排序依据
+4. runTo(HuLuWa[ ] huLuWaBrothers, int start, int end)：葫芦娃从**start**位置移动到**end**位置，并且在屏幕上输出移动信息。
 
 ------
 

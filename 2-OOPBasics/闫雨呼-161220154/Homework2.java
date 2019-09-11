@@ -20,6 +20,11 @@ class HuLuWa{
     public int getRank(){
         return rank;
     }
+    //葫芦娃位置移动
+    public void runTo(HuLuWa[] huLuWaBrothers,int start,int end){
+        huLuWaBrothers[end]=this;
+        System.out.println(this.getName()+":"+(start+1)+"->"+(end+1));
+    }
 }
 
 //实现本次作业所要求任务
@@ -39,11 +44,9 @@ public class Homework2 {
     }
     //交换下标为p1,p2处的两个葫芦娃的位置
     private void swap(int p1,int p2){
-        System.out.println(huLuWaBrothers[p1].getName()+":"+(p1+1)+"->"+(p2+1));
-        System.out.println(huLuWaBrothers[p2].getName()+":"+(p2+1)+"->"+(p1+1));
-        HuLuWa temp=huLuWaBrothers[p1];
-        huLuWaBrothers[p1]=huLuWaBrothers[p2];
-        huLuWaBrothers[p2]=temp;
+        HuLuWa temp=huLuWaBrothers[p2];
+        huLuWaBrothers[p1].runTo(huLuWaBrothers,p1,p2);
+        temp.runTo(huLuWaBrothers,p2,p1);
     }
     //葫芦娃随机排序
     private void shuffle(){
@@ -64,7 +67,7 @@ public class Homework2 {
     }
     //二分法插入排序
     private void binarySort(){
-        int start=0,end=-1,mid=-1,insertPos=-1;
+        int start,end,mid=-1,insertPos;
         HuLuWa temp=null;
         for(int i=1;i<HULUWA_NUM;i++){
             temp=huLuWaBrothers[i];
@@ -81,12 +84,9 @@ public class Homework2 {
                 insertPos=mid+1;
             else
                 insertPos=mid;
-            for(int j=i;j>insertPos;j--){
-                System.out.println(huLuWaBrothers[j-1].getName()+":"+(j)+"->"+(j+1));
-                huLuWaBrothers[j]=huLuWaBrothers[j-1];
-            }
-            huLuWaBrothers[insertPos]=temp;
-            System.out.println(temp.getName()+":"+(i+1)+"->"+(insertPos+1));
+            for(int j=i;j>insertPos;j--)
+                huLuWaBrothers[j-1].runTo(huLuWaBrothers,j-1,j);
+            temp.runTo(huLuWaBrothers,i,insertPos);
         }
     }
     //报数函数，传入的参数用来区分是根据名字报数还是根据颜色报数
