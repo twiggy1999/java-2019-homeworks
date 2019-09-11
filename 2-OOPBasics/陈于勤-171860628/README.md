@@ -1,6 +1,7 @@
 代码文件中包括三个类：
 Main类对外提供接口、完成作业指定任务并输出。
 GourdDoll（葫芦娃）类、Grandpa（老爷爷）类则辅助Main类完成任务。
+
 #一、GourdDoll类
 ##（1）属性
   每个葫芦娃对象都包括颜色color，身份identity，位置address的属性，同时通过标记sign属性得以唯一标识同时与其他葫芦兄弟进行大小比较。
