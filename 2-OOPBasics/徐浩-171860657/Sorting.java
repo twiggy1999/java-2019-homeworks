@@ -89,11 +89,12 @@ public class Sorting
                     CalabashBrother tmp = bros[i];
                     bros[i] = bros[j];
                     bros[j] = tmp;
-
+                    System.out.println();
+                    System.out.println(bros[i].getRank()+" and "+bros[j].getRank()+" move at the same time.");
                     System.out.println(bros[i].getRank()+":"+j+"->"+i);
-                    bros[i].getPos().moveTo(j,i);
+                    bros[i].getPos().moveTo(j,i,bros[i].getRank());
                     System.out.println(bros[j].getRank()+":"+i+"->"+j);
-                    bros[j].getPos().moveTo(i,j);
+                    bros[j].getPos().moveTo(i,j,bros[i].getRank());
                 }
             }
         }
@@ -113,19 +114,23 @@ public class Sorting
             while((i<j)&&(bros[j].getColor().ordinal()>=tmp.getColor().ordinal()))   j--;
             if(i<j)
             {
+                System.out.println();
+                System.out.println(bros[i].getRank()+" and "+bros[j].getRank()+" move at the same time.");
                 System.out.println(bros[i].getRank()+":"+i+"->"+j);
-                bros[i].getPos().moveTo(i,j);
+                bros[i].getPos().moveTo(i,j,bros[i].getRank());
                 System.out.println(bros[j].getRank()+":"+j+"->"+i);
-                bros[i].getPos().moveTo(j,i);
+                bros[i].getPos().moveTo(j,i,bros[i].getRank());
                 bros[i] = bros[j];
             }
             while((i<j)&&(bros[i].getColor().ordinal()<=tmp.getColor().ordinal()))   i++;
             if(i<j)
             {
+                System.out.println();
+                System.out.println(bros[i].getRank()+" and "+bros[j].getRank()+" move at the same time.");
                 System.out.println(bros[i].getRank()+":"+i+"->"+j);
-                bros[i].getPos().moveTo(i,j);
+                bros[i].getPos().moveTo(i,j,bros[i].getRank());
                 System.out.println(bros[j].getRank()+":"+j+"->"+i);
-                bros[i].getPos().moveTo(j,i);
+                bros[i].getPos().moveTo(j,i,bros[i].getRank());
                 bros[j] = bros[i];
             }
         }
@@ -219,7 +224,7 @@ class Position
         this.y = y;
     }
 
-    public void moveTo(int x, int xPosition)
+    public void moveTo(int x, int xPosition,String name)
     {
         int lastX=x,lastY=y;    //用于每次移动之前的位置
         boolean flag=false;
@@ -234,7 +239,7 @@ class Position
         else
             return;
 
-        System.out.print("Current position:("+lastX+","+lastY+")->("+x+","+y+")");
+        System.out.print(name+"'s current position:("+lastX+","+lastY+")->("+x+","+y+")");
         if(flag)
             System.out.println("\t向下走");
         else
@@ -247,7 +252,7 @@ class Position
                 x--;
             else
                 x++;
-            System.out.print("Current position:("+lastX+","+lastY+")->("+x+","+y+")");
+            System.out.print(name+"'s current position:("+lastX+","+lastY+")->("+x+","+y+")");
             if(!flag)
                 System.out.println("\t向前走");
             else
@@ -256,7 +261,7 @@ class Position
             lastY=y;
         }
         y=1;        //回复y轴位置，葫芦兄弟回到队伍
-        System.out.print("Current position:("+lastX+","+lastY+")->("+x+","+y+")");
+        System.out.print(name+"'s current position:("+lastX+","+lastY+")->("+x+","+y+")");
         if(flag)
             System.out.println("\t向上走，回到队伍");
         else
