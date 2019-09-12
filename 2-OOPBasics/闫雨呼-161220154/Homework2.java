@@ -11,6 +11,7 @@ class HuLuWa{
     //葫芦娃与次序对应的名字以及颜色
     private static String[] names={"老大","老二","老三","老四","老五","老六","老七"};
     private static String[] colors={"红色","橙色","黄色","绿色","青色","蓝色","紫色"};
+
     HuLuWa(int mRank){
         rank=mRank;
     }
@@ -21,7 +22,7 @@ class HuLuWa{
         else
             System.out.println(HuLuWa.colors[rank]);
     }
-    //获取
+    //获取葫芦娃次序
     public int getRank(){
         return rank;
     }
@@ -30,12 +31,21 @@ class HuLuWa{
         System.out.println(HuLuWa.names[rank]+":"+(src+1)+"->"+(dst+1));
         huLuWaBrothers[dst]=this;
     }
+    //葫芦娃达到空闲的中间位置，这个位置不属于葫芦娃队列中的位置
+    public void runToTempPosition(){
+        HuluwaQueue.tempPosition=this;
+    }
+    //葫芦娃从空闲的中间位置归位
+    public static void returnFromTemp(HuLuWa[] huLuWaBrothers,int dst){
+        huLuWaBrothers[dst]=HuluwaQueue.tempPosition;
+    }
 }
 
 //葫芦娃队列：建立在葫芦娃与上帝之间的媒介，上帝只能操纵队列，不能直接操纵葫芦娃
 class HuluwaQueue{
     private HuLuWa[] huLuWaBrothers;
     private int numberOfHuLuWa;
+    public static HuLuWa tempPosition;
     HuluwaQueue(int number){
         huLuWaBrothers=new HuLuWa[number];
         numberOfHuLuWa=number;
@@ -43,11 +53,12 @@ class HuluwaQueue{
         for(int i=0;i<number;i++)
             huLuWaBrothers[i]=new HuLuWa(i);
     }
-    //交换下标为p1,p2处的两个葫芦娃的位置
+
+    //两个葫芦娃交换位置：其中一个葫芦娃移动到一个暂时的中间位置，第二个葫芦娃到达第一个葫芦娃的位置，之后第一个葫芦娃从中间位置达到第二个葫芦娃原来所在位置完成交换
     private void swap(int p1,int p2){
-        HuLuWa temp=huLuWaBrothers[p2];
+        huLuWaBrothers[p2].runToTempPosition();
         huLuWaBrothers[p1].runTo(huLuWaBrothers,p1,p2);
-        temp.runTo(huLuWaBrothers,p2,p1);
+        HuLuWa.returnFromTemp(huLuWaBrothers,p1);
     }
     //葫芦娃随机排序
     public void shuffle(){

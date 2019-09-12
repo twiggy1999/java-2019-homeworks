@@ -34,6 +34,10 @@
 
 3. runTo( HuLuWa[ ] huLuWaBrothers, int src, int dst )：此处的参数src以及dst代表的含义不是数组的下标，葫芦娃从第**[src+1]**个葫芦娃的位置移动到第**[end+1]**个葫芦娃的位置。同时在屏幕上输出移动信息。
 
+4. runToTempPosition( )：假设**HuluwaQueue**所维持的队列中存在一个**空闲的中间位置**，葫芦娃移动到这个空闲的中间位置以便进行位置交换。
+
+5. returnFromTemp( HuLuWa[ ] huLuWaBrothers, int dst )：葫芦娃从**空闲的中间位置**移动到**dst**位置，最终完成位置交换。 
+
 ---
 
 ## 葫芦娃队列（HuluwaQueue）
@@ -42,14 +46,28 @@
 
 1. huLuWaBrothers：使用数组存放葫芦娃对象
 2. numberOfHuLuWa：葫芦娃数量
+3. tempPosition：空闲的中间位置，以便葫芦娃之间进行位置交换
 
 ### 成员函数 (Method)
 
 1. HuluwaQueue( int number )：构造函数，用来初始化葫芦娃队列以及葫芦娃
+
 2. swap( )：交换两个葫芦娃的位置，并且在屏幕上进行相应输出
+
+   ```java
+   private void swap(int p1,int p2){
+           huLuWaBrothers[p2].runToTempPosition();
+           huLuWaBrothers[p1].runTo(huLuWaBrothers,p1,p2);
+           HuLuWa.returnFromTemp(huLuWaBrothers,p1);
+       }
+   ```
+
 3. shuffle( )：葫芦娃随机排序，并且输出位置交换信息
+
 4. bubbleSort( )：冒泡排序
+
 5. binarySort( )：二分法排序
+
 6. count( countKind kind )：两次报数需要根据不同的类型，因此需要传入参数加以区分
 
 ------
