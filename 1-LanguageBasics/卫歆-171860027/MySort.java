@@ -19,14 +19,17 @@ public class MySort {
         }
     }
     public static void main(String[] args) {
+        System.out.println("请输入待排序数据的个数：");
         Scanner scanner = new Scanner(System.in);
         n = scanner.nextInt();//输入的数据个数
         array = new int[n];
+        System.out.println("请输入整数，以空格隔开：");
         for (int i = 0; i < n; i++) {
             array[i] = scanner.nextInt();
         }
         scanner.close();
         sortArray();
+        System.out.print("升序排序结果为：");
         for (int i = 0; i < n; i++) {
             System.out.print(array[i] + " ");//输出排序后的数组
         }

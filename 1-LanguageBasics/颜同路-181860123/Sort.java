@@ -1,5 +1,3 @@
-package ytl;
-
 public class Sort {
     public static void BubbleSort(int a[], int n){
         for(int i = 0;i < n;i++){
