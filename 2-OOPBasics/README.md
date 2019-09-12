@@ -36,3 +36,6 @@
     git push ${你fork的仓库的分支名，一般为origin} master #把工作区的更改推送到远程仓库
   ```
 3. 登录github，参考第一次作业的提交创建PR
+
+示例  
+![示例](https://github.com/PerishCode/GeneralImageCloud/blob/master/example.png?raw=true)
