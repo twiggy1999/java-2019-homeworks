@@ -1,9 +1,11 @@
+import javafx.geometry.Pos;
+
 import java.util.*;
 
 enum Color{RED,ORANGE,YELLOW,GREEN,CYAN,BLUE,PURPLE};
 
 public class Sorting
-{
+{/*
     public static void moveTo(int x,int xPosition)
     {
         int y=1;                //表示葫芦兄弟y轴的位置
@@ -38,13 +40,7 @@ public class Sorting
                 System.out.println("\t向后走");
             lastX=x;
             lastY=y;
-            /*
-            try
-            {
-                Thread.sleep(1);
-            }
-            catch (InterruptedException e) { return;}
-            */
+
         }
         y=1;        //回复y轴位置，
         System.out.print("Current position:("+lastX+","+lastY+")->("+x+","+y+")");
@@ -53,7 +49,7 @@ public class Sorting
         else
             System.out.println("\t向下走，回到队伍");
     }
-
+*/
     //get a n-size random array (min~max)
     public static int[] randomArray(int min, int max, int n){
         if (n > (max - min + 1) || max < min) {
@@ -95,9 +91,9 @@ public class Sorting
                     bros[j] = tmp;
 
                     System.out.println(bros[i].getRank()+":"+j+"->"+i);
-                    moveTo(j,i);
+                    bros[i].getPos().moveTo(j,i);
                     System.out.println(bros[j].getRank()+":"+i+"->"+j);
-                    moveTo(i,j);
+                    bros[j].getPos().moveTo(i,j);
                 }
             }
         }
@@ -118,18 +114,18 @@ public class Sorting
             if(i<j)
             {
                 System.out.println(bros[i].getRank()+":"+i+"->"+j);
-                moveTo(i,j);
+                bros[i].getPos().moveTo(i,j);
                 System.out.println(bros[j].getRank()+":"+j+"->"+i);
-                moveTo(j,i);
+                bros[i].getPos().moveTo(j,i);
                 bros[i] = bros[j];
             }
             while((i<j)&&(bros[i].getColor().ordinal()<=tmp.getColor().ordinal()))   i++;
             if(i<j)
             {
                 System.out.println(bros[i].getRank()+":"+i+"->"+j);
-                moveTo(i,j);
+                bros[i].getPos().moveTo(i,j);
                 System.out.println(bros[j].getRank()+":"+j+"->"+i);
-                moveTo(j,i);
+                bros[i].getPos().moveTo(j,i);
                 bros[j] = bros[i];
             }
         }
@@ -158,25 +154,25 @@ public class Sorting
             System.out.print(i + "\t");
         System.out.println();
 */
-        bros[randomPos[0]] = new CalabashBrother("RED","老大");
-        bros[randomPos[1]] = new CalabashBrother("ORANGE", "老二");
-        bros[randomPos[2]] = new CalabashBrother("YELLOW", "老三");
-        bros[randomPos[3]] = new CalabashBrother("GREEN", "老四");
-        bros[randomPos[4]] = new CalabashBrother("CYAN", "老五");
-        bros[randomPos[5]] = new CalabashBrother("BLUE", "老六");
-        bros[randomPos[6]] = new CalabashBrother("PURPLE", "老七");
+        bros[randomPos[0]] = new CalabashBrother("RED","老大",new Position(randomPos[0],1));
+        bros[randomPos[1]] = new CalabashBrother("ORANGE", "老二",new Position(randomPos[1],1));
+        bros[randomPos[2]] = new CalabashBrother("YELLOW", "老三",new Position(randomPos[2],1));
+        bros[randomPos[3]] = new CalabashBrother("GREEN", "老四",new Position(randomPos[3],1));
+        bros[randomPos[4]] = new CalabashBrother("CYAN", "老五",new Position(randomPos[4],1));
+        bros[randomPos[5]] = new CalabashBrother("BLUE", "老六",new Position(randomPos[5],1));
+        bros[randomPos[6]] = new CalabashBrother("PURPLE", "老七",new Position(randomPos[6],1));
 
         System.out.println("Bubble sort:");
         bubbleSort(bros);
         System.out.println();
 
-        bros[randomPos[0]] = new CalabashBrother("RED","老大","红色");
-        bros[randomPos[1]] = new CalabashBrother("ORANGE", "老二","橙色");
-        bros[randomPos[2]] = new CalabashBrother("YELLOW", "老三","黄色");
-        bros[randomPos[3]] = new CalabashBrother("GREEN", "老四","绿色");
-        bros[randomPos[4]] = new CalabashBrother("CYAN", "老五","青色");
-        bros[randomPos[5]] = new CalabashBrother("BLUE", "老六","蓝色");
-        bros[randomPos[6]] = new CalabashBrother("PURPLE", "老七","紫色");
+        bros[randomPos[0]] = new CalabashBrother("RED","老大","红色",new Position(randomPos[0],1));
+        bros[randomPos[1]] = new CalabashBrother("ORANGE", "老二","橙色",new Position(randomPos[1],1));
+        bros[randomPos[2]] = new CalabashBrother("YELLOW", "老三","黄色",new Position(randomPos[2],1));
+        bros[randomPos[3]] = new CalabashBrother("GREEN", "老四","绿色",new Position(randomPos[3],1));
+        bros[randomPos[4]] = new CalabashBrother("CYAN", "老五","青色",new Position(randomPos[4],1));
+        bros[randomPos[5]] = new CalabashBrother("BLUE", "老六","蓝色",new Position(randomPos[5],1));
+        bros[randomPos[6]] = new CalabashBrother("PURPLE", "老七","紫色",new Position(randomPos[6],1));
 
 /*print for testing
         for (int i : randomPos)
@@ -193,11 +189,12 @@ public class Sorting
         System.out.println();
     }
 }
-/*
+
 class Position
 {
-    int x;
-    int y=1;
+    private int x;
+    private int y=1;
+
     public Position(int xPosition,int yPosition)
     {
         x=xPosition;
@@ -214,7 +211,15 @@ class Position
         return y;
     }
 
-    public void moveTo(int xPosition,int yPosition)
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public void moveTo(int x, int xPosition)
     {
         int lastX=x,lastY=y;    //用于每次移动之前的位置
         boolean flag=false;
@@ -229,44 +234,67 @@ class Position
         else
             return;
 
+        System.out.print("Current position:("+lastX+","+lastY+")->("+x+","+y+")");
+        if(flag)
+            System.out.println("\t向下走");
+        else
+            System.out.println("\t向上走");
+        lastY=y;
+
         while(x!=xPosition)
         {
             if(!flag)
                 x--;
             else
                 x++;
-            System.out.println("Current position:("+lastX+","+lastY+")->("+x+","+y+")");
+            System.out.print("Current position:("+lastX+","+lastY+")->("+x+","+y+")");
+            if(!flag)
+                System.out.println("\t向前走");
+            else
+                System.out.println("\t向后走");
             lastX=x;
             lastY=y;
-
-            try
-            {
-                Thread.sleep(1);
-            }
-            catch (InterruptedException e) { return;}
         }
         y=1;        //回复y轴位置，葫芦兄弟回到队伍
+        System.out.print("Current position:("+lastX+","+lastY+")->("+x+","+y+")");
+        if(flag)
+            System.out.println("\t向上走，回到队伍");
+        else
+            System.out.println("\t向下走，回到队伍");
     }
-
 }
-*/
+
 
 class CalabashBrother
 {
     private Color color;
     private String rank;
     private String colorName;
+    Position pos;
 
     public CalabashBrother(String col,String name)
     {
         color=Enum.valueOf(Color.class,col);
         rank=name;
     }
+    public CalabashBrother(String col,String name,Position pos)
+    {
+        color=Enum.valueOf(Color.class,col);
+        rank=name;
+        this.pos=pos;
+    }
     public CalabashBrother(String col,String name,String colorname)
     {
         color=Enum.valueOf(Color.class,col);
         rank=name;
         colorName=colorname;
+    }
+    public CalabashBrother(String col, String name, String colorname, Position pos)
+    {
+        color=Enum.valueOf(Color.class,col);
+        rank=name;
+        colorName=colorname;
+        this.pos=pos;
     }
     String getRank()
     {
@@ -279,5 +307,9 @@ class CalabashBrother
     String getColorName()
     {
         return colorName;
+    }
+
+    public Position getPos() {
+        return pos;
     }
 }

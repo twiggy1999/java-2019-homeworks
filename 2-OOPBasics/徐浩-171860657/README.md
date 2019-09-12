@@ -12,6 +12,7 @@
         private Color color;
         private String rank;
         private String colorName;
+        Position pos;
         ...
     }
     ```
@@ -19,9 +20,10 @@
     `enum Color{RED,ORANGE,YELLOW,GREEN,CYAN,BLUE,PURPLE};`
   + `String rank`表示葫芦兄弟的兄辈关系，如“老大”，“老二”等。
   + `String colorName`表示葫芦兄弟各自对应颜色的字符串形式，便于输出使用。
+  + `Position pos`表示葫芦兄弟当前在3*7的二维地图中的坐标。
   + **说明：**
     1.  葫芦兄弟的队伍设置在一个3*7的二维空间中，第一行以及第三行用于葫芦兄弟位置变换，第二行用于葫芦兄弟的站位，并默认**以左为前方，以右为后方**。
-    2.  在`class CalabashBrother`中没有描述葫芦兄弟之间的位置信息，他们之间的站位直接用数组的下标表示，位置交换时的二维坐标信息直接通过打印的方式进行展示。
+    2.  葫芦兄弟位置交换时将打印他们的二维坐标交换的过程。
 
 
 + 对于`class Sorting`,包含对葫芦兄弟们的排序操作：
