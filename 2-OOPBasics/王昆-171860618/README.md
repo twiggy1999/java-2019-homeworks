@@ -6,7 +6,7 @@
 * 定义葫芦娃对象的Huluwa类  
 
 其中HuluWa类定义了葫芦娃的名字、颜色等属性，以及葫芦娃的报数、报告交换位置等动作
-···Java
+'''Java
 class HuluWa{
     //葫芦娃的名字:
     private String name; 
@@ -23,4 +23,4 @@ class HuluWa{
     //返回该葫芦娃的序号:
     public int key();
 }
-···
+'''
