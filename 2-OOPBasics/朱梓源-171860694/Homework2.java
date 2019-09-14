@@ -152,7 +152,7 @@ class Cheque {
     }
 }
 
-public class Homework1 {
+public class Homework2 {
     public static void main(String[] args) {
         Cheque cheque = new Cheque(7);
         cheque.addHuluwa(new Huluwa("老大", "红色", 1, 1));
