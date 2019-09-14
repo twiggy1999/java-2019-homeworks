@@ -53,3 +53,40 @@ private	binary()			--使用结合二分查找的插入排序对葫芦娃的location进行修改。
 private shuffle(HuLuBrothers[])		--让葫芦娃随机站队。
 
 private	print(HuLuBrothers[], boolean)	--输出当前葫芦娃们站队的顺序。boolean所在的位置如果为true则输出名字，如果为false则输出颜色。
+
+## 【程序的输出】
+
+Begin the HuLu-Brother sort game :-)
+
+shuffle. Printed by rank: 二娃 七娃 大娃 四娃 六娃 三娃 五娃 
+
+Bubble sort: 
+大娃：0->1
+三娃：2->3
+五娃：4->5
+六娃：5->6
+四娃：3->4
+五娃：4->5
+四娃：3->4
+三娃：2->3
+二娃：1->2
+
+After sort. Printed by rank: 大娃 二娃 三娃 四娃 五娃 六娃 七娃 
+
+Shuffle again. Printed by color: 橙色 青色 蓝色 红色 黄色 绿色 紫色 
+
+Binary sort: 
+大娃：0->1
+二娃：1->0
+四娃：3->4
+三娃：2->3
+二娃：1->2
+五娃：4->1
+五娃：4->5
+四娃：3->4
+三娃：2->3
+六娃：5->2
+
+After sort. Printed by rank: 大娃 二娃 三娃 四娃 五娃 六娃 七娃 
+
+Finish! Congratulated! :-D
