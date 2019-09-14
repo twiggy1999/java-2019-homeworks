@@ -17,24 +17,29 @@ homework2类	--main()方法在这里
 
 ### 实例变量
 
-	name		--葫芦娃的姓名。是字符串。
-	color		--葫芦娃的颜色。是字符串。
-	location	--葫芦娃当前的位置。为简单起见是一维的。是整型变量。
-	order		--葫芦娃的地位。由order通过nameList和colorList可以得到葫芦娃的name和color，故而是有序的代号。是整型变量(1-7)。
-	nameList	--葫芦娃名字的范围。是包含七个名字的字符串数组。顺序与order同步。
-	color		--葫芦娃颜色的范围。是包含七种颜色的字符串数组。顺序与order同步。
+	name		--(private)葫芦娃的姓名。是字符串。
+	color		--(private)葫芦娃的颜色。是字符串。
+	location	--(private)葫芦娃当前的位置。为简单起见是一维的。是整型变量。
+	order		--(public)葫芦娃的地位。由order通过nameList和colorList可以得到葫芦娃的name和color，故而是有序的代号。是整型变量(1-7)。
+	nameList	--(private)葫芦娃名字的范围。是包含七个名字的字符串数组。顺序与order同步。
+	colorList	--(private)葫芦娃颜色的范围。是包含七种颜色的字符串数组。顺序与order同步。
 
 ### 方法
 
 1. HuLuBrothers
 
 	--是构造函数。具有两种签名：
-	--如果初始化对象实例时传入了order（地位）和location（位置）参数，则相应的初始化实例变量，并进一步由order通过nameList和colorList可以得到葫芦娃的name和color。
-	--如果初始化时未传入任何参数，则将order和location设为-1，并将该对象实例变量name和color设置为"Initialize"。
+	--(int order, int location)如果初始化对象实例时传入了order（地位）和location（位置）参数，则相应的初始化实例变量，并进一步由order通过nameList和colorList可以得到葫芦娃的name和color。
+	--()如果初始化时未传入任何参数，则将order和location设为-1，并将该对象实例变量name和color设置为"Initialize"。
 
-2.broadcast方法
+2. broadcast(int loc_before, int loc_after)
 
 	--功能是在对象的位置发生更改的时候，向外界输出一条信息，报告发生更改的葫芦娃的地位、原先的位置和更改后的位置。
+
+3. 为private成员变量提供的接口
+
+	--除了order之外，我禁止外界直接获取和修改上述实例变量；取而代之的方案是，我为一些必要的实例变量提供了读或者写的接口。其中，location是可读可写的；name，color是只能读出的；nameList和colorList是不向外界开放的，也就是不能读，不能写。
+	--我觉得这一块比较简单，所以就不再逐一地详细描述了。
 
 ### 补充
 
@@ -46,11 +51,11 @@ homework2类	--main()方法在这里
 
 简要的信息包括：
 
-public	main(String args[])				--实现题目要求的所有事情其实都发生在这里。
+public	main(String args[])		--实现题目要求的所有事情其实都发生在这里。
 
 private	sort(HuLuBrothers[])		--使用冒泡排序对葫芦娃的location进行修改。
 
-private	binary(HuLuBrothers[])			--使用结合二分查找的插入排序对葫芦娃的location进行修改。
+private	binary(HuLuBrothers[])		--使用结合二分查找的插入排序对葫芦娃的location进行修改。
 
 private shuffle(HuLuBrothers[])		--让葫芦娃随机站队。
 

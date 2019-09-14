@@ -8,19 +8,19 @@ import java.util.Random;
  **/
 
 class HuLuBrothers{
-	String name;
-	String color;
-	String nameList[] = new String[]{"大娃","二娃","三娃","四娃","五娃","六娃","七娃"};
-	String colorList[] = new String[]{"红色","橙色","黄色","绿色","青色","蓝色","紫色"};
-	int location;				
-	int order;					
+	private String name;
+	private String color;
+	private String nameList[] = new String[]{"大娃","二娃","三娃","四娃","五娃","六娃","七娃"};
+	private String colorList[] = new String[]{"红色","橙色","黄色","绿色","青色","蓝色","紫色"};
+	private int location;				
+	public int order;					
 	
 	// the constructor.
-	HuLuBrothers(int order1, int location1){
-		this.order = order1;
-		this.location = location1;
-		this.name = this.nameList[order1];
-		this.color = this.colorList[order1];
+	HuLuBrothers(int order, int location){
+		this.order = order;
+		this.location = location;
+		this.name = this.nameList[order];
+		this.color = this.colorList[order];
 	}
 	HuLuBrothers(){
 		this.order = -1;
@@ -29,9 +29,26 @@ class HuLuBrothers{
 		this.color = "Initialize";
 	}
 	
-	void broadcast(int loc_before, int loc_after){
+	public void broadcast(int loc_before, int loc_after){
 		System.out.println(this.name + "：" + loc_before + "->" + loc_after);
 	}
+	
+	public int getLocation(){
+		return this.location;
+	}
+	
+	public void setLocation(int location){
+		this.location = location;
+	}
+	
+	public String getColor(){
+		return this.color;
+	}
+	
+	public String getName(){
+		return this.name;
+	}
+	
 }
 
 public class homework2 {
@@ -64,10 +81,11 @@ public class homework2 {
 			boolean isSorted = true;
 			// 如果排序下来元素没有调换，就提前结束。
 			for(int j=0; j<array.length-i-1; j++) {
-				if(array[j].location > array[j+1].location) {
-					tmp.location = array[j].location;
-					array[j].location = array[j+1].location;
-					array[j+1].location = tmp.location;
+				if(array[j].getLocation() > array[j+1].getLocation()) {
+					//进行调换操作
+					tmp.setLocation(array[j].getLocation());
+					array[j].setLocation(array[j+1].getLocation());
+					array[j+1].setLocation(tmp.getLocation());
 					array[j].broadcast(j, j+1);
 					isSorted = false;
 				}
@@ -90,9 +108,9 @@ public class homework2 {
 		for (int i=0; i<7; i++){
 			one_num:
 			while(true){
-				Brothers1[i].location = rand.nextInt(7);
+				Brothers1[i].setLocation(rand.nextInt(7));
 				for (int j=0; j<i; j++){
-					if (Brothers1[i].location==Brothers1[j].location) continue one_num;
+					if (Brothers1[i].getLocation()==Brothers1[j].getLocation()) continue one_num;
 				}
 				//System.out.print((Brothers1[i].location+1) + " ");
 				break;
@@ -104,8 +122,8 @@ public class homework2 {
 		if (ifRank){
 			for(int i=0; i<a.length; i++){
 				for(int j=0;j<a.length; j++)
-					if(i==a[j].location){
-						System.out.print(a[j].name + " ");
+					if(i==a[j].getLocation()){
+						System.out.print(a[j].getName() + " ");
 						break;
 				}
 			}
@@ -114,8 +132,8 @@ public class homework2 {
 		else{
 			for(int i=0; i<a.length; i++){
 				for(int j=0;j<a.length; j++)
-					if(i==a[j].location){
-						System.out.print(a[j].color + " ");
+					if(i==a[j].getLocation()){
+						System.out.print(a[j].getColor() + " ");
 						break;
 				}
 			}
@@ -132,30 +150,30 @@ public class homework2 {
         	low = 0;
         	high = i - 1;
         	mid = (low + high)/2;
-        	value = array[mid].location;
-        	value = array[i].location;
+        	value = array[mid].getLocation();
+        	value = array[i].getLocation();
         	while(low <= high)
             {
                 mid = (low + high) / 2;
-                if(value == array[mid].location)
+                if(value == array[mid].getLocation())
                 {
                 	// This is impossible but I want to preserve this structure. Beautiful, isn't it? :-D
                 }
-                if(value > array[mid].location)
+                if(value > array[mid].getLocation())
                 {
                     low = mid + 1;
                 }
-                if(value < array[mid].location)
+                if(value < array[mid].getLocation())
                 {
                     high = mid - 1;
                 }
             }
         	for (int j=i-1; j>=low; j--){
-        		array[j+1].location = array[j].location;
+        		array[j+1].setLocation(array[j].getLocation());
         		array[j].broadcast(j,j+1);
         	}
         	if (low != i){
-        		array[low].location=value;
+        		array[low].setLocation(value);
         		array[i].broadcast(i, low);
         	}
         }
