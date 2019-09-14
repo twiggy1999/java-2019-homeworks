@@ -40,15 +40,17 @@ homework2类	--main()方法在这里
 
 关于题目要求的排序算法，我觉得像是过程而不是事物本身，所以不在类中作相应的设计。	
 
-## 【homework2类的详细信息】
+## 【homework2类的简要信息】
 
-内容包括：
+因为这个类中的方法主要就是为了实现排序的具体流程，感觉是更倾向于过程的，所以在这里，我简要的列出了我所编写的几个方法所具有的功能，并且给出了相应的形式参数，具体的代码实现，我就不再赘述了。:-D
 
-public	main()				--实现题目要求的所有事情其实都发生在这里。
+简要的信息包括：
+
+public	main(String args[])				--实现题目要求的所有事情其实都发生在这里。
 
 private	sort(HuLuBrothers[])		--使用冒泡排序对葫芦娃的location进行修改。
 
-private	binary()			--使用结合二分查找的插入排序对葫芦娃的location进行修改。
+private	binary(HuLuBrothers[])			--使用结合二分查找的插入排序对葫芦娃的location进行修改。
 
 private shuffle(HuLuBrothers[])		--让葫芦娃随机站队。
 
