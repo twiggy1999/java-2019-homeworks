@@ -29,7 +29,9 @@ homework2类	--main()方法在这里
 1. HuLuBrothers
 
 	--是构造函数。具有两种签名：
+
 	--(int order, int location)如果初始化对象实例时传入了order（地位）和location（位置）参数，则相应的初始化实例变量，并进一步由order通过nameList和colorList可以得到葫芦娃的name和color。
+
 	--()如果初始化时未传入任何参数，则将order和location设为-1，并将该对象实例变量name和color设置为"Initialize"。
 
 2. broadcast(int loc_before, int loc_after)
@@ -38,7 +40,10 @@ homework2类	--main()方法在这里
 
 3. 为private成员变量提供的接口
 
-	--除了order之外，我禁止外界直接获取和修改上述实例变量；取而代之的方案是，我为一些必要的实例变量提供了读或者写的接口。其中，location是可读可写的；name，color是只能读出的；nameList和colorList是不向外界开放的，也就是不能读，不能写。
+	--除了order之外，我禁止外界直接获取和修改上述实例变量；取而代之的方案是，我为一些必要的实例变量提供了读或者写的接口。
+
+	--其中，location是可读可写的；name，color是只能读出的；nameList和colorList是不向外界开放的，也就是不能读，不能写。
+	
 	--我觉得这一块比较简单，所以就不再逐一地详细描述了。
 
 ### 补充
