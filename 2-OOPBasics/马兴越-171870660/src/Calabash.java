@@ -50,9 +50,9 @@ public class Calabash {
         position.moveBackward();
     }
 
-    public int currentPosition(){
-        return position.currentPosition();
-    }
+//    public int currentPosition(){
+//        return position.currentPosition();
+//    }
 
     /*
      * 相当于重载小于操作符。按排行比较，当小于时返回true。

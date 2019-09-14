@@ -111,7 +111,7 @@ public class CalabashBrothers {
         members.get(cur).moveBackward();
         members.set(cur-1,c);
         c.moveForward();
-        assert members.get(cur).currentPosition()-1 == cur;
+//        assert members.get(cur).currentPosition()-1 == cur;
     }
 
     public void tellColors(){
