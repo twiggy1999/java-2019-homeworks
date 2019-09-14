@@ -14,7 +14,8 @@ HuLuBrothers类	--这个是模拟的葫芦兄弟
 homework2类	--main()方法在这里
 
 ## 【HuLuBrothers类的详细信息】
->>实例变量
+
+### 实例变量
 
 	name		--葫芦娃的姓名。是字符串。
 	color		--葫芦娃的颜色。是字符串。
@@ -23,23 +24,22 @@ homework2类	--main()方法在这里
 	nameList	--葫芦娃名字的范围。是包含七个名字的字符串数组。顺序与order同步。
 	color		--葫芦娃颜色的范围。是包含七种颜色的字符串数组。顺序与order同步。
 
->>方法
+### 方法
 
 1. HuLuBrothers
-	是构造函数。具有两种签名：
-	如果初始化对象实例时传入了order（地位）和location（位置）参数，则相应的初始化实例变量，并进一步由order通过nameList和colorList可以得到葫芦娃的name和color。
-	如果初始化时未传入任何参数，则将order和location设为-1，并将该对象实例变量name和color设置为"Initialize"。
-
+	--是构造函数。具有两种签名：
+	--如果初始化对象实例时传入了order（地位）和location（位置）参数，则相应的初始化实例变量，并进一步由order通过nameList和colorList可以得到葫芦娃的name和color。
+	--如果初始化时未传入任何参数，则将order和location设为-1，并将该对象实例变量name和color设置为"Initialize"。
 2.broadcast方法
-	功能是在对象的位置发生更改的时候，向外界输出一条信息，报告发生更改的葫芦娃的地位、原先的位置和更改后的位置。
+	--功能是在对象的位置发生更改的时候，向外界输出一条信息，报告发生更改的葫芦娃的地位、原先的位置和更改后的位置。
 
->>补充
+### 补充
 	关于题目要求的排序算法，我觉得像是过程而不是事物本身，所以不在类中作相应的设计。	
 
-【homework2类的详细信息】
+## 【homework2类的详细信息】
 内容包括：
-	public	main()				实现题目要求的所有事情其实都发生在这里。
-	private	sort(HuLuBrothers[])		使用冒泡排序对葫芦娃的location进行修改。
-	private	binary()			使用结合二分查找的插入排序对葫芦娃的location进行修改。
-	private shuffle(HuLuBrothers[])		让葫芦娃随机站队。
-	private	print(HuLuBrothers[], boolean)	输出当前葫芦娃们站队的顺序。boolean所在的位置如果为true则输出名字，如果为false则输出颜色。
+	public	main()				--实现题目要求的所有事情其实都发生在这里。
+	private	sort(HuLuBrothers[])		--使用冒泡排序对葫芦娃的location进行修改。
+	private	binary()			--使用结合二分查找的插入排序对葫芦娃的location进行修改。
+	private shuffle(HuLuBrothers[])		--让葫芦娃随机站队。
+	private	print(HuLuBrothers[], boolean)	--输出当前葫芦娃们站队的顺序。boolean所在的位置如果为true则输出名字，如果为false则输出颜色。
