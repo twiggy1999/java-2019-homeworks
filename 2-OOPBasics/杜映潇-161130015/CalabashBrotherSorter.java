@@ -1,58 +1,48 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class CalabashBrotherSorter {
-    private CalabashBrother[] brothers;
-
-    private class CalabashColorComparator implements Comparator<CalabashBrother> {
-        @Override
-        public int compare(CalabashBrother brotherOne, CalabashBrother brotherTwo) {
-            return brotherOne.getRank() - brotherTwo.getRank();
-        }
-    }
-
-    private class CalabashRankComparator implements Comparator<CalabashBrother> {
-        @Override
-        public int compare(CalabashBrother brotherOne, CalabashBrother brotherTwo) {
-            return brotherOne.getRank() - brotherTwo.getRank();
-        }
-    }
-
-    public CalabashBrotherSorter(CalabashBrother[] brothers) {
-        this.brothers = brothers;
-    }
+    private static final int X = 0;
+    private static final int NUM = 7; /* Seven Calabash Brothers */
+    private World world;
 
     private void shuffle() {
-        ArrayList<CalabashBrother> tempList = new ArrayList<>(Arrays.asList(brothers));
-        Collections.shuffle(tempList);
-        brothers = tempList.toArray(new CalabashBrother[brothers.length]);
+        CalabashBrother[] brothers = new CalabashBrother[NUM];
+        for (int i = 0; i < NUM; i++) {
+            brothers[i] = world.get(X, i);
+        }
+        ArrayList<CalabashBrother> list = new ArrayList<>(Arrays.asList(brothers));
+        Collections.shuffle(list);
+        brothers = list.toArray(new CalabashBrother[NUM]);
+        for (int i = 0; i < NUM; i++) {
+            world.place(brothers[i], X, i);
+        }
     }
 
-    private void yield(int from, int to) {
-        /* Yield out when two calabash brothers change their position */
-        System.out.println(brothers[from].getName() + ": " + from + "->" + to);
+    public CalabashBrotherSorter(World world) {
+        this.world = world;
+        /* In this sorter, we will just place all Calabash Brothers on the same line in the world map
+         * We will just place all on the line where the x-axis is zero for simplicity
+         * */
+        for (int i = 0; i < NUM; i++) {
+            CalabashBrother brother = new CalabashBrother(i);
+            world.place(brother, X, i);
+        }
     }
 
     private int partition(int start, int end) {
         CalabashColorComparator comparator = new CalabashColorComparator();
-        CalabashBrother pivot = brothers[start];
+        CalabashBrother pivot = world.get(X, start);
         int firstLess = start;
         for (int i = start + 1; i <= end; i++) {
-            if (comparator.compare(brothers[i], pivot) < 0) {
+            if (comparator.compare(world.get(X, i), pivot) < 0) {
                 firstLess++;
-                yield(i, firstLess);
-                yield(firstLess, i);
-                CalabashBrother temp = brothers[firstLess];
-                brothers[firstLess] = brothers[i];
-                brothers[i] = temp;
+                CalabashBrother brotherOne = world.get(X, firstLess);
+                CalabashBrother brotherTwo = world.get(X, i);
+                world.exchange(brotherOne, brotherTwo);
             }
         }
-        yield(start, firstLess);
-        yield(firstLess, start);
-        brothers[start] = brothers[firstLess];
-        brothers[firstLess] = pivot;
+        CalabashBrother brother = world.get(X, firstLess);
+        world.exchange(pivot, brother);
         return firstLess;
     }
 
@@ -68,22 +58,19 @@ public class CalabashBrotherSorter {
         shuffle();
         /* Sort according to their order */
         CalabashRankComparator comparator = new CalabashRankComparator();
-        int num = brothers.length;
-        for (int i = 0; i < num; i++) {
-            for (int j = 0; j < num - i - 1; j++) {
-                if (comparator.compare(brothers[j], brothers[j + 1]) >= 0) {
-                    yield(j, j + 1);
-                    yield(j + 1, j);
-                    CalabashBrother temp = brothers[j];
-                    brothers[j] = brothers[j + 1];
-                    brothers[j + 1] = temp;
+        for (int i = 0; i < NUM; i++) {
+            for (int j = 0; j < NUM - i - 1; j++) {
+                if (comparator.compare(world.get(X, j), world.get(X, j + 1)) >= 0) {
+                    CalabashBrother brotherOne = world.get(X, j);
+                    CalabashBrother brotherTwo = world.get(X, j + 1);
+                    world.exchange(brotherOne, brotherTwo);
                 }
             }
         }
 
         /* Sort finish */
-        for (CalabashBrother brother : brothers) {
-            System.out.print(brother.getName() + " ");
+        for (int i = 0; i < NUM; i++) {
+            System.out.print(world.get(X, i).getName() + " ");
         }
         System.out.println();
     }
@@ -92,9 +79,9 @@ public class CalabashBrotherSorter {
         shuffle();
         /* Use binary QuickSort */
         /* Sort according to their color */
-        quickSort(0, brothers.length - 1);
-        for (CalabashBrother brother : brothers) {
-            System.out.print(brother.getColor() + " ");
+        quickSort(0, NUM - 1);
+        for (int i = 0; i < NUM; i++) {
+            System.out.print(world.get(X, i).getName() + " ");
         }
         System.out.println();
     }
