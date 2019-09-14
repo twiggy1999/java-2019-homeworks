@@ -4,7 +4,7 @@
 
 
 
-![avatar](\pic\srceenshot-1.png)
+ ![srceenshot-1.png](https://i.loli.net/2019/09/14/vf3Ku2w7VFkPSaY.png)
 
 
 
@@ -21,7 +21,7 @@
 		- 辈分排名：0123456
 		- 位置：将来站在操场上时的位置，可以理解为每位葫芦娃的“自我认知”（我站在这个地方）
 
- ![avatar](\pic\srceenshot-2.png)
+ ![srceenshot-2.png](https://i.loli.net/2019/09/14/XdbRUqwnNjuQFTt.png)
 
 而葫芦娃的**操作**有：
 
@@ -44,7 +44,7 @@
 - 葫芦群：场上一共有七位葫芦娃，会在 main 函数中进行初始化
 - 队列：用来随机放置葫芦娃，以及进行排序的场所
 
- ![avatar](\pic\srceenshot-3.png)
+ ![srceenshot-3.png](https://i.loli.net/2019/09/14/zk6xpVmufKLESc5.png)
 
 而操场的主要**操作**包括：
 
@@ -61,7 +61,7 @@
 
 ---
 
- ![avatar](\pic\srceenshot-4.png)
+ ![srceenshot-4.png](https://i.loli.net/2019/09/14/VeYgdC9wxNiAXBJ.png)
 
 即程序开始运行后，将进行：
 
@@ -81,6 +81,7 @@
 
 运行结果的截图如下：
 
- ![avatar](\pic\srceenshot-5.png)
+ ![srceenshot-5.png](https://i.loli.net/2019/09/14/gNqYfeBbDSP69MW.png)
 
- ![avatar](\pic\srceenshot-6.png)
+ ![srceenshot-6.png](https://i.loli.net/2019/09/14/4lVSjyGUWRMuazZ.png)
+
