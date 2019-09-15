@@ -2,7 +2,7 @@
 
 ### 171860014 万玲
 
-<font color="#dd0000">注：修改后增加的内容为红色字体</font>
+<font color="#dd0000">注：修改后增加的内容为红色字体</font><br />
 
 1. 构造了一个```Huluwa```类
 
@@ -13,8 +13,8 @@
    + ```ChineseNum```：表示葫芦娃的排行
    + ```void sayNum()```函数：该函数的作用是打印出该葫芦娃的排行，例如老大；
    + ```void sayColor()```函数：该函数的作用是打印出该葫芦娃的颜色，例如红色；
-   + <font color="#dd0000">`pos`：该整型变量表示葫芦娃的位置，在本次作业中其也为葫芦娃所在位置数组的下标</font>
-   + <font color="#dd0000">`void changePos`：该函数为修改葫芦娃位置的函数</font>
+   + <font color="#dd0000">`pos`：该整型变量表示葫芦娃的位置，在本次作业中其也为葫芦娃所在位置数组的下标</font><br />
+   + <font color="#dd0000">`void changePos`：该函数为修改葫芦娃位置的函数</font><br />
 
 2. ```HomeWork2```类
 
