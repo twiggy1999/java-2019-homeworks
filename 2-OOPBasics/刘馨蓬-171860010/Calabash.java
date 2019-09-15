@@ -47,7 +47,7 @@ public class Calabash {
     void bubbleSort(){
         for(int i=0;i<6;i++){
             for(int j=i+1;j<7;j++){
-                if(members[i].priority>members[j].priority){
+                if(members[i].compare(members[j])){
                     members[i].swapAction(j);
                     members[j].swapAction(i);
                    swap(i,j);
@@ -66,7 +66,7 @@ public class Calabash {
             int mid = -1;
             while (low <= high) {
                 mid = (high + low) / 2;
-                if (members[mid].priority > temp.priority) {
+                if (members[mid].compare(temp)) {
                     high = mid - 1;
                 } else {
                     low = mid + 1;
@@ -99,6 +99,13 @@ class Brother{
     int place;
     String color;
     int priority;
+    boolean compare(Brother x){
+        if(x.priority>priority){
+            return true;
+        }
+        else
+            return false;
+    }
     void placeChange(int x){
         place=x;
     }
