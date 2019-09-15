@@ -17,8 +17,8 @@ public class Calabash {
     public Calabash(){}
     public Calabash(int id){
         this.id = id;
-        this.color = color.values()[id];
-        this.rank = rank.values()[id];
+        this.color = Color.values()[id];
+        this.rank = Rank.values()[id];
         this.position = -1; //初始时顺序不知
     }
     public int getId(){
