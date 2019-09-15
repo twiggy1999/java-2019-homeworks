@@ -2,7 +2,14 @@ abstract class Gourd {
     public int id;
     public String color;
     public void reportOrder(int a, int b){
-        System.out.println("："+a+"->"+b);
+
+        System.out.print("：从像素("+a*100+"，300)");
+        if(b-a==1||b-a==-1){
+            System.out.print("挪动");
+        }else{
+            System.out.print("飞跃");
+        }
+        System.out.println("到了像素("+b*100+",300)");
     }
     public void reportColor(){
         System.out.print(color+" ");

@@ -34,6 +34,8 @@ public class Main {
             if(i<j){
                 a[j].reportName();
                 a[j].reportOrder(j+1,i+1);
+                a[i].reportName();
+                a[i].reportOrder(i+1,j+1);
                 a[i] = a[j];
                 i++;
             }
@@ -67,7 +69,7 @@ public class Main {
         list.add(new BlueGourd());
         list.add(new PurpleGourd());
         Collections.shuffle(list);
-        System.out.println("葫芦娃随机战队完成！准备冒泡排序！");
+        System.out.println("葫芦娃随机站队完成！准备冒泡排序！");
         bubbleSort(list.toArray(gourds),7);
         System.out.println("冒泡排序完成！报数：");
         for(int i=0;i<7;i++){
@@ -75,7 +77,7 @@ public class Main {
         }
         System.out.print("\n\n");
         Collections.shuffle(list);
-        System.out.println("葫芦娃随机战队完成！准备快速排序！");
+        System.out.println("葫芦娃随机站队完成！准备快速排序！");
         quickSort(list.toArray(gourds),0,6);
         System.out.println("快速排序完成！报数：");
         for(int i=0;i<7;i++){
