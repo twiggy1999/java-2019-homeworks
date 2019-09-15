@@ -100,7 +100,7 @@ class Brother{
     String color;
     int priority;
     boolean compare(Brother x){
-        if(x.priority>priority){
+        if(x.priority<priority){
             return true;
         }
         else
