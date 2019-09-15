@@ -3,12 +3,12 @@ class Huluwa
 {
     int num;//兄弟排行
     String ChineseNum;//汉字排行，例如老大
-    //int pos;//位置编号
+    int pos;//位置编号
     String color;
-    Huluwa(int n)
+    Huluwa(int n, int p)
     {
         num=n;
-        //pos=p;
+        pos=p;
         switch(n)
         {
             case 1:ChineseNum="老大";color="红色";break;
@@ -20,6 +20,10 @@ class Huluwa
             case 7:ChineseNum="老七";color="紫色";break;
             default:break;
         }
+    }
+    void changePos(int x)
+    {
+        pos=x;
     }
     void sayNum()
     {
@@ -41,13 +45,13 @@ public class HomeWork2
     {
         Huluwa[] bro;
         bro=new Huluwa[7];
-        Huluwa h1=new Huluwa(1);bro[6]=h1;
-        Huluwa h2=new Huluwa(2);bro[4]=h2;
-        Huluwa h3=new Huluwa(3);bro[0]=h3;
-        Huluwa h4=new Huluwa(4);bro[2]=h4;
-        Huluwa h5=new Huluwa(5);bro[1]=h5;
-        Huluwa h6=new Huluwa(6);bro[5]=h6;
-        Huluwa h7=new Huluwa(7);bro[3]=h7;
+        Huluwa h1=new Huluwa(1,6);bro[6]=h1;
+        Huluwa h2=new Huluwa(2,4);bro[4]=h2;
+        Huluwa h3=new Huluwa(3,0);bro[0]=h3;
+        Huluwa h4=new Huluwa(4,2);bro[2]=h4;
+        Huluwa h5=new Huluwa(5,1);bro[1]=h5;
+        Huluwa h6=new Huluwa(6,5);bro[5]=h6;
+        Huluwa h7=new Huluwa(7,3);bro[3]=h7;
         System.out.println("初始化乱序为：");
         for(int i=0;i<7;i++)
         {
@@ -67,6 +71,8 @@ public class HomeWork2
 
                     bro[j].sayNum();System.out.println(":"+j+"->"+(j+1));
                     bro[j+1].sayNum();System.out.println(":"+(j+1)+"->"+j);
+                    bro[j].changePos(j+1);
+                    bro[j+1].changePos(j);
                     Huluwa tmp=new Huluwa(0);
                     tmp=bro[j];
                     bro[j]=bro[j+1];
