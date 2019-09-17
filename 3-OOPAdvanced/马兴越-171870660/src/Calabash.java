@@ -9,4 +9,9 @@ public class Calabash extends Living{
         order=order_;
     }
 
+    @Override
+    public String toString(){
+        return "["+order+"]";
+    }
+
 }

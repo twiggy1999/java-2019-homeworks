@@ -3,6 +3,8 @@
  * 先行后列。x为横坐标。访问格式为map[x][y].
  */
 
+import java.util.Random;
+
 public class Field {
     public static final int N=12;
     private Living[][] map;
@@ -62,22 +64,71 @@ public class Field {
         assert livingAt(living.getPosition())==living;
         int nx=living.getPosition().getX()+dx;
         int ny=living.getPosition().getY()+dy;
+        Position oldPosition=living.getPosition().copy();
         if(livingAt(nx,ny)!=null)
             return false;
-        return addLiving(living,nx,ny);
+        if(!addLiving(living,nx,ny))
+            return false;
+        removeLiving(oldPosition);
+        assert livingAt(living.getPosition())==living;
+        return true;
     }
 
     /*
      * 交换两指定生物的位置，由Living调用，且已经保证位置相邻。
      */
     public boolean swapLiving(Living living1,Living living2){
+        assert livingAt(living1.getPosition())==living1;
+        assert livingAt(living2.getPosition())==living2;
         if(!living1.getPosition().adjacentWith(living2.getPosition()))
             return false;
         removeLiving(living1.getPosition());
         removeLiving(living2.getPosition());
-        Position pos1=living1.getPosition(),pos2=living2.getPosition();
-        assert addLiving(living1,pos2);
-        assert addLiving(living2,pos1);
+        Position pos1=living1.getPosition().copy(),
+                pos2=living2.getPosition().copy();
+        addLiving(living1,pos2);
+        addLiving(living2,pos1);
+        assert livingAt(living1.getPosition())==living1;
+        assert livingAt(living2.getPosition())==living2;
         return true;
+    }
+
+    /*
+     * 画出当前的面板情况。每行表示一行，每列宽度一个制表符。
+     * 各个生物调用toString接口显示。
+     */
+    public void draw(){
+        System.out.println("------------------------------------------------------");
+        System.out.print('\t');
+        for(int i=0;i<N;i++){
+            System.out.print(""+i+'\t');
+        }
+        System.out.print('\n');
+        for(int i=0;i<N;i++){
+            System.out.print(""+i+'\t');
+            for(int j=0;j<N;j++) {
+                Living l = livingAt(j,i);
+                if(l!=null)
+                    System.out.print(l.toString());
+                System.out.print('\t');
+            }
+            System.out.print('\n');
+        }
+        System.out.println("------------------------------------------------------");
+    }
+
+    public boolean inside(Position pos){
+        return 0 <= pos.getX() && pos.getX() < N && 0 <= pos.getY() && pos.getY() < N;
+    }
+
+    public Position randomPosition(){
+        Random random=new Random();
+        Position position=new Position(random.nextInt(Field.N),
+                random.nextInt(Field.N));
+        while (livingAt(position)!=null) {
+            position.setPos(random.nextInt(Field.N),
+                    random.nextInt(Field.N));
+        }
+        return position;
     }
 }

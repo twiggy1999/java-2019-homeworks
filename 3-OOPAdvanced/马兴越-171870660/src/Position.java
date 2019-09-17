@@ -2,6 +2,8 @@
  * 用于维护生物的位置。作为生物的构成部分。
  */
 
+import java.util.Random;
+
 import static java.lang.Math.*;
 
 public class Position {
@@ -37,6 +39,14 @@ public class Position {
 
     public Position adjacentPosition(Direction dir){
         return new Position(x+dir.dx(),y+dir.dy());
+    }
+
+    public String toString(){
+        return "("+x+", "+y+")";
+    }
+
+    public Position copy(){
+        return new Position(x,y);
     }
 
 }

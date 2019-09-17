@@ -9,7 +9,7 @@ public class Living {
     protected boolean movable;
 
     public Living(Position pos,Field field_){
-        position=pos;
+        position=pos.copy();
         field=field_;
         movable=true;
     }
@@ -51,6 +51,19 @@ public class Living {
     }
 
     /*
+     * 移动到pos所示位置，如果指定位置不相邻，或者该位置的对象不可移动，则返回false。
+     */
+    public boolean moveOrSwap(int dx,int dy){
+        assert abs(dx)<=1 && abs(dy)<=1;
+        Position target=new Position(position.getX()+dx,position.getY()+dy);
+        if(field.livingAt(target)==null)
+            return move(dx,dy);
+        else if(field.livingAt(target).isMovable())
+            return swapWith(field.livingAt(target));
+        return false;
+    }
+
+    /*
      * 从当前位置取捷径走到position确定的位置。
      * 若有阻挡，对于movable的，直接和他交换；否则找一个方向绕开。
      * 如果找不到路径，返回false.
@@ -73,7 +86,8 @@ public class Living {
         //首先将当前位置标记为走过
         Living flag=new Living(position,passed);
         passed.addLiving(flag);
-        if(field.livingAt(toMove)==null){
+        if(!field.inside(toMove));
+        else if(field.livingAt(toMove)==null){
             move(direction.dx(),direction.dy());
             return pathTo(passed,target);
         }
@@ -81,25 +95,29 @@ public class Living {
             swapWith(field.livingAt(toMove));
             return pathTo(passed,target);
         }
-        else{
-            //阻挡的东西不能移动，只能绕开。遍历周围的8个方向，
-            //邻接方向一共可以改变7次。
-            for(int i=0;i<7;i++){
-                direction.next();
-                toMove=position.adjacentPosition(direction);
-                if(passed.livingAt(toMove)!=null){
-                    continue;
-                }
-                if(field.livingAt(toMove)==null){
-                    move(direction.dx(),direction.dy());
-                    return pathTo(passed,target);
-                }
-                else if(field.livingAt(toMove).isMovable()) {
-                    swapWith(field.livingAt(toMove));
-                    return pathTo(passed, target);
-                }
+
+        //阻挡的东西不能移动，只能绕开。遍历周围的8个方向，
+        //邻接方向一共可以改变7次。
+        for(int i=0;i<7;i++){
+            direction.next();
+            toMove=position.adjacentPosition(direction);
+            if(!field.inside(toMove) || passed.livingAt(toMove)!=null){
+                continue;
             }
-            return false;
+            if(field.livingAt(toMove)==null){
+                move(direction.dx(),direction.dy());
+                return pathTo(passed,target);
+            }
+            else if(field.livingAt(toMove).isMovable()) {
+                swapWith(field.livingAt(toMove));
+                return pathTo(passed, target);
+            }
         }
+        return false;
+
+    }
+
+    public String toString(){
+        return "";
     }
 }
