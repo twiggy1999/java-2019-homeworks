@@ -1,4 +1,4 @@
-![UML图](.\srcForMD\UMLhw3.png)
+![UML图](./srcForMD/UMLhw3.png)
 
 由这张图中我们可以清晰地看到我们代码的设计方式。
 
