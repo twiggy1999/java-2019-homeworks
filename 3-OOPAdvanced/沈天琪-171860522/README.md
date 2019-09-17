@@ -1,4 +1,4 @@
-![UML图](./srcForMD/UMLhw3.png)
+![UML图](https://github.com/Price1999a/java-2019-homeworks/blob/master/3-OOPAdvanced/%E6%B2%88%E5%A4%A9%E7%90%AA-171860522/srcForMD/UMLhw3.png)
 
 由这张图中我们可以清晰地看到我们代码的设计方式。
 
