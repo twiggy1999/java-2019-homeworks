@@ -3,6 +3,7 @@
 *.iml
 *.html
 
+<<<<<<< HEAD
 ### Code ###
 .vscode/*
 !.vscode/settings.json
@@ -62,3 +63,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/java,code,windows
+=======
+.vscode
+.DS_Store
+>>>>>>> 86f7a3c2bb47a21e756b9be3729be04545cc5a4c
