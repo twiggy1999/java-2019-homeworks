@@ -11,7 +11,21 @@ public class Main {
         field.draw();
         SnakeDemon snakeDemon=new SnakeDemon(new Position(Field.N-1,0),
                 field,8);
-        snakeDemon.standAsSwing();
+        try {
+            snakeDemon.standAsSwing();
+        }catch (AssertionError a){
+            a.printStackTrace();
+            field.draw();
+            return;
+        }
+        field.draw();
+        try {
+            snakeDemon.standAsArrow();
+        }catch (AssertionError a){
+            a.printStackTrace();
+            field.draw();
+            return;
+        }
         field.draw();
     }
 }

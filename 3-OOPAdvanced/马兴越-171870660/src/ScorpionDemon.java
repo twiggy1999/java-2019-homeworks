@@ -106,10 +106,96 @@ public class ScorpionDemon extends Living {
 
     /*
      * “锋矢”阵型。
+     * 将大致一半的followers放在主干线上，向下调整以保证两翼的数目是偶数。
+     * 剩下的作为两翼。
      */
     public void standAsArrow(){
+        if(followCount<3){
+            System.out.println("Arrow requires at least 3 followers!");
+            return;
+        }
+        for (Living l:followDemons)
+            l.setMovable(true);
+        if(!findPlaceForArrow()){
+            System.out.println("没有空间排布锋矢阵型！");
+            return;
+        }
+        int swingCount=followCount/2;
+        if(swingCount%2==1)swingCount++;
+        int mainCount=followCount-swingCount;
+        Position p=new Position(position.getX(),position.getY());
+        Direction d=new Direction(Direction.S);
+        for(int i=0;i<mainCount;i++){
+            p=p.adjacentPosition(d);
+            followDemons[i].walkTowards(p);
+            followDemons[i].setMovable(false);
+            assert followDemons[i].getPosition().equals(p);
+        }
+        p=position.copy();
+        d=new Direction(Direction.SW);
+        for(int i=mainCount;i<mainCount+swingCount/2;i++){
+            p=p.adjacentPosition(d);
+            followDemons[i].walkTowards(p);
+            followDemons[i].setMovable(false);
+            assert followDemons[i].getPosition().equals(p);
+        }
+        p=position.copy();
+        d=new Direction(Direction.SE);
+        for(int i=mainCount+swingCount/2;i<mainCount+swingCount;i++){
+            p=p.adjacentPosition(d);
+            followDemons[i].walkTowards(p);
+            followDemons[i].setMovable(false);
+            assert followDemons[i].getPosition().equals(p);
+        }
 
+    }
 
+    public boolean readyForArrow(){
+        int swingCount=followCount/2;
+        if(swingCount%2==1)swingCount++;
+        int mainCount=followCount-swingCount;
+        Position p=new Position(position.getX(),position.getY());
+        Direction d=new Direction(Direction.S);
+        for(int i=0;i<mainCount;i++){
+            p=p.adjacentPosition(d);
+            if(field.Unreachable(p))
+                return false;
+        }
+        p=position.copy();
+        d=new Direction(Direction.SW);
+        for(int i=0;i<swingCount/2;i++){
+            p=p.adjacentPosition(d);
+            if(field.Unreachable(p))
+                return false;
+        }
+        p=position.copy();
+        d=new Direction(Direction.SE);
+        for(int i=0;i<swingCount/2;i++){
+            p=p.adjacentPosition(d);
+            if(field.Unreachable(p))
+                return false;
+        }
+        return true;
+    }
+
+    public boolean findPlaceForArrow(){
+        Field passed=new Field();
+        return findPlaceForArrow(passed);
+    }
+
+    private boolean findPlaceForArrow(Field passed){
+        if(readyForArrow())
+            return true;
+        passed.addLiving(new Living(position.copy(),passed));
+        Direction dir=new Direction(Direction.N);
+        Position p;
+        for(int i=0;i<8;i++){
+            p=position.adjacentPosition(dir);
+            if(field.inside(p) && passed.livingAt(p)==null && moveOrSwap(dir.dx(),dir.dy()))
+                return findPlaceForArrow(passed);
+            dir.next();
+        }
+        return false;
     }
 
 

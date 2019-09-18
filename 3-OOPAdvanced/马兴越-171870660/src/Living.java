@@ -1,6 +1,7 @@
 /*
  * 所有生物体的公共基类。
  */
+
 import static java.lang.Math.abs;
 
 public class Living {
@@ -98,6 +99,7 @@ public class Living {
 
         //阻挡的东西不能移动，只能绕开。遍历周围的8个方向，
         //邻接方向一共可以改变7次。
+        boolean succeed=false;
         for(int i=0;i<7;i++){
             direction.next();
             toMove=position.adjacentPosition(direction);
@@ -106,11 +108,13 @@ public class Living {
             }
             if(field.livingAt(toMove)==null){
                 move(direction.dx(),direction.dy());
-                return pathTo(passed,target);
+                if( pathTo(passed,target))
+                    return true;
             }
             else if(field.livingAt(toMove).isMovable()) {
                 swapWith(field.livingAt(toMove));
-                return pathTo(passed, target);
+                if (pathTo(passed, target))
+                    return true;
             }
         }
         return false;
