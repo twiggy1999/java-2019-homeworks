@@ -10,8 +10,9 @@ public class SnakeDemon extends Living {
 
     public SnakeDemon(Position pos, Field field_, int followCount_) {
         super(pos, field_);
-        scorpionDemon=new ScorpionDemon(field_.randomPosition(),field_,followCount_);
-        field_.addLiving(scorpionDemon);
+//        scorpionDemon=new ScorpionDemon(field_.randomPosition(),field_,followCount_);
+        scorpionDemon=new ScorpionDemon(new Position(9,0),field_,followCount_);
+        assert field_.addLiving(scorpionDemon);
     }
 
     public void standAsSwing(){

@@ -2,6 +2,10 @@
  * 所有生物体的公共基类。
  */
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 import static java.lang.Math.abs;
 
 public class Living {
@@ -73,13 +77,15 @@ public class Living {
         // 新建标记面板，用于记录走过的地方。
         // 在走过的地方添加一个虚拟的Living对象。
         Field passed=new Field();
-        return pathTo(passed,target);
+        List<Living> called=new LinkedList<>();
+        called.add(this);
+        return pathTo(passed,target,called);
     }
 
     /*
      * 递归算法实现找路径过程。
      */
-    private boolean pathTo(Field passed,Position target){
+    private boolean pathTo(Field passed, Position target, List<Living> called){
         if(position.equals(target))//基本情况，已经移动到位
             return true;
         Direction direction=new Direction(position,target);
@@ -89,12 +95,12 @@ public class Living {
         passed.addLiving(flag);
         if(!field.inside(toMove));
         else if(field.livingAt(toMove)==null){
-            move(direction.dx(),direction.dy());
-            return pathTo(passed,target);
+            assert move(direction.dx(),direction.dy());
+            return pathTo(passed,target,called);
         }
         else if(field.livingAt(toMove).isMovable()){
-            swapWith(field.livingAt(toMove));
-            return pathTo(passed,target);
+            assert swapWith(field.livingAt(toMove));
+            return pathTo(passed,target,called);
         }
 
         //阻挡的东西不能移动，只能绕开。遍历周围的8个方向，
@@ -107,21 +113,35 @@ public class Living {
                 continue;
             }
             if(field.livingAt(toMove)==null){
-                move(direction.dx(),direction.dy());
-                if( pathTo(passed,target))
+                assert move(direction.dx(),direction.dy());
+                if( pathTo(passed,target,called))
                     return true;
             }
             else if(field.livingAt(toMove).isMovable()) {
-                swapWith(field.livingAt(toMove));
-                if (pathTo(passed, target))
+                assert swapWith(field.livingAt(toMove));
+                if (pathTo(passed, target,called))
                     return true;
+            }
+            else if(getClass()==field.livingAt(toMove).getClass()){
+                //两个属于同一类，也就可以交换
+                Living an=field.livingAt(toMove);
+                if(exchangeable() && called.indexOf(an)==-1) {
+                    //防止递归
+                    called.add(an);
+                    field.livingAt(toMove).pathTo(passed,target,called);
+                    assert move(direction.dx(), direction.dy());
+                    return true;
+                }
             }
         }
         return false;
-
     }
 
     public String toString(){
-        return "";
+        return "L";
+    }
+
+    public boolean exchangeable(){
+        return false;
     }
 }

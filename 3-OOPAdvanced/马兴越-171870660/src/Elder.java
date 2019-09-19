@@ -15,7 +15,12 @@ public class Elder extends Living{
         calabashes=new Calabash[7];
         Random random=new Random();
         for(int i=0;i<7;i++){
-            Position position=field_.randomPosition();
+            Position position;
+            if(i!=0)
+                position=field_.randomPosition();
+            else
+                position=new Position(5,1);
+//            Position position=field_.randomPosition();
             Calabash cal=new Calabash(position,field_,i+1);
             calabashes[i]=cal;
             field_.addLiving(cal);
@@ -38,7 +43,7 @@ public class Elder extends Living{
         for(int i=1;i<7;i++){
             pos.setPos(pos.getX(),pos.getY()+1);
             calabashes[i].walkTowards(pos);
-            assert calabashes[i].getPosition().equals(pos);
+//            assert calabashes[i].getPosition().equals(pos);
             calabashes[i].setMovable(false);
         }
     }

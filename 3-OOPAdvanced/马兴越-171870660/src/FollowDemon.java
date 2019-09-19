@@ -12,4 +12,9 @@ public class FollowDemon extends Living {
     public String toString(){
         return "("+order+")";
     }
+
+    @Override
+    public boolean exchangeable(){
+        return true;
+    }
 }
