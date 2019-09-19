@@ -144,12 +144,25 @@ public class Controller {
                             Huluwa currentHuluwa = battle.huluwaTeam.getTheSpecificHuluwa(huluSortNum);
                             int destX = 0;
                             int destY = currentHuluwa.getRank() - 1 + 3;
-                            path = currentHuluwa.moveFromTo(battle.battleField, destX, destY);
+                            while(true) {
+                                if (currentHuluwa.getCoordinateX()==destX&&currentHuluwa.getCoordinateY()==destY){
+                                    huluSortNum+=1;
+                                    currentHuluwa = battle.huluwaTeam.getTheSpecificHuluwa(huluSortNum);
+                                    destX=0;
+                                    destY=currentHuluwa.getRank() - 1 + 3;
+                                }
+                                else{
+                                    break;
+                                }
+                            }
+                            if (huluSortNum<7)
+                                path = currentHuluwa.moveFromTo(battle.battleField, destX, destY);
                         }
                     }
                 }
                 else{
                     currentHuluwaSortDone=true;
+                    timelineHuluSort.stop();
                 }
             }
         });
