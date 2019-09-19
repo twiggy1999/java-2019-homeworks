@@ -8,9 +8,11 @@ public class Main {
         Elder elder=new Elder(new Position(0,0),field);
         field.draw();
         elder.standAsSnake();
+        System.out.println("葫芦娃排队后");
         field.draw();
         SnakeDemon snakeDemon=new SnakeDemon(new Position(Field.N-1,0),
                 field,8);
+        System.out.println("加入妖精后");
         field.draw();
         try {
             snakeDemon.standAsSwing();
@@ -19,6 +21,9 @@ public class Main {
             field.draw();
             return;
         }
+        System.out.println("排布鹤翼阵型后");
+        field.addLiving(elder,field.randomPosition());
+        field.addLiving(snakeDemon,field.randomPosition());
         field.draw();
         try {
             snakeDemon.standAsArrow();
@@ -27,6 +32,7 @@ public class Main {
             field.draw();
             return;
         }
+        System.out.println("排布锋矢阵型后");
         field.draw();
     }
 }

@@ -37,7 +37,7 @@ public class Field {
         return true;
     }
 
-    private boolean addLiving(Living living,Position pos){
+    public boolean addLiving(Living living,Position pos){
         return addLiving(living,pos.getX(),pos.getY());
     }
 

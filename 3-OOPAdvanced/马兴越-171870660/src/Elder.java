@@ -2,7 +2,6 @@
  * 老人家类。负责“指挥”葫芦娃，维护葫芦娃列表。
  */
 
-import java.util.Random;
 public class Elder extends Living{
     private Calabash[] calabashes;
 
@@ -13,14 +12,13 @@ public class Elder extends Living{
     public Elder(Position pos, Field field_) {
         super(pos, field_);
         calabashes=new Calabash[7];
-        Random random=new Random();
         for(int i=0;i<7;i++){
-            Position position;
-            if(i!=0)
-                position=field_.randomPosition();
-            else
-                position=new Position(5,1);
-//            Position position=field_.randomPosition();
+//            Position position;
+//            if(i!=0)
+//                position=field_.randomPosition();
+//            else
+//                position=new Position(5,1);
+            Position position=field_.randomPosition();
             Calabash cal=new Calabash(position,field_,i+1);
             calabashes[i]=cal;
             field_.addLiving(cal);

@@ -83,12 +83,10 @@ public class ScorpionDemon extends Living {
      */
     private boolean findPlaceForSwing(){
         Field passed=new Field();
-        boolean flag= findPlaceForSwing(passed);
-        if(!flag){
-            System.out.println("passed count");
-            passed.draw();
-        }
-        return flag;
+//        boolean flag= findPlaceForSwing(passed);
+//        passed.draw();
+//        return flag;
+        return findPlaceForSwing(passed);
     }
 
     /*
@@ -97,13 +95,17 @@ public class ScorpionDemon extends Living {
     private boolean findPlaceForSwing(Field passed){
         if(readyForSwing())
             return true;
-        passed.addLiving(new Living(position.copy(),passed));
+        passed.addLiving(new PassedFlag(position.copy(),passed));
         Direction dir=new Direction(Direction.S);
         Position p;
         for(int i=0;i<8;i++){
             p=position.adjacentPosition(dir);
             if(field.inside(p) && passed.livingAt(p)==null && moveOrSwap(dir.dx(),dir.dy()))
-                return findPlaceForSwing(passed);
+                if(findPlaceForSwing(passed))
+                    return true;
+                else
+                    //移动失败，先退回来
+                    moveOrSwap(-dir.dx(),-dir.dy());
             dir.next();
         }
         return false;
@@ -197,7 +199,11 @@ public class ScorpionDemon extends Living {
         for(int i=0;i<8;i++){
             p=position.adjacentPosition(dir);
             if(field.inside(p) && passed.livingAt(p)==null && moveOrSwap(dir.dx(),dir.dy()))
-                return findPlaceForArrow(passed);
+                if (findPlaceForArrow(passed))
+                    return true;
+                else
+                    //移动失败，先退回来
+                    moveOrSwap(-dir.dx(),-dir.dy());
             dir.next();
         }
         return false;
