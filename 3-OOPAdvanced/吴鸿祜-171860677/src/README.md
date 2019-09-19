@@ -1,4 +1,4 @@
-﻿#作业：面向葫芦娃编程
+#作业：面向葫芦娃编程
 ##面向对象的设计思路：
 
 ##1.设计的package以及其中的类如下：
@@ -71,15 +71,15 @@ addOrganism(添加某个生物到某个位置)时，可以传入各个子类的�
 ##3.图片
 
 **UML图：**
-![UML](https://github.com/tigerwhhl/java-2019-homeworks/blob/master/3-OOPAdvanced/%E5%90%B4%E9%B8%BF%E7%A5%9C-171860677/img/3.png)
+![UML](https://github.com/tigerwhhl/java-2019-homeworks/blob/master/3-OOPAdvanced/%E5%90%B4%E9%B8%BF%E7%A5%9C-171860677/img/uml.png)
 
 
 **运行截图：**
 
-
+![对峙](https://github.com/tigerwhhl/java-2019-homeworks/blob/master/3-OOPAdvanced/%E5%90%B4%E9%B8%BF%E7%A5%9C-171860677/img/1.png)
 
 
 **变阵**
 
 
-
+![变阵](https://github.com/tigerwhhl/java-2019-homeworks/blob/master/3-OOPAdvanced/%E5%90%B4%E9%B8%BF%E7%A5%9C-171860677/img/3.png)
