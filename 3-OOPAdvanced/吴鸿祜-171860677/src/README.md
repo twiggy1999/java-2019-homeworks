@@ -71,16 +71,15 @@ addOrganism(添加某个生物到某个位置)时，可以传入各个子类的�
 ##3.图片
 
 **UML图：**
-<img width="200"  src="img/uml.png"/>
+![UML](https://github.com/tigerwhhl/java-2019-homeworks/tree/master/3-OOPAdvanced/吴鸿祜-171860677/img/uml.png)
 
 
 **运行截图：**
 
-<img width="400"  src="img/1.png"/>
+
 
 
 **变阵**
 
-<img width="400"  src="img/3.png"/>
 
 
