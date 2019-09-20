@@ -2,7 +2,6 @@
  * 所有生物体的公共基类。
  */
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -43,7 +42,7 @@ public class Living {
         return field.moveLiving(this,dx,dy);
     }
 
-    /*
+    /**
      * 与another交换位置。要求二者必须是相邻的。
      * 相邻的检查交给Field完成。
      * 如果不相邻，返回false。
@@ -55,7 +54,7 @@ public class Living {
         return field.swapLiving(this,another);
     }
 
-    /*
+    /**
      * 移动到pos所示位置，如果指定位置不相邻，或者该位置的对象不可移动，则返回false。
      */
     public boolean moveOrSwap(int dx,int dy){
@@ -68,7 +67,7 @@ public class Living {
         return false;
     }
 
-    /*
+    /**
      * 从当前位置取捷径走到position确定的位置。
      * 若有阻挡，对于movable的，直接和他交换；否则找一个方向绕开。
      * 如果找不到路径，返回false.
@@ -86,7 +85,7 @@ public class Living {
         return pathTo(passed,target,called);
     }
 
-    /*
+    /**
      * 递归算法实现找路径过程。
      */
     private boolean pathTo(Field passed, Position target, List<Living> called){
@@ -97,50 +96,6 @@ public class Living {
         //首先将当前位置标记为走过
         Living flag=new PassedFlag(position,passed);
         passed.addLiving(flag);
-//        if(!field.inside(toMove));
-//        else if(field.livingAt(toMove)==null){
-//            assert move(direction.dx(),direction.dy());
-//            return pathTo(passed,target,called);
-//        }
-//        else if(field.livingAt(toMove).isMovable()){
-//            assert swapWith(field.livingAt(toMove));
-//            return pathTo(passed,target,called);
-//        }
-//
-//        //阻挡的东西不能移动，只能绕开。遍历周围的8个方向，
-//        //邻接方向一共可以改变7次。
-//        for(int i=0;i<7;i++){
-//            direction.next();
-//            toMove=position.adjacentPosition(direction);
-//            if(!field.inside(toMove) || passed.livingAt(toMove)!=null){
-//                continue;
-//            }
-//            if(field.livingAt(toMove)==null){
-//                assert move(direction.dx(),direction.dy());
-//                if(pathTo(passed,target,called))
-//                    return true;
-//                else
-//                    move(-direction.dx(),-direction.dy());
-//            }
-//            else if(field.livingAt(toMove).isMovable()) {
-//                assert swapWith(field.livingAt(toMove));
-//                if (pathTo(passed, target,called))
-//                    return true;
-//                else
-//                    move(-direction.dx(),-direction.dy());
-//            }
-//            else if(getClass()==field.livingAt(toMove).getClass()){
-//                //两个属于同一类，也就可以交换
-//                Living an=field.livingAt(toMove);
-//                if(exchangeable() && called.indexOf(an)==-1) {
-//                    //防止递归
-//                    called.add(an);
-//                    field.livingAt(toMove).pathTo(passed,target,called);
-//                    assert move(direction.dx(), direction.dy());
-//                    return true;
-//                }
-//            }
-//        }
         for(int i=0;i<8;i++){
             toMove=position.adjacentPosition(direction);
             if(!field.Unreachable(toMove) && passed.livingAt(toMove)==null ){

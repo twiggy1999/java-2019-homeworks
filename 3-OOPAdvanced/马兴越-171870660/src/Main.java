@@ -22,8 +22,8 @@ public class Main {
             return;
         }
         System.out.println("排布鹤翼阵型后");
-        field.addLiving(elder,field.randomPosition());
-        field.addLiving(snakeDemon,field.randomPosition());
+        field.addLiving(elder,field.leftRandomPosition());
+        field.addLiving(snakeDemon,field.rightRandomPosition());
         field.draw();
         try {
             snakeDemon.standAsArrow();

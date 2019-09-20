@@ -18,7 +18,7 @@ public class Elder extends Living{
 //                position=field_.randomPosition();
 //            else
 //                position=new Position(5,1);
-            Position position=field_.randomPosition();
+            Position position=field_.leftRandomPosition();
             Calabash cal=new Calabash(position,field_,i+1);
             calabashes[i]=cal;
             field_.addLiving(cal);

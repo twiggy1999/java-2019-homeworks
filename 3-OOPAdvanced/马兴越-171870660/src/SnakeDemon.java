@@ -2,17 +2,14 @@
  * 蛇精。总指挥。
  */
 
-import java.lang.reflect.Method;
-import java.util.concurrent.Callable;
-
 public class SnakeDemon extends Living {
     private ScorpionDemon scorpionDemon;
 
     public SnakeDemon(Position pos, Field field_, int followCount_) {
         super(pos, field_);
-        scorpionDemon=new ScorpionDemon(field_.randomPosition(),field_,followCount_);
+        scorpionDemon=new ScorpionDemon(field_.rightRandomPosition(),field_,followCount_);
 //        scorpionDemon=new ScorpionDemon(new Position(9,0),field_,followCount_);
-        assert field_.addLiving(scorpionDemon);
+        field_.addLiving(scorpionDemon,field_.rightRandomPosition());
     }
 
     public void standAsSwing(){

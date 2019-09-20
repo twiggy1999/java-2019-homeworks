@@ -157,7 +157,7 @@ public class ScorpionDemon extends Living {
 
     }
 
-    public boolean readyForArrow(){
+    private boolean readyForArrow(){
         int swingCount=followCount/2;
         if(swingCount%2==1)swingCount++;
         int mainCount=followCount-swingCount;
@@ -185,7 +185,7 @@ public class ScorpionDemon extends Living {
         return true;
     }
 
-    public boolean findPlaceForArrow(){
+    private boolean findPlaceForArrow(){
         Field passed=new Field();
         return findPlaceForArrow(passed);
     }

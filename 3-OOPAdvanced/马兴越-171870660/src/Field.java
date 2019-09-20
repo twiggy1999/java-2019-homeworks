@@ -132,6 +132,28 @@ public class Field {
         return position;
     }
 
+    public Position leftRandomPosition(){
+        Random random=new Random();
+        Position position=new Position(random.nextInt(Field.N/2),
+                random.nextInt(Field.N));
+        while (livingAt(position)!=null) {
+            position.setPos(random.nextInt(Field.N/2),
+                    random.nextInt(Field.N));
+        }
+        return position;
+    }
+
+    public Position rightRandomPosition(){
+        Random random=new Random();
+        Position position=new Position(random.nextInt(Field.N/2)+N/2,
+                random.nextInt(Field.N));
+        while (livingAt(position)!=null) {
+            position.setPos(random.nextInt(Field.N/2)+N/2,
+                    random.nextInt(Field.N));
+        }
+        return position;
+    }
+
     /*
      * 返回p指定的位置能否到达。
      * 不能到达是当且仅当该位置不在范围内，或者存在不可移动的对象。
