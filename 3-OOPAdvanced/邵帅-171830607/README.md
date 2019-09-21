@@ -12,4 +12,4 @@
 类图：
 一开始用flag变量想表示此生物是否真实存在，但后来在实际实现中发现可以省去。但可能会在以后的设计中使用到。因为在使用生物类数组时，数组元素很可能表示的不是生物而是一个空位。
 
-![](https://github.com/ss881/picture/blob/master/Organism.png?raw=true)
+![](https://github.com/ss881/picture/blob/master/Organism.png)
