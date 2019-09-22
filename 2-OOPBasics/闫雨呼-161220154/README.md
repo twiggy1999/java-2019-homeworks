@@ -17,17 +17,17 @@
 1. rank：指定不同葫芦娃的次序，这个次序是排序的依据。大娃为0，二娃为1，以此类推。
 
 2. names：葫芦娃名字集合，为**static**成员变量，每个对象均可访问。
-
+   
    `private static String[] names={"老大","老二","老三","老四","老五","老六","老七"};`
 
 3. colors：葫芦娃颜色集合，为**static**成员变量，每个对象均可访问。
-
+   
    `private static String[] colors={"红色","橙色","黄色","绿色","青色","蓝色","紫色"};`
 
 ### 成员函数（Method）
 
 1. count( countKind kind )：报数是葫芦娃的行为，因此将其作为HuLuWa类中的方法。两次报数需要根据不同的类型，因此需要传入参数加以区分，countKind为枚举类型，声明如下：
-
+   
    `enum countKind {NAME, COLOR}`
 
 2. getRank( )：获取葫芦娃次序，用作排序依据
@@ -53,7 +53,7 @@
 1. HuluwaQueue( int number )：构造函数，用来初始化葫芦娃队列以及葫芦娃
 
 2. swap( )：交换两个葫芦娃的位置，并且在屏幕上进行相应输出
-
+   
    ```java
    private void swap(int p1,int p2){
            huLuWaBrothers[p2].runToTempPosition();
@@ -84,4 +84,3 @@
 1. God( )：构造函数，初始化葫芦娃队列
 
 2. run( )：执行排序，报数等命令
-
