@@ -3,7 +3,6 @@
 ### 学号：171860622
 ### QQ: 530787266
 ### 邮箱：530787266@qq.com
-![ff](https://github.com/BryanWuxiaoyang/learngit/blob/master/diagram1.png)
 # 一、概述
 &ensp; 该文档涉及两个方面的内容：**本程序游戏设计框架**、**本次作业所涉及的部分的代码分析**。前者会放在最后的part进行介绍，而后者会基于前者已经存在的一些功能进行设计，若遇到重要算法部分，会进行相关引用。
 
@@ -40,6 +39,33 @@ public static void main(String[] args)throws Exception{
     }
 ```
 ## 类继承结构
+### 物件接口继承结构
+所有可操作物件，包括人物都是`Item`，而人物的基础接口`Figure`也是基础自`Item`
+
+![1](https://github.com/BryanWuxiaoyang/learngit/blob/master/diagram2.png)
+
+`Item`与`Displayable`接口结合，生成一个可显示的物件的接口`DisplayableItem`。所有控制台所操作的item都实现了此接口
+
+### 显示接口继承结构
+`Displayable`接口有三种实现方式，分别是`Drawable`,`Imagable`,`Componented`,小物件一般使用`Drawable`或`Imagable`接口，人物一般使用`Componented`接口。
+![1](https://github.com/BryanWuxiaoyang/learngit/blob/master/diagram1.png)
+
+### 功能接口库结构
+item的每一个可用功能一般都会通过一个接口实现，并通过 **事件处理器** 在控制台被处理。
+![1](https://github.com/BryanWuxiaoyang/learngit/blob/master/diagram3.png)
+这些功能性接口一般是相互独立的，因此可以根据item的需要进行继承实现，例如子弹就实现Interactable，从而与人物交互，而人物则实现Lifable接口，从而可以实现生命值功能。
+
+### 基本人物实现的继承结构
+![1](https://github.com/BryanWuxiaoyang/learngit/blob/master/diagram4.png)
+可以看到，一个人物由多个互相不耦合的接口组成，而实际的人物则是由一个已构建好的基础人物`FinishedFigure`组成。
+
+### 基本物件实现的继承结构
+![1](https://github.com/BryanWuxiaoyang/learngit/blob/master/diagram5.png)
+与人物相似，只是基础构建物件`FinishedItem`具有不同的接口`Emission`,`Interactable`等。也就是说 人物（如葫芦娃）和物件（如子弹）等只是接口不同罢了。
+
+### 阵型继承结构
+阵型接口采用策略模式，目前实现了 **蛇形**、**雁阵**、**鹤翼** 三种阵型：
+![1](https://github.com/BryanWuxiaoyang/learngit/blob/master/diagram6.png)
 
 ## 采用的设计模式
 ### 策略模式
@@ -90,6 +116,20 @@ public static GooseFormation getInstance(){
 ### 代理模式
 控制台具有两种类型的代理，一种是`UnmodifiableConsole`,这使得`console`的一些添加删除操作被Disable，在向 **事件处理器** 传递`console`参数时，需要设置此代理，以防止控制台被不当修改。另一种是`SynchronizedConsole`，这使得控制台得以实现线程同步，这在多线程访问时十分重要。
 
+### 模板方法模式
+`FinishedFigure`实现了一个`DisplayableFigure`,`Movable`, `Componented`,`Lifable`,`Emittable`的人物，而将少数一些具体方法,如`emit()`留给继承者实现，从而实现模板方法。
+
+## 程序运行结果
+### 初始状态
+![初始状态](https://github.com/BryanWuxiaoyang/learngit/blob/master/result1.png)
+### 葫芦娃蛇形排队
+![排队](https://github.com/BryanWuxiaoyang/learngit/blob/master/result2.png)
+### 添加爷爷和蛇精
+![爷爷和蛇精](https://github.com/BryanWuxiaoyang/learngit/blob/master/result3.png)
+### 妖精雁阵排队
+![妖精排队1](https://github.com/BryanWuxiaoyang/learngit/blob/master/result4.png)
+### 妖精鹤翼排队
+![妖精排队2](https://github.com/BryanWuxiaoyang/learngit/blob/master/result5.png)
 
 &ensp;
 # 三、游戏设计框架
