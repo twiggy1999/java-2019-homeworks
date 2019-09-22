@@ -69,3 +69,6 @@ public Living livingAt(Position pos){
 field.livingAt(p)==null || field.livingAt(p).getPosition()==p
 ```
 
+## `UML`类图
+使用`PlantUML`给出类图。在类图中，使用没有附加符号的虚线来表达`关联`关系，即有互发消息的类。即使一个类中存在另一个类的引用，但若它们之间不存在`组合` `聚合` 关系，仍然认为是`关联`关系。例如`SnakeDemon`和`ScorpionDemon`。
+![类图](uml.png)
