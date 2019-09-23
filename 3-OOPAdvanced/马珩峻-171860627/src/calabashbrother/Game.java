@@ -110,7 +110,9 @@ public class Game {
   void testCase() {
     show();
     grandfather.orderFormation(Formation.CS, calabashBrother);
-    snake.orderFormation(Formation.YY, enemies);
+    snake.orderFormation(Formation.HE, enemies);
+    run();
+    snake.orderFormation(Formation.YL, enemies);
     run();
   }
 
