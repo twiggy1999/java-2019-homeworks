@@ -12,5 +12,5 @@
 3. 好处：使用抽象和封装，定义类对应问题涉及的对象，问题分析和解决更加简单；
         继承和组合反映现实世界中事物间的关系，更贴近实际，而且实现了代码的复用；
 
-![类图](https://github.com/NJULY/myCode/blob/master/umlPicture.png)
+![类图](https://github.com/NJULY/myCode/blob/master/umlGraph.png)
 
