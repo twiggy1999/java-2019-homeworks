@@ -40,17 +40,17 @@
   与楼上的creaturemap具有相对应的存储的内容，主要用于在地图上进行路径的寻找。  
 ### 方法  
 （1）getNewAddress(int left, int righ, int up, int down)  
-  获取一个范围，在检查给定范围中是否还有空闲的空间，如果有则在其中随机选取一个空闲位置作为结果返回。*（不会修改地图的属性）*  
+  获取一个范围，在检查给定范围中是否还有空闲的空间，如果有则在其中随机选取一个空闲位置作为结果返回。（不会修改地图的属性）  
 （2）checkAddressEmpty(int x, int y)  
   检查给定位置的空间是否是空闲的。  
 （3）addCreation( Creature creature)  
-  向地图中添加一个生物，即修改creaturemap和pathmap两个地图。*（地图中的一切方法都不会有对生物对象的修改）*  
+  向地图中添加一个生物，即修改creaturemap和pathmap两个地图。（地图中的一切方法都不会有对生物对象的修改）  
 （4）deleteCreation(Creature creature)  
   从地图中删除一个生物，修改creaturemap和pathmap两个地图。  
 （5）changeAddress(Creature creature, int x, int y )  
   修改地图上记录生物的引用的位置。  
 （6）searchPath(Creature creature, int targetx, int targety)  
-  在地图上寻找一条路径*（使用广度优先遍历）*，如果成功找到路径，则会记录路径上经过的每一步的顶点*（每步只修改x或y轴坐标之一，且数据值只修改1）*。  
+  在地图上寻找一条路径（使用广度优先遍历），如果成功找到路径，则会记录路径上经过的每一步的顶点（每步只修改x或y轴坐标之一，且数据值只修改1）。  
 （7）showMap()  
   打印地图上所有生物的布局。  
 ## 三、Grandpa老爷爷类  
