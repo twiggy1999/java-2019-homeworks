@@ -30,3 +30,5 @@
 >阵型的排布，反映在队伍成员的position中。战场类通过这些pisition获取所有人的位置信息，
 >可以自己选择作图的方式。目前还是用非GUI的方式体现，以后引入GUI的话，也只要修改战场类的代码，
 >而队伍类、老爷爷、蝎子精都不用改变。
+
+![UML](https://github.com/mqchenliang/java-2019-homeworks/blob/master/3-OOPAdvanced/%E9%99%88%E5%96%84%E6%A2%81-171860525/Uml.png)
