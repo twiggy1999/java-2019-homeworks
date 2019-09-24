@@ -44,7 +44,7 @@
 （2）checkAddressEmpty(int x, int y)  
   检查给定位置的空间是否是空闲的。  
 （3）addCreation( Creature creature)  
-  向地图中添加一个生物，即修改creaturemap和pathmap两个地图。*（地图中的一切方法都不会有对生物对象的修改）  
+  向地图中添加一个生物，即修改creaturemap和pathmap两个地图。*（地图中的一切方法都不会有对生物对象的修改）*  
 （4）deleteCreation(Creature creature)  
   从地图中删除一个生物，修改creaturemap和pathmap两个地图。  
 （5）changeAddress(Creature creature, int x, int y )  
@@ -63,7 +63,7 @@ setGourdsLongSnake(int x, int y)
 ## 四、Scorpion蝎子精类  
 ### 属性  
 （1）int louluonum  
-  记录小喽啰的数量。 
+  记录小喽啰的数量。  
 （2）Creature[] louluo  
   同样蝎子精需要能指挥所有的小喽啰，所以需要一个记录喽啰的引用数组。  
 ### 方法   
