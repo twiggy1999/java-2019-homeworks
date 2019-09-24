@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Console",
+            "request": "launch",
+            "mainClass": "Console"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - tutorial",
+            "request": "launch",
+            "mainClass": "tutorial"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - God",
+            "request": "launch",
+            "mainClass": "God"
+        }
+    ]
+}
