@@ -50,7 +50,7 @@ Exception in thread "main" java.lang.NullPointerException
 >
 >但考虑到每一格地砖也可能有自己的属性（比如地板会喷火，有坑），后期可能重新构造这个类。
 
-##关键方法
+## 关键方法
 
 ### BattleMap.init()
 功能：初始化地图，让爷爷，蛇精站在两边加油助威，让葫芦娃按顺序站成长蛇阵。
