@@ -50,6 +50,24 @@ Exception in thread "main" java.lang.NullPointerException
 >
 >但考虑到每一格地砖也可能有自己的属性（比如地板会喷火，有坑），后期可能重新构造这个类。
 
+##关键方法
+
+### BattleMap.init()
+功能：初始化地图，让爷爷，蛇精站在两边加油助威，让葫芦娃按顺序站成长蛇阵。
+
+### createMonsters(int)
+功能：选择小喽啰数量
+
+### 其他
+        map.crescentMoon();//偃月
+        map.printMap();//打印地图
+        map.craneWing();//鹤翼
+        map.wildGoose();//雁行   
+        map.chongE();//冲轭
+        map.fishScale();//鱼鳞 
+        map.HouEn();//方円
+        map.sharpArrow();//锋矢
+
   ![exp](exp.png)
 
   >如图，左侧蓝色★表示爷爷，接着7色的圆点表示葫芦娃，紫色三角是蝎子精，黑色圆点是小喽啰，最右侧的★是蛇精。
