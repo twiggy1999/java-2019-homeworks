@@ -2,12 +2,12 @@
 ## 设计思路
 一. 对象
 >1. Creature生物类，有表示位置的Position域。
->2. Huluwa葫芦娃类，继承自生物类，有名字、颜色、等级rank和再葫芦娃数组中的下标index。
+>2. Huluwa葫芦娃类，继承自生物类，有名字、颜色、等级rank和在葫芦娃数组中的下标index。
 >为了更好地进行模拟，葫芦娃有lookBack方法，观察自己的后一个葫芦娃是谁
 >，并且能够用compareTo方法比较两者的先后，用swapWithHuluwa进行交换位置，
 >3. GrandPa老爷爷类，继承自生物类，有initialize方法，初始化7个葫芦娃，
 >并且调用shuffle方法打乱他们的顺序。sortHuluwa函数用于对葫芦娃冒泡排序。
->4. Evial妖精类，继承自生物类，
+>4. Evial妖精类，继承自生物类。
 >5. Scorpion蝎子精类，有initialize方法，初始化20个妖精，并且调用一个changToXXX函数
 >改变阵型。有七个changeToXXX方法，改变阵型。
 >6. Snake蛇精类，继承自妖精类。
