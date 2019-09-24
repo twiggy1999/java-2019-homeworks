@@ -1,8 +1,8 @@
 #####葫芦娃类CalabashBoy
-![CalabashBoy]("\image\CalabashBoy.png")
+![CalabashBoy]("2-OOPBasics/郭天财-161180041/image/CalabashBoy.png")
 
 #####地砖类Tile
-![Tile]("/image/Tile.png")
+![Tile]("2-OOPBasics/郭天财-161180041/image/Tile.png")
 然后构造两个枚举：Color和Order，且我们可以根据每个葫芦娃对象的color或order属性来获得其在枚举中的index，而这个index用来表明其在七兄弟中的出生次序。
 
 运用这个可得到的次序，我们可以对随机站列的七兄弟进行排序：
