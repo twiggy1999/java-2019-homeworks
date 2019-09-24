@@ -1,10 +1,12 @@
-##所有的类：
+## 所有的类：
+
 
 ![关系](https://github.com/HIKARI513/java-2019-homeworks/blob/master/2-OOPBasics/%E9%83%AD%E5%A4%A9%E8%B4%A2-161180041/image/relation.png)
 
-##主方法：
+## 主方法：
 
 ![Main](https://github.com/HIKARI513/java-2019-homeworks/blob/master/2-OOPBasics/%E9%83%AD%E5%A4%A9%E8%B4%A2-161180041/image/Main.png)
+
 
 运用这个可得到的次序，我们可以对随机站列的七兄弟进行排序：
 
