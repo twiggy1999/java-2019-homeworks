@@ -9,8 +9,8 @@
 ![CalabashBoy](https://github.com/HIKARI513/java-2019-homeworks/blob/master/2-OOPBasics/%E9%83%AD%E5%A4%A9%E8%B4%A2-161180041/image/CalabashBoy.png)
 
 成员/方法|解释
-Color|~
 --|--
+Color|自己的颜色属性
 Rank|排行
 pX|在Ground中处于的Tile的位置，如pX=0，则处于第一块tile
 randomStand()|随机选取一个没有被占用的位置站好
