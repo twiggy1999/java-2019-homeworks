@@ -15,7 +15,7 @@
 >对葫芦娃排序。
 >8. BadTeam邪恶阵营，有蝎子精、蛇精、妖怪数组。有changeToXXX函数让蝎子精指挥变阵。
 >9. Tile地砖类，有字符ch1和ch2。因为再阵型变幻过程中，可能出现一个地砖有两个生物，
->还要有count记录数量。为了表示地砖上的生物改变，更好地体现在输出，还增加了一个boolean值changed。
+>还要有count记录数量。为了表示地砖上的生物改变，更好地体现在输出（绿色显示刚刚发生位置改变的生物），还增加了一个boolean值changed。
 >10. BattleField战场类。有一个地砖二维数组map，表示战场。setGoodTeam和setBadTeam分别
 >将两个阵营放置到战场上。placeEvial和RemoveEvial函数用于辅助上面两个setXXXTeam函数。
 >draw()函数用于打印战场，在阵型变幻过程中，每个生物的移动都要draw()一次，体现过程。
