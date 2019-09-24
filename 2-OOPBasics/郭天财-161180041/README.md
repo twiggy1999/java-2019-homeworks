@@ -1,5 +1,5 @@
 #####葫芦娃类CalabashBoy
-![CalabashBoy]("/image/CalabashBoy.png")
+![CalabashBoy]("\image\CalabashBoy.png")
 
 #####地砖类Tile
 ![Tile]("/image/Tile.png")
