@@ -12,3 +12,4 @@
     2. Binary Sort：
         根据葫芦娃对象的出生次序（即Color枚举中的index）对位排序的比较对象，就能对七兄弟重新排序
     
+!(http://www.plantuml.com/plantuml/png/SoWkIImgAStDuKhEIImkLd1Ep4bCIYpESCglLAZcqWqkAShCIrTmpi_9B-9IpimhKGXApCjMuAe3CGiYk1Jgol8pKnIAonCBmZDBClnIAqeqDBaKjC6YHObvAVcvmIL02YXOo-MGcfS2j0a0)
