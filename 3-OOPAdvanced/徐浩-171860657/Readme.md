@@ -57,8 +57,8 @@ class Spot
     ```
     `class Grandpa`与`class SerpentDemon`继承`class Leader`，分别用于描述爷爷与蛇精
 
-###设计思想
+### 设计思想
 通过初始化蛇精/葫芦兄弟等角色的位置，将他们的位置信息传入主地图中，完成对现实角色的映射。
 
-###关系图
-![avatar](D:/NJU/3/Java/workspace/ver1/ver1uml.png)
+### 关系图
+![Aaron Swartz](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/ver1uml.png)
