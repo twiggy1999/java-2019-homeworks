@@ -1,13 +1,13 @@
 ## 作业3：面向葫芦娃编程
 
 ### 设计思想
----
 使用`class Creature`作为所有角色的父类。葫芦兄弟`class CalabashBrothers`，小喽啰`class BadGuys`，爷爷`class Grandpa`，蛇精`class SerpentDemon`都是其子类。
 使用`class Map`来描述角色所在的地图。当地图某处需要出现某角色时，对应的地图点直接生成对应类型的对象。
 使用`class Formations`来描述角色的站队队形。将需要排兵布阵的角色数组传入该类方法中，根据所选择的队形在地图上相应位置生成对应角色。并且可以根据角色个数来设置队形。
 
-### 主要的类
 ---
+
+### 主要的类
 + **角色类**
 
 ***`class CalabashBrother`*** 描述单个葫芦兄弟
@@ -44,6 +44,7 @@ public class CalabashBrothers
 }
 ```
 使用**数字**来表示葫芦兄弟。
+
 ***`class BadGuy`*** 用于描述单个小喽啰
 ```
 class BadGuy extends Creature
@@ -74,6 +75,7 @@ public class BadGuys
 }
 ```
 使用“**x**”来表示小喽啰们。
+
 ***`class Grandpa`*** 
 ```
 public class Grandpa extends Creature
@@ -142,6 +144,9 @@ public class Formations
     public static void inFengShi(Creature[] obj,int n, int centerX,int centerY,boolean camp)
 }
 ```
+
+---
+
 ### 运行结果
 ---
 ![2](D:/NJU/3/Java/workspace/1.jpg)
@@ -153,5 +158,5 @@ public class Formations
 ![2](D:/NJU/3/Java/workspace/1.jpg)
 ![2](D:/NJU/3/Java/workspace/1.jpg)
 
-###关系图
+### 关系图
 ![avatar](http://www.plantuml.com/plantuml/png/hLL1Rziy3BtxLn3uBWvI5nzsJGTqpTRsiFMIIuEX21HRjJNOb27BtOfj_tsqn3YIq1wwfIW2wV7naNoMvSl12cF7hitALWm3h8qKTZGo-vdjThtHLfPMLhjTzX_GtyOQXJMWwAG7zbgtKY2GYXs762j5rqyYuxvL9Iai3zfv87CMAvo5oOiWXTPFMbKmIFjMcJ2LjlahiJlHHP91QED4yxZ60h8bqslEffG3f-PYCSH2bFexEnWkMh4NGtD5NZVIiE_gILX9da5nTBtKhJOh3rMQN9NGzAl8OKZb8eyYeSN4JlkFiVN4yo3N8_2szuZtnktdPXQlZZNGN4N1SnL5LgI4hmzGxWVY-668ifniLYKej1Gq0YlTVJ16FEU4GAVm3Dn2_F0BfBRIgdbmX4XacYbb13rVYUfcVAPE0I1ercsFZlieS9yk2alEpLznzUq6ik00oO4eE43Jx6loouy-Tl4nuEJS-mA4qCerD7Qk-Yn2c5z7JjnCTlU2QeUoZ8R4ZJIzHFjHTXeJTXWAKxw8FZqC_AGV5OhMTNe7x-7T_wivSdo6r78dUWgZ_7w4xnxeVnMT7YepJSe2pcogYFO5V90EFQY1td_pHufFrdF2LwXOXeRYgQwrwOYXSOXjI0kj6s54QQN9ZpEvWkuiwqgw1RhVKY8HxuFrDhxOqhPkvLObkYm7VwMt5NYli3wbvBhHM7ywhQB0UjF8amu-VbPuIi5hwd4x2ZpnqzcEygHToid9VpX2qHT0uwFHE1LmTmEuUpEwDgFodL38dokgAqmzB9YKl7hNgcwiV_dcL_RYLr7CjrQCHbTK74g_lN6KFmTPmXf0lv3goJx6YNH5U2ghPWwvE3-7L74EiCgyvudcVJJBySfvMJIEpzhPfSHgxDe_)
