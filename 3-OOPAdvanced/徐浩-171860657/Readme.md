@@ -148,6 +148,8 @@ public class Formations
 ---
 
 ### 运行结果
+*其中，G代表爷爷，S代表蛇精，x代表小喽啰，数字代表葫芦娃*
+
 ![鹤翼](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/1.jpg)
 ![雁行](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/2.jpg)
 ![冲轭](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/3.jpg)
