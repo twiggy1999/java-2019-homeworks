@@ -2,11 +2,11 @@
 
 	基类：Creature
 		属性: int row //行
-			 int col //列
-			 int name //生物的名字
+		      int col //列
+		      int name //生物的名字
 	子类：HuLuWa implements Comparable<HuLuWa>
 		属性: int num //排行
-			 int color //颜色
+		      int color //颜色
 	子类: Grandpa
 		方法: SortHuLuWa() //用于产生一个供葫芦娃排序的序列
 	子类: Evil,Shejing
