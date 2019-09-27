@@ -1,64 +1,157 @@
 ## 作业3：面向葫芦娃编程
----
-### 主要的类
-+ **地图类**
-将地图初始化为20*20的矩阵，每一格通过`class Spot`来描述，400个格子构成`class Map`
-`class Map`是现实中葫芦娃/蛇精等角色站位的映射，将现实中的角色映射为`Map`棋盘上的棋子
-```
-class Spot
-{
-    private String name;                //棋子/角色名字
-    private boolean status=false;       //该坐标处是否被占,被占说明此处放置一颗棋子
-    private boolean camp=false;         //站在该坐标处的是葫芦兄弟阵营/蛇精阵营
-    ...                                 //false代表蛇精阵营,true为葫芦兄弟阵营
-}
-```
-+ **角色类**
-  + `class CalabashBrothers`
-    ```
-    public class CalabashBrothers
-    {
-        private CalabashBrother[] bros=new CalabashBrother[7];
-
-        public CalabashBrothers(int centerXPosition,int centerYPosition, Map map)
-        public void setCalabashBrothers(Map map)
-        ...
-    }
-    ```
-    + 以长蛇阵型初始化7个葫芦兄弟
-    + 使用`setCalabashBrothers(Map map)`完成葫芦兄弟与地图的关联
-  + `class BadGuys`
-
-    ```
-    public class BadGuys 
-    {
-        private BadGuy[] badguy = new BadGuy[7];
-
-        public BadGuys(int mode, int n, Position centerPos, Map map) 
-        void init(int mode, int n, Position center, Map map)        
-        //阵型选择mode，阵型核心位置center，所映射的主地图map
-
-        public void setBadguy(Map map)
-        ...
-    }
-    ```
-    + 通过mode选择阵型，进一步对蛇精阵营角色初始站位进行初始化（通过init()对角色站位进行初始化）
-    + 通过`void setBadguy(Map map)`完成蛇精阵营角色与地图的关联
-
-  + `class Leader`&`class Grandpa`&`class SerpentDemon`
-    ```
-    public class Leader
-    {
-        protected String name;      //名字
-        protected boolean camp;     //阵营
-
-        public Leader(String name,boolean camp)
-    }
-    ```
-    `class Grandpa`与`class SerpentDemon`继承`class Leader`，分别用于描述爷爷与蛇精
 
 ### 设计思想
-通过初始化蛇精/葫芦兄弟等角色的位置，将他们的位置信息传入主地图中，完成对现实角色的映射。
+---
+使用`class Creature`作为所有角色的父类。葫芦兄弟`class CalabashBrothers`，小喽啰`class BadGuys`，爷爷`class Grandpa`，蛇精`class SerpentDemon`都是其子类。
+使用`class Map`来描述角色所在的地图。当地图某处需要出现某角色时，对应的地图点直接生成对应类型的对象。
+使用`class Formations`来描述角色的站队队形。将需要排兵布阵的角色数组传入该类方法中，根据所选择的队形在地图上相应位置生成对应角色。并且可以根据角色个数来设置队形。
 
-### 关系图
-![Aaron Swartz](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/ver1uml.png)
+### 主要的类
+---
++ **角色类**
+
+***`class CalabashBrother`*** 描述单个葫芦兄弟
+```
+class CalabashBrother extends Creature
+{
+    private double hp;      //血量
+    private String color;   //葫芦娃对应颜色
+    public CalabashBrother(String name,String color)
+    {
+        super(name,true,true);
+        hp=100;             //初始满血
+        this.color=color;
+    }
+    public void setHp(double hp)
+    public double getHp()
+    @Override
+    public String getName()
+    public String getColor()
+}
+```
+***`class CalabashBrothers`*** 用于管理所有葫芦兄弟
+```
+public class CalabashBrothers
+{
+    private CalabashBrother[] cbs;
+    //得到一个大小为n,值介于(min,max]之间的int型数组，用于初始化葫芦娃的相对次序
+    public static int[] randomArray(int min, int max, int n)
+    //随机初始化葫芦兄弟在数组中的位次
+    public CalabashBrothers()
+
+    //用于参数传递
+    public Creature[] getCalabashBrothers()
+}
+```
+使用**数字**来表示葫芦兄弟。
+***`class BadGuy`*** 用于描述单个小喽啰
+```
+class BadGuy extends Creature
+{
+    private double hp;      //血量
+
+    public BadGuy()
+    {
+        super("x",true,false);
+        this.hp = 100;
+    }
+    public void setHp(double hp)
+    public double getHp()
+    @Override
+    public String getName()
+}
+```
+***`class BadGuys`*** 用于管理所有小喽啰
+```
+public class BadGuys 
+{
+    private BadGuy[] bgs;
+    private int num;                    //小喽啰个数
+
+    public BadGuys(int n)
+    public int getNum()
+    public BadGuy[] getBadGuys()        //用于参数传递
+}
+```
+使用“**x**”来表示小喽啰们。
+***`class Grandpa`*** 
+```
+public class Grandpa extends Creature
+{
+    public Grandpa(){...}
+}
+```
+使用“**G**”来表示爷爷。
+
+***`class SerpentDemon`***
+```
+public class SerpentDemon extends Creature
+{
+    public SerpentDemon(){...}
+}
+
+```
+使用“**S**”来表示蛇精。
+
++ **地图类**
+    + 地图为20*20的静态矩阵，共400格。
+    + 每一格上若存在角色，则直接生成一个对应类型的角色
+```
+public class Map {
+    private static final int N = 20;
+    private static Creature[][] map = new Creature[N][N];
+
+    //构造函数
+    public Map(){...}  
+    
+    //map为用来初始化this.map的地图，(x,y)为初始化的坐标点。
+    //用于设置单个角色
+    public static void setMap(Creature obj, int x, int y) {...}
+
+    //初始化地图
+    public static void initMap(){...}
+
+    //打印地图
+    public static void printMap(){...}
+}
+```
+
++ **阵型类**
+```
+public class Formations
+{
+    //设置角色的队形，通过mode选择阵型
+    //obj为角色数组，mode为阵型选择因子，n为角色的数量，(centerX,centerY)为阵型的中心位置，camp为阵营（true葫芦娃阵营/false蛇精阵营）
+    public static void setCharacter(Creature[] obj,int mode,int n,int centerX,int centerY,boolean camp)
+
+    //mode=1，选择阵型鹤翼
+    public static void inHeYi(Creature[] obj,int n, int centerX,int centerY,boolean camp)
+    //mode=2，选择阵型雁行
+    public static void inYanXing(Creature[] obj,int n, int centerX,int centerY,boolean camp)
+    //mode=3，选择阵型冲轭
+    public static void inChongE(Creature[] obj,int n, int centerX,int centerY,boolean camp)
+    //mode=4，选择阵型长蛇
+    public static void inChangShe(Creature[] obj,int n, int centerX,int centerY,boolean camp)
+    //mode=5，选择阵型鱼鳞
+    public static void inYuLin(Creature[] obj,int n, int centerX,int centerY,boolean camp)
+    //mode=6，选择阵型方圆
+    public static void inFangYuan(Creature[] obj,int n, int centerX,int centerY,boolean camp)
+    //mode=7，选择阵型偃月
+    public static void inYanYue(Creature[] obj,int n, int centerX,int centerY,boolean camp)
+    //mode=8，选择阵型锋失
+    public static void inFengShi(Creature[] obj,int n, int centerX,int centerY,boolean camp)
+}
+```
+### 运行结果
+---
+![2](D:/NJU/3/Java/workspace/1.jpg)
+![2](D:/NJU/3/Java/workspace/1.jpg)
+![2](D:/NJU/3/Java/workspace/1.jpg)
+![2](D:/NJU/3/Java/workspace/1.jpg)
+![2](D:/NJU/3/Java/workspace/1.jpg)
+![2](D:/NJU/3/Java/workspace/1.jpg)
+![2](D:/NJU/3/Java/workspace/1.jpg)
+![2](D:/NJU/3/Java/workspace/1.jpg)
+
+###关系图
+![avatar](http://www.plantuml.com/plantuml/png/hLL1Rziy3BtxLn3uBWvI5nzsJGTqpTRsiFMIIuEX21HRjJNOb27BtOfj_tsqn3YIq1wwfIW2wV7naNoMvSl12cF7hitALWm3h8qKTZGo-vdjThtHLfPMLhjTzX_GtyOQXJMWwAG7zbgtKY2GYXs762j5rqyYuxvL9Iai3zfv87CMAvo5oOiWXTPFMbKmIFjMcJ2LjlahiJlHHP91QED4yxZ60h8bqslEffG3f-PYCSH2bFexEnWkMh4NGtD5NZVIiE_gILX9da5nTBtKhJOh3rMQN9NGzAl8OKZb8eyYeSN4JlkFiVN4yo3N8_2szuZtnktdPXQlZZNGN4N1SnL5LgI4hmzGxWVY-668ifniLYKej1Gq0YlTVJ16FEU4GAVm3Dn2_F0BfBRIgdbmX4XacYbb13rVYUfcVAPE0I1ercsFZlieS9yk2alEpLznzUq6ik00oO4eE43Jx6loouy-Tl4nuEJS-mA4qCerD7Qk-Yn2c5z7JjnCTlU2QeUoZ8R4ZJIzHFjHTXeJTXWAKxw8FZqC_AGV5OhMTNe7x-7T_wivSdo6r78dUWgZ_7w4xnxeVnMT7YepJSe2pcogYFO5V90EFQY1td_pHufFrdF2LwXOXeRYgQwrwOYXSOXjI0kj6s54QQN9ZpEvWkuiwqgw1RhVKY8HxuFrDhxOqhPkvLObkYm7VwMt5NYli3wbvBhHM7ywhQB0UjF8amu-VbPuIi5hwd4x2ZpnqzcEygHToid9VpX2qHT0uwFHE1LmTmEuUpEwDgFodL38dokgAqmzB9YKl7hNgcwiV_dcL_RYLr7CjrQCHbTK74g_lN6KFmTPmXf0lv3goJx6YNH5U2ghPWwvE3-7L74EiCgyvudcVJJBySfvMJIEpzhPfSHgxDe_)
