@@ -149,14 +149,14 @@ public class Formations
 
 ### 运行结果
 ---
-![2](D:/NJU/3/Java/workspace/1.jpg)
-![2](D:/NJU/3/Java/workspace/1.jpg)
-![2](D:/NJU/3/Java/workspace/1.jpg)
-![2](D:/NJU/3/Java/workspace/1.jpg)
-![2](D:/NJU/3/Java/workspace/1.jpg)
-![2](D:/NJU/3/Java/workspace/1.jpg)
-![2](D:/NJU/3/Java/workspace/1.jpg)
-![2](D:/NJU/3/Java/workspace/1.jpg)
+![鹤翼](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/1.jpg)
+![雁行](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/2.jpg)
+![冲轭](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/2.jpg)
+![长蛇](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/2.jpg)
+![鱼鳞](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/2.jpg)
+![方圆](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/2.jpg)
+![偃月](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/2.jpg)
+![锋失](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/2.jpg)
 
 ### 关系图
-![avatar](http://www.plantuml.com/plantuml/png/hLL1Rziy3BtxLn3uBWvI5nzsJGTqpTRsiFMIIuEX21HRjJNOb27BtOfj_tsqn3YIq1wwfIW2wV7naNoMvSl12cF7hitALWm3h8qKTZGo-vdjThtHLfPMLhjTzX_GtyOQXJMWwAG7zbgtKY2GYXs762j5rqyYuxvL9Iai3zfv87CMAvo5oOiWXTPFMbKmIFjMcJ2LjlahiJlHHP91QED4yxZ60h8bqslEffG3f-PYCSH2bFexEnWkMh4NGtD5NZVIiE_gILX9da5nTBtKhJOh3rMQN9NGzAl8OKZb8eyYeSN4JlkFiVN4yo3N8_2szuZtnktdPXQlZZNGN4N1SnL5LgI4hmzGxWVY-668ifniLYKej1Gq0YlTVJ16FEU4GAVm3Dn2_F0BfBRIgdbmX4XacYbb13rVYUfcVAPE0I1ercsFZlieS9yk2alEpLznzUq6ik00oO4eE43Jx6loouy-Tl4nuEJS-mA4qCerD7Qk-Yn2c5z7JjnCTlU2QeUoZ8R4ZJIzHFjHTXeJTXWAKxw8FZqC_AGV5OhMTNe7x-7T_wivSdo6r78dUWgZ_7w4xnxeVnMT7YepJSe2pcogYFO5V90EFQY1td_pHufFrdF2LwXOXeRYgQwrwOYXSOXjI0kj6s54QQN9ZpEvWkuiwqgw1RhVKY8HxuFrDhxOqhPkvLObkYm7VwMt5NYli3wbvBhHM7ywhQB0UjF8amu-VbPuIi5hwd4x2ZpnqzcEygHToid9VpX2qHT0uwFHE1LmTmEuUpEwDgFodL38dokgAqmzB9YKl7hNgcwiV_dcL_RYLr7CjrQCHbTK74g_lN6KFmTPmXf0lv3goJx6YNH5U2ghPWwvE3-7L74EiCgyvudcVJJBySfvMJIEpzhPfSHgxDe_)
+![avatar](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/ver2uml.png)
