@@ -45,7 +45,7 @@
 
 ### 三、类图
 
-![](/classGraph/class.png)
+![](classGraph/class.png)
 
 其中，Snake、Heeler、Scorpion、Grandfather、Calabash继承Being
 
@@ -65,7 +65,7 @@
 
 #### 1.目录结构：
 
-![](/pic/directory_structure.png)
+![](pic/directory_structure.png)
 
 其中，classGraph文件下存放一张类图图片以及生成类图的class.wsd文件
 
@@ -83,5 +83,5 @@ java Commander
 
 #### 3.程序执行结果部分效果图如下：
 
-![](/pic/result.png)
+![](pic/result.png)
 
