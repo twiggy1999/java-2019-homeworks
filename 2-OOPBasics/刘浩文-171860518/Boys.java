@@ -1,5 +1,3 @@
-package hulu1;
-
 public class Boys {
     int rank;
     int color;

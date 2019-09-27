@@ -1,4 +1,3 @@
-package hulu1;
 import java.util.Random;
 public class hulu1 {
     public static int[] makeShuffle()
