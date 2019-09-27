@@ -148,15 +148,16 @@ public class Formations
 ---
 
 ### 运行结果
----
 ![鹤翼](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/1.jpg)
 ![雁行](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/2.jpg)
-![冲轭](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/2.jpg)
-![长蛇](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/2.jpg)
-![鱼鳞](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/2.jpg)
-![方圆](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/2.jpg)
-![偃月](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/2.jpg)
-![锋失](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/2.jpg)
+![冲轭](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/3.jpg)
+![长蛇](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/4.jpg)
+![鱼鳞](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/5.jpg)
+![方圆](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/6.jpg)
+![偃月](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/7.jpg)
+![锋失](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/8.jpg)
+
+---
 
 ### 关系图
 ![avatar](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/ver2uml.png)
