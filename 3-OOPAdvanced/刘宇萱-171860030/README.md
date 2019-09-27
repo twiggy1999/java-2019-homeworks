@@ -116,6 +116,9 @@ Underling类：
     public boolean bfsUnderling(int x, int y, Coordinate[][] prev, Coordinate tobemoved);
     public char getCurFormation(int x, int y);
     public int getSize();
+    
+*类图*
+![](ClassDiagram.png)
 
 算法
 ---
