@@ -1,9 +1,9 @@
 ## 作业3：面向葫芦娃编程
 
 ### 设计思想
-使用`class Creature`作为所有角色的父类。葫芦兄弟`class CalabashBrothers`，小喽啰`class BadGuys`，爷爷`class Grandpa`，蛇精`class SerpentDemon`都是其子类。
-使用`class Map`来描述角色所在的地图。当地图某处需要出现某角色时，对应的地图点直接生成对应类型的对象。
-使用`class Formations`来描述角色的站队队形。将需要排兵布阵的角色数组传入该类方法中，根据所选择的队形在地图上相应位置生成对应角色。并且可以根据角色个数来设置队形。
+1. 使用`class Creature`作为所有角色的父类。葫芦兄弟`class CalabashBrothers`，小喽啰`class BadGuys`，爷爷`class Grandpa`，蛇精`class SerpentDemon`都是其子类。
+2. 使用`class Map`来描述角色所在的地图。当地图某处需要出现某角色时，对应的地图点直接生成对应类型的对象。
+3. 使用`class Formations`来描述角色的站队队形。将需要排兵布阵的角色数组传入该类方法中，根据所选择的队形在地图上相应位置生成对应角色。并且可以根据角色个数来设置队形。
 
 ---
 
@@ -119,6 +119,8 @@ public class Map {
 ```
 
 + **阵型类**
+可以根据角色的数量对部分阵型进行调整。
+
 ```
 public class Formations
 {
@@ -148,7 +150,7 @@ public class Formations
 ---
 
 ### 运行结果
-*其中，G代表爷爷，S代表蛇精，x代表小喽啰，数字代表葫芦娃*
+*小喽啰设置为11个。其中，G代表爷爷，S代表蛇精，x代表小喽啰，数字代表葫芦兄弟*
 
 ![鹤翼](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/1.jpg)
 ![雁行](https://raw.githubusercontent.com/irronici/java-2019-homeworks/master/3-OOPAdvanced/%E5%BE%90%E6%B5%A9-171860657/2.jpg)
