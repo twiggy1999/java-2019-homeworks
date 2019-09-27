@@ -35,3 +35,5 @@ chessboard中控制整个对峙的过程：
 4.调用printBoard()方法输出棋盘
 
 5.调用fallback()函数清空棋盘
+
+![avatar](pic.png)
