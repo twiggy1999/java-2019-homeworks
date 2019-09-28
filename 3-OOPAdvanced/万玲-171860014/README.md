@@ -41,4 +41,4 @@
    - 根据子类可以实例化父类变量的机制，简化了对地图数组m的值的修改，打印阵型时直接遍历m数组调用每一个成员的display函数即可。
 3. 下面是PlantUML画出的类图
 
-![hw3](D:\Java程序设计\hw3\hw3.png)
+![PlantUML diagram](http://www.plantuml.com/plantuml/png/XPA_JiCm4CRtUmfBBAreNe01LOK1eV87iRH46QpKQYmvlYgsWIhq0TZPGEhC1Yj8l4sLru3OHogLe4o-VFVbvo-N6nhB2-jo1QdYnh2Ha7fUmXwJsh85cicsd89lzlfqrlBzm7UNVRX5EMCpQHQABtyi-ymBQSRrN5oYsN6lGACLh93pp1vKJ-lgyNMp_gZUFu5od3ZbxdW9aNyZHOM5TZazrbKmU6mwy29bCC9kxwFhHeXASCsEV9oBuXnjBm1OzYVw2W2e6KKFXs4alxckCt7g9-IBZYbu51bRM6EEKp4L9L11hFzHv6j3eHixB26S7I1ojM0cKjp8y7rDsGLhZ2syivmlIeY2oF8uYHEejMRuSKB8i2XNJb0hJfe_SqotxMpDvkLjy_pbLsOezCpbwXi0)
