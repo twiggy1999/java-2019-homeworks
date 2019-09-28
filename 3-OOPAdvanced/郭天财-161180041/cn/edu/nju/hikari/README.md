@@ -55,4 +55,4 @@ Tile tiles[][]|二维地砖铺满地板
 void printToScreen()|打印地板上的所有生物名字
 
 ## 结果展示
-![结果](hhttps://github.com/HIKARI513/java-2019-homeworks/blob/master/3-OOPAdvanced/%E9%83%AD%E5%A4%A9%E8%B4%A2-161180041/cn/edu/nju/hikari/UML/result.png)
+![结果](https://github.com/HIKARI513/java-2019-homeworks/blob/master/3-OOPAdvanced/%E9%83%AD%E5%A4%A9%E8%B4%A2-161180041/cn/edu/nju/hikari/UML/result.png)
