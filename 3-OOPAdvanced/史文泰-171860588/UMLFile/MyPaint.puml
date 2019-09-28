@@ -1,0 +1,38 @@
+@startuml
+
+class MyPaint{
+__ private __
++ static final int ALARMGAP = 6000;
++ static final int SLEEPTIME = 50;
++ GraphicsContext graphicsContext;
++ NMap nMap;
++ CalabashTeam calabashTeam;
++ EnemyTeam enemyTeam;
++ GrandFather grandFather;
++ boolean isRunning = true;
++ DrawThread drawThread;
+
++ class DrawThread extends Thread
+
+- void draw(Picture picture, GraphicsContext graphicsContext);
+- void drawMap();
+- void drawcalabashTeam();
+- void drawenemyTeam();
+- void drawSnake();
+- void drawGrand();
+__ public __
+- MyPaint(double width, double height, NMap nMap, CalabashTeam calabashTeam, EnemyTeam enemyTeam, GrandFather grandFather);
+- void drawMapStop();
+- void startDraw();
+}
+
+MyPaint o-- NMap : Aggregation
+MyPaint o-- CalabashTeam : Aggregation
+MyPaint o-- EnemyTeam : Aggregation
+MyPaint o-- GrandFather : Aggregation
+MyPaint *-- DrawThread : Composition
+MyPaint *-- GraphicsContext : Composition
+Thread <|-- DrawThread : extends
+
+
+@enduml
