@@ -17,9 +17,15 @@ public class Ground{
         }
     }
 
-    public static void Print(){
+    public static void PrintRank(){
         for(int i = 0; i < 7; i++){
             tiles[i].calabashBoy.printRank();
+            System.out.println((tiles[i].calabashBoy.pX+1));
+        }
+    }
+    public static void PrintColor(){
+        for(int i = 0; i < 7; i++){
+            tiles[i].calabashBoy.printColor();
             System.out.println((tiles[i].calabashBoy.pX+1));
         }
     }

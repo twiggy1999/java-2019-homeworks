@@ -44,11 +44,23 @@ public class CalabashBoy{
         System.out.print(r);
     }
 
-    private void gotoPosition(int pX){
+    public void printColor(){
+        System.out.print(Color);
+    }
+
+    private void gotoPosition_bubble(int pX){
         int p = this.pX;
         this.pX = pX;
         Ground.tiles[pX].calabashBoy = this;
         printRank();
+        System.out.println((p+1) + "->" + (this.pX+1));
+    }
+
+    private void gotoPosition_binary(int pX){
+        int p = this.pX;
+        this.pX = pX;
+        Ground.tiles[pX].calabashBoy = this;
+        printColor();
         System.out.println((p+1) + "->" + (this.pX+1));
     }
 
@@ -83,11 +95,21 @@ public class CalabashBoy{
         return Rank < cala.Rank;
     }
 
-    public void SwapWithNext(){
+    public void SwapWithNext_bubble(){
         if(pX == Ground.tiles.length-1)return;
         if(CmpWithNext()) return;
         CalabashBoy next = LookBack();
-        gotoPosition(pX+1);
-        next.gotoPosition(pX-1);
+        gotoPosition_bubble(pX+1);
+        next.gotoPosition_bubble(pX-1);
     }
+
+    public void SwapWithNext_binary(){
+        if(pX == Ground.tiles.length-1)return;
+        if(CmpWithNext()) return;
+        CalabashBoy next = LookBack();
+        gotoPosition_binary(pX+1);
+        next.gotoPosition_binary(pX-1);
+    }
+
+    
 }

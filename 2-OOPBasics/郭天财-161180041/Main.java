@@ -25,18 +25,18 @@ public class Main{
         for (CalabashBoy cala : calabashBoys){
             cala.randomStand();
         }
-        Ground.Print();
+        Ground.PrintRank();
     }
 
     public static void BubbleSort(){
         System.out.println("\n\nBubble Sort: ");
         for(int i = 0; i < Ground.tiles.length; i++){
             for(int j = 0; j < Ground.tiles.length - i - 1; j++){
-                Ground.tiles[j].calabashBoy.SwapWithNext();
+                Ground.tiles[j].calabashBoy.SwapWithNext_bubble();
             }
         }
         System.out.println("\nBubble sorting result:");
-        Ground.Print();
+        Ground.PrintRank();
     }
 
     public static int BinarySearch(int l, int r, int pivot){
@@ -61,12 +61,12 @@ public class Main{
 
             for(int j = i; j < insertLoc; j++){
                 //System.out.println(insertLoc);
-                Ground.tiles[j].calabashBoy.SwapWithNext();
+                Ground.tiles[j].calabashBoy.SwapWithNext_binary();
             }
         }
 
         System.out.println("\nBinary sorting result:");
-        Ground.Print();
+        Ground.PrintColor();
     }
 
     public static void main(String[] args) {
