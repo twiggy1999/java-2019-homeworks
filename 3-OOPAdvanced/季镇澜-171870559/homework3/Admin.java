@@ -7,11 +7,15 @@ import java.util.Scanner;
 import static java.lang.System.out;
 
 public class Admin {
+    private static Checkerboard theboard;
+    private static Elder theElder;
+    private static Snake theSnake;
+
     public static void main(String args[]) throws IOException, InterruptedException {
-        Checkerboard theboard = new Checkerboard();
+        theboard = new Checkerboard();
         while (true) {
-            Elder theElder = new Elder(theboard);
-            Snake theSnake = new Snake(theboard);
+            theElder = new Elder(theboard);
+            theSnake = new Snake(theboard);
             theElder.arrange();
             theSnake.arrange();
             theboard.print();
