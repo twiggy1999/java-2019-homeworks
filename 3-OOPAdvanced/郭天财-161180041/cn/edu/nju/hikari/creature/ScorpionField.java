@@ -5,9 +5,9 @@ import command.Style;
 import ground.*;
 
 public class ScorpionField implements Style{
-    public static Scorpion scorpion = new Scorpion();
-    public static Snake snake = new Snake();
-    public static Vector<Potato> potatoes = new Vector<Potato>(17);
+    public Scorpion scorpion = new Scorpion();
+    public Snake snake = new Snake();
+    public Vector<Potato> potatoes = new Vector<Potato>(17);
     {
         for(int i = 0; i < 17; i++)
             potatoes.addElement(new Potato());

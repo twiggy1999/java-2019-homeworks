@@ -5,9 +5,11 @@ import ground.*;
 import command.Command;
 
 public class Main{
+    static Ground ground = new Ground();
+    static Grandpa grandpa = new Grandpa();
+    static ScorpionField BadGuys = new ScorpionField();
     public static void main(String[] args){
-        Grandpa grandpa = new Grandpa();
-        ScorpionField BadGuys = new ScorpionField();
+        
         grandpa.giveCommand(Command.RANDOM_SNAKE);
         Ground.printToScreen();
         grandpa.giveCommand(Command.SNAKE);

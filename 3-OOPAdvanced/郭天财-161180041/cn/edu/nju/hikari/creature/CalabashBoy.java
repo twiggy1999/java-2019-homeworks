@@ -6,7 +6,6 @@ import ground.*;
 import creature.Creature;
 
 public class CalabashBoy extends Creature{
-    static Ground ground = new Ground();
     private int Rank;
     
     public CalabashBoy(int Rank){

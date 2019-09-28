@@ -29,6 +29,7 @@ public class SevenBros implements Style{
     }
 
     public void snake(){
+
         BubbleSort();
     }
     public void fishScale(){
@@ -38,16 +39,15 @@ public class SevenBros implements Style{
 
     }
     public void moon(){
-
     }
     public void bee(){
 
     }
 
     private void BubbleSort(){
-        for (int i = 7; i < 14; i++) {
-            for(int j = 7; j < 14 - i -1; j++){
-                CalabashBoy cala = (CalabashBoy) Ground.tiles[1][j + 2].life;
+        for (int i = 0; i < 7; i++) {
+            for(int j = 0; j < 7 - i -1; j++){
+                CalabashBoy cala = (CalabashBoy) Ground.tiles[1][j+7].life;
                 cala.SwapWithNext();
             }
         }
