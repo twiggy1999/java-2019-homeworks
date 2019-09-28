@@ -29,3 +29,6 @@ public class villians extends creature;//蛇精 蝎子精
 * S-蝎子精
 * I-小喽啰
 
+代码类图：
+
+![UML](https://github.com/Lautstark9217/java-2019-homeworks/blob/master/3-OOPAdvanced/%E5%88%98%E6%B5%A9%E6%96%87-171860518/uml.png)
