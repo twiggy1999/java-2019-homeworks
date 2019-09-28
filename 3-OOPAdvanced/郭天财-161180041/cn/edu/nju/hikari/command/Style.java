@@ -1,7 +1,11 @@
 package command;
 
+import ground.*;
 
 public interface Style{
+    int N = Ground.sizeOfTiles;
+    int Central = N/2 + 1;
+    
     public void wing();
     public void goose();
     public void punch();

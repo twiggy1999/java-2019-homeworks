@@ -20,7 +20,7 @@ public class Creature{
     }
 
     public void moveTo(Tile t){
-        if(x >-1 && y > -1)leave(Ground.tiles[x][y]);
+        if(x >-1 && y > -1 && this.equals(Ground.tiles[x][y].life))leave();
         t.welcome(this);
         x = t.x;
         y = t.y;
@@ -34,8 +34,9 @@ public class Creature{
         return name;
     }
 
-    protected void leave(Tile t){
-        t.isTaken = false;
+    protected void leave(){
+        if(x == -1 || y == -1)return;
+        Ground.tiles[x][y].isTaken = false;
     }
 
     protected boolean positionTaken(Tile t){

@@ -13,7 +13,8 @@ public class Ground{
     }
 
     private static void printName(Tile t){
-        String name = String.format("%5s", t.life.getName());
+        String name = String.format("%4s", t.life.getName());
+        if(!t.isTaken)name = String.format("%6s", "");
         System.out.print(name);
     }
 
