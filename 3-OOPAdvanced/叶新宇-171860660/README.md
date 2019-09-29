@@ -83,8 +83,8 @@ public class Tactic {
 	public List<Position> YuLin();
 	//八种阵法方法，返回所需士兵站立的位置坐标信息，存储在队列中
 }
-
 ```
+描述了题目中所述的八种阵法，根据参考点和总人数来布阵。
 ### 类图
 ![类图](http://www.plantuml.com/plantuml/png/XPBDRi8m383lUGgV4TNkQ0TInWyQ50HSTZHj9hAb2KfS8RJjtLUHLCsYIUM4FpkE_QLJHsYfgHKh5Je7U-CaIQCPdXrPB0aydrc1r5Z1GeWAp-WkkRa7ihIegtUaYx2174jZhsshBjJusHtVIjqdSYHIOY65gW8vOKcoJ4VOI2sQQpA0XycD0JAXcnfEzwk0BmRXD-CRdlFZAj-zZM5vuCNBWfzMyyCOZhFTOR_U5Us_Wh_Enx1T5st8VXZhjWUJPO-6FHcrf9C64q0721KIGYtgix0iCWNFtrdMcuoC9PbkZmG_32RCcqoWtnz64VEZHOCvzbUXRn7CnIAJLFHQZmkIBXFuC58_tIHTAektj3nweg7oeV7zHpBaFtRXJ_nND1MwQchr2m00)
 
