@@ -4,11 +4,9 @@
 
 （由于图片纵向过长，为显示清楚故分为三部分贴出）
 
-<img src="C:\Users\10112\AppData\Roaming\Typora\typora-user-images\1569680371870.png" alt="1569680371870" style="zoom: 50%;" />
-
-<img src="C:\Users\10112\AppData\Roaming\Typora\typora-user-images\1569680404201.png" alt="1569680404201" style="zoom: 50%;" />
-
-![1569680427899](C:\Users\10112\AppData\Roaming\Typora\typora-user-images\1569680427899.png)
+![](https://github.com/jsy-ics/picture/blob/master/1569680371870.png)
+![](https://github.com/jsy-ics/picture/blob/master/1569680404201.png)
+![](https://github.com/jsy-ics/picture/blob/master/1569680427899.png)
 
 ------
 
