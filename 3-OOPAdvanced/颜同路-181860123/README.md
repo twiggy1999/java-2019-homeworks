@@ -1,7 +1,6 @@
 # 181860123_颜同路_java程序设计第三次作业
 
-用markdown语法以文字说明所写代码中用到哪些面向对象的概念、机制、设计理念等，并阐述这样做的好处。请使用PlantUML画出你所写代码的类图，并将图片嵌入README.md中。
-
+## UML类图
 ![UML类图](http://www.plantuml.com/plantuml/png/XP3FIlDG44VtynGNicafXQ-V84LTLBhefWL1NOTfEZQNJEQ6oOt_VGCNFe0hNy2bJoJeMrWrQMmQw2Ahd7FvdHdb7jKNAOEtdibylZo_Fpr-lBsQmN0mtFyt-BzdniWunpm-LaLPKahYpVbi2X5ZdhVzlOCmp8evsoWC0O8KhNIwy02bCSDia-Ybc45mebRyNswiXBvGQi22AK7FNA--6mWcphkL59mX9nkoaqKHUQUDCUEOIB-54kXq3okfRcdESufCq5EK188yiSoThgcrAMLAKOo5j8i1NLhUrYQAiiYmuKJbXhaw7vFcwycrU2gOK4ExSCpkYdG3hovuTD_lh-FCWLcIa2BRM_JMIGEh3hU3gwDRmEgD7xBit87zLcr38rf1ANy1)
 
 ## 类定义简介
