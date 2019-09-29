@@ -2,19 +2,6 @@
 *.xml
 *.iml
 *.html
-*.ipr
-*.iws
 
-# Java class files
-*.class
-
-# Generated files
-out/
-bin/
-.vscode/
-.DS_Store/
-
-
-# don't ignore folder
-!src/
-!image/
+.vscode
+.DS_Store
