@@ -9,11 +9,11 @@
 public class Position {
         private int posX;
         private int posY;
-		Position(int x, int y);//构造函数
-		public int getPosX();
-		public int getPosY();//获取坐标
-		public void setPos(int x, int y);
-		public void setPos(Position p);//设置坐标
+	Position(int x, int y);//构造函数
+	public int getPosX();
+	public int getPosY();//获取坐标
+	public void setPos(int x, int y);
+	public void setPos(Position p);//设置坐标
 }
 ```
 维护每个生物体在NxN二维空间的横纵坐标，并可以对其进行修改以实现布阵、变阵功能
@@ -21,12 +21,12 @@ public class Position {
 ### 生物体(Creatrue)类
 ```Java
 public abstract class Creature {
-    enum Type {
-        CALABASHBOY, GRANDFATHER, SCORPION, SNAKE, MINION
-    }
-    protected Type id;//身份
-    protected String name;//姓名
-    protected Position pos;//位置
+    	enum Type {
+        	CALABASHBOY, GRANDFATHER, SCORPION, SNAKE, MINION
+    	}
+    	protected Type id;//身份
+    	protected String name;//姓名
+    	protected Position pos;//位置
 	public void setPos(int x, int y);
 	public void setPos(Position p);//设置坐标，代表移动自己的位置
 	public void printMark();//在战场上表示自己
@@ -39,9 +39,9 @@ public abstract class Creature {
 ### 战场（BattleField）类
 ```Java
 public class BattleField {
-    public Creature[][] info;//存储战场上所有生物的信息
-    private int size;//战场的宽度，代表题设中的N
-    BattleField(int x);//构造函数
+	public Creature[][] info;//存储战场上所有生物的信息
+	private int size;//战场的宽度，代表题设中的N
+	BattleField(int x);//构造函数
 	public int getSize();
 	public boolean isAvailable(int x, int y);//判断某个位置是否可以占领
 	public void printBattleField();//打印整个战场的状态
@@ -55,14 +55,14 @@ public class BattleField {
 ### 阵营（Lineup）类
 ```Java
 public abstract class Lineup {
-    protected Creature captain;
-    protected Creature cheerleader;
-    protected Vector<Creature> lineupVector;//每个阵营有三类成员：队长、啦啦队、普通士兵
-    protected Tactic t;//一个阵营应当拥有阵法信息
-    Lineup();//构造函数
-    public void addCaptain(Creature c);
-    public void addCheerleader(Creature c);
-    public void addSoider(Creature c);//添加三类不同成员
+	protected Creature captain;
+	protected Creature cheerleader;
+	protected Vector<Creature> lineupVector;//每个阵营有三类成员：队长、啦啦队、普通士兵
+	protected Tactic t;//一个阵营应当拥有阵法信息
+	Lineup();//构造函数
+	public void addCaptain(Creature c);
+	public void addCheerleader(Creature c);
+	public void addSoider(Creature c);//添加三类不同成员
 }
 ```
 是一个抽象类，描述本程序中所有的阵营具有的共有特征：有队长、啦啦队、普通士兵，有阵法知识，可以添加三类不同成员。
@@ -71,7 +71,7 @@ public abstract class Lineup {
 ```Java
 public class Tactic {
 	Position refpoint;//队长的位置，称为“参考点”
-    int number;//总人数（不包括啦啦队
+	int number;//总人数（不包括啦啦队
 	Tactic(Position p, int n);//构造函数
 	public List<Position> ChangShe();
 	public List<Position> HeYi();
