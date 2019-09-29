@@ -26,3 +26,8 @@ public calss Camp<T extends Unit> {
 }
 ```
 * 5、阵型变换在现阶段统一交给Controller类处理，相关的成员函数均为public static void。考虑在后续代码中提供caption接口，Scorpion实现该接口，指挥妖怪侧
+
+## 利用的机制与好处
+* 封装：将不同的内容封装为多个类，隐藏内部实现，提高代码安全性、可读性。<br>
+* 继承：GrandFather、CalabashBrother、Snake、Scorpion、Monster继承基类Unit，提高代码复用程度。使多个类之间产生联系，提高代码可读性和可维护性<br>
+* 多态：Unit的子类重写了父类的方法，提高可扩充性和可维护性。
