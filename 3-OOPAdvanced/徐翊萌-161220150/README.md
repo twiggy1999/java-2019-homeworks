@@ -1,8 +1,11 @@
 # 第三次作业代码说明
 
 ## 输出内容截图
+![res1](https://github.com/XYm1998/java-2019-homeworks/blob/master/3-OOPAdvanced/徐翊萌-161220150/img/res1.png)
+![res2](https://github.com/XYm1998/java-2019-homeworks/blob/master/3-OOPAdvanced/徐翊萌-161220150/img/res2.png)
 
 ## Class Diagram
+![class_diagram](https://github.com/XYm1998/java-2019-homeworks/blob/master/3-OOPAdvanced/徐翊萌-161220150/img/Calss_Diagram.png)
 
 ## 设计思路
 * 1、Battle类构建战场，私有成员的类型为Unit[][]。提供setUnit方法，将某生物体放置在某座标上<br>
