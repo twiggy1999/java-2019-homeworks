@@ -2,7 +2,7 @@
 ===
 类介绍
 ----
-* CalabashBrothers类：葫芦娃，颜色、名称等属性与实验二相同，新增了属性横纵坐标，以及读取和修改横纵坐标的功能
+* CalabashBrothers类：葫芦娃，颜色、名称等属性与实验二相同，新增了属性横纵坐标，以及读取和修改横纵坐标的功能<br>
 ![](https://github.com/jokerz0624/Pictures/blob/master/images/5.PNG)
 * GrandFather类：爷爷，属性有名字以及横纵坐标，功能为读取和修改横纵坐标
 ![](https://github.com/jokerz0624/Pictures/blob/master/images/8.PNG)
