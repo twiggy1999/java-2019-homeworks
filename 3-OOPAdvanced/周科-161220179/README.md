@@ -26,6 +26,6 @@
 ---
 （葫芦娃由1-7分别表示大娃-七娃，爷爷为G，蝎子精为K，蛇精为Q，小喽啰为s）<br>
 *鹤翼阵<br>
-![](https://github.com/jokerz0624/Pictures/blob/master/images/1.PNG)
+![](https://github.com/jokerz0624/Pictures/blob/master/images/1.PNG)<br>
 *雁行阵<br>
 ![](https://github.com/jokerz0624/Pictures/blob/master/images/2.PNG)
