@@ -99,11 +99,11 @@ public class Living {
         for(int i=0;i<8;i++){
             toMove=position.adjacentPosition(direction);
             if(!field.Unreachable(toMove) && passed.livingAt(toMove)==null ){
-                assert moveOrSwap(direction.dx(),direction.dy());
+                moveOrSwap(direction.dx(),direction.dy());
                 if(pathTo(passed,target,called))
                     return true;
                 else
-                    assert moveOrSwap(-direction.dx(),-direction.dy());
+                    moveOrSwap(-direction.dx(),-direction.dy());
             }
             else if (field.inside(toMove)){
                 //不能直接过去，可以考虑交换
@@ -113,7 +113,7 @@ public class Living {
                             && called.indexOf(an)<0){
                         called.add(an);
                         if(an.pathTo(passed,target,called)){
-                            assert moveOrSwap(direction.dx(),direction.dy());
+                            moveOrSwap(direction.dx(),direction.dy());
                             return true;
                         }
                     }

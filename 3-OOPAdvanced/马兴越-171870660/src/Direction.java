@@ -8,7 +8,7 @@ public class Direction{
     private int dir;
 
     public Direction(Position center,Position another){
-        assert !center.equals(another);
+//        assert !center.equals(another);
         int dx=another.getX()-center.getX();
         int dy=another.getY()-center.getY();
         if(dx>0){
