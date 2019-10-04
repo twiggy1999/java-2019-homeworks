@@ -88,7 +88,7 @@ class Creature{
     enum CreatureType{HUMAN,CALABASH,MONSTER,NOTHING};
     CreatureType identity = CreatureType.NOTHING;
     /** position in the map of world */
-    protected int position[] = new int[2];
+    int position[] = new int[2];
     boolean inMap;
     ///** move speed */
     //int speed = 0;
@@ -139,8 +139,8 @@ class Creature{
             yDirection = World.Direction.STILL;
         
         while(position[0] != first || position[1] != second){
-            //¸ÄÒ»ÏÂ£¬ÏÈ×ßÃ»ÓĞÕÏ°­ÎïµÄµØ·½
-            //Èç¹ûÓöµ½ÈË½»»»µÄ»°»á¸Ä±ä±ğÈËµÄÎ»ÖÃ
+            //æ”¹ä¸€ä¸‹ï¼Œå…ˆèµ°æ²¡æœ‰éšœç¢ç‰©çš„åœ°æ–¹
+            //å¦‚æœé‡åˆ°äººäº¤æ¢çš„è¯ä¼šæ”¹å˜åˆ«äººçš„ä½ç½®
             if(position[0] == first)
                 xDirection = World.Direction.STILL;
             if(xDirection == World.Direction.DOWN){
@@ -313,8 +313,8 @@ class Grandfather extends Creature{
 }
 
 class CalabashBrother extends Creature{
-    static String[] statusName = {"ÀÏ´ó","ÀÏ¶ş","ÀÏÈı","ÀÏËÄ","ÀÏÎå","ÀÏÁù","ÀÏÆß"};
-    static String[] ownColor = {"³à","³È","»Æ","ÂÌ","Çà","À¶","×Ï"};
+    static String[] statusName = {"è€å¤§","è€äºŒ","è€ä¸‰","è€å››","è€äº”","è€å…­","è€ä¸ƒ"};
+    static String[] ownColor = {"èµ¤","æ©™","é»„","ç»¿","é’","è“","ç´«"};
 
     /** id for statusName and color */
     private int idInCalabash;
@@ -439,7 +439,7 @@ public class FightFormation{
         }
     }
 
-    /** ³¤Éß 
+    /** é•¿è›‡ 
      * @param startFirst first place of the formation(row)
      * @param startSecond first place of the formation(col)
      */
@@ -479,7 +479,7 @@ public class FightFormation{
     }
 
     /**
-     * ÑãĞĞ
+     * é›è¡Œ
      * @param startFirst first place of the formation(row)
      * @param startSecond first place of the formation(col)
      */
@@ -518,7 +518,7 @@ public class FightFormation{
     }
 
     /** 
-     * ƒPÜ—
+     * åƒè»›
      * @param startFirst first place of the formation(row)
      * @param startSecond first place of the formation(col)
      */
@@ -561,7 +561,7 @@ public class FightFormation{
     }
 
     /** 
-     * º×Òí
+     * é¹¤ç¿¼
      * @param startFirst first place of the formation(row)
      * @param startSecond first place of the formation(col)
      */

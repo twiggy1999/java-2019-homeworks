@@ -95,8 +95,8 @@ abstract class Creature{
 }
 
 class CalabashBrother extends Creature{
-    static String[] statusName = {"ÀÏ´ó","ÀÏ¶ş","ÀÏÈı","ÀÏËÄ","ÀÏÎå","ÀÏÁù","ÀÏÆß"};
-    static String[] colors = {"³à","³È","»Æ","ÂÌ","Çà","À¶","×Ï"};
+    static String[] statusName = {"è€å¤§","è€äºŒ","è€ä¸‰","è€å››","è€äº”","è€å…­","è€ä¸ƒ"};
+    static String[] colors = {"èµ¤","æ©™","é»„","ç»¿","é’","è“","ç´«"};
 
     int idInCalabashBrothers;
     static int newId = 0;
