@@ -1,8 +1,11 @@
+package items;
 /*
  * 老人家类。负责“指挥”葫芦娃，维护葫芦娃列表。
  */
 
-public class Elder extends Living{
+import field.*;
+
+public class Elder extends Living {
     private Calabash[] calabashes;
 
     /*
@@ -13,11 +16,11 @@ public class Elder extends Living{
         super(pos, field_);
         calabashes=new Calabash[7];
         for(int i=0;i<7;i++){
-//            Position position;
+//            field.Position position;
 //            if(i!=0)
 //                position=field_.randomPosition();
 //            else
-//                position=new Position(5,1);
+//                position=new field.Position(5,1);
             Position position=field_.leftRandomPosition();
             Calabash cal=new Calabash(position,field_,i+1);
             calabashes[i]=cal;

@@ -2,6 +2,9 @@
  * 这是造物主
  */
 
+import field.*;
+import items.*;
+
 public class Main {
     public static void main(String[] args){
         Field field=new Field();

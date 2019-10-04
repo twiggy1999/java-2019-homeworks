@@ -1,4 +1,6 @@
-public class PassedFlag extends Living {
+package items;
+import field.*;
+public class PassedFlag extends Living{
     private static int number;
     static {
         number=0;

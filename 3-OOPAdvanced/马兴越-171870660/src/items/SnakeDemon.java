@@ -1,6 +1,7 @@
-/*
+package items;/*
  * 蛇精。总指挥。
  */
+import field.*;
 
 public class SnakeDemon extends Living {
     private ScorpionDemon scorpionDemon;
@@ -8,7 +9,7 @@ public class SnakeDemon extends Living {
     public SnakeDemon(Position pos, Field field_, int followCount_) {
         super(pos, field_);
         scorpionDemon=new ScorpionDemon(field_.rightRandomPosition(),field_,followCount_);
-//        scorpionDemon=new ScorpionDemon(new Position(9,0),field_,followCount_);
+//        scorpionDemon=new items.ScorpionDemon(new field.Position(9,0),field_,followCount_);
         field_.addLiving(scorpionDemon,field_.rightRandomPosition());
     }
 

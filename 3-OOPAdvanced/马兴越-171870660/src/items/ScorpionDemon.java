@@ -1,6 +1,9 @@
+package items;
 /*
  * 蝎子精，领队。负责指挥喽啰排队。
  */
+
+import field.*;
 
 public class ScorpionDemon extends Living {
     private int followCount;
@@ -193,7 +196,7 @@ public class ScorpionDemon extends Living {
     private boolean findPlaceForArrow(Field passed){
         if(readyForArrow())
             return true;
-        passed.addLiving(new Living(position.copy(),passed));
+        passed.addLiving(new PassedFlag(position.copy(),passed));
         Direction dir=new Direction(Direction.N);
         Position p;
         for(int i=0;i<8;i++){

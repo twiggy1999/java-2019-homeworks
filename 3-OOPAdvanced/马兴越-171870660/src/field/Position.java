@@ -1,8 +1,6 @@
-/*
+package field;/*
  * 用于维护生物的位置。作为生物的构成部分。
  */
-
-import java.util.Random;
 
 import static java.lang.Math.*;
 

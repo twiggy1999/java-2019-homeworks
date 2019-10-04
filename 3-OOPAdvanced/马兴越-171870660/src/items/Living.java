@@ -1,13 +1,16 @@
 /*
  * 所有生物体的公共基类。
  */
+package items;
+
+import field.*;
 
 import java.util.LinkedList;
 import java.util.List;
 
 import static java.lang.Math.abs;
 
-public class Living {
+public abstract class Living{
     protected Field field;
     protected Position position;
     protected boolean movable;
@@ -121,10 +124,6 @@ public class Living {
             direction.next();
         }
         return false;
-    }
-
-    public String toString(){
-        return "L";
     }
 
     public boolean exchangeable(){

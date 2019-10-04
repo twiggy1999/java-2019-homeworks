@@ -1,3 +1,5 @@
+package field;
+
 /*
  * 标注以一个格点为中心，另一个格点在本格点的什么方向。
  * 标号的逻辑是从+x开始，按正角方向增加。
@@ -7,7 +9,7 @@ public class Direction{
     public static final int E=0,NE=1,N=2,NW=3,W=4,SW=5,S=6,SE=7;
     private int dir;
 
-    public Direction(Position center,Position another){
+    public Direction(Position center, Position another){
 //        assert !center.equals(another);
         int dx=another.getX()-center.getX();
         int dy=another.getY()-center.getY();

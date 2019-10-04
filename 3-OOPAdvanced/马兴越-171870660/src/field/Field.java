@@ -1,8 +1,8 @@
-/*
+package field;/*
  * N*N的场地。
  * 先行后列。x为横坐标。访问格式为map[x][y].
  */
-
+import items.Living;
 import java.util.Random;
 
 public class Field {
@@ -29,7 +29,7 @@ public class Field {
      * 如果成功，修改living中的数据为x,y指定的位置。
      * 否则不做任何操作并返回false。
      */
-    private boolean addLiving(Living living,int x,int y){
+    private boolean addLiving(Living living, int x, int y){
         if(livingAt(x,y)!=null)
             return false;
         map[y][x]=living;
@@ -37,7 +37,7 @@ public class Field {
         return true;
     }
 
-    public boolean addLiving(Living living,Position pos){
+    public boolean addLiving(Living living, Position pos){
         return addLiving(living,pos.getX(),pos.getY());
     }
 
@@ -49,7 +49,7 @@ public class Field {
         return map[pos.getY()][pos.getX()];
     }
 
-    private Living livingAt(int x,int y){
+    private Living livingAt(int x, int y){
         return map[y][x];
     }
 
@@ -59,7 +59,7 @@ public class Field {
      * 顺便充当检测是否冲突。如果目标位置有生物体了，返回false，不做任何操作。）
      * 后续维护工作由Living自行完成。
      */
-    public boolean moveLiving(Living living,int dx,int dy){
+    public boolean moveLiving(Living living, int dx, int dy){
         //保证两边的数据一致
         assert livingAt(living.getPosition())==living;
         int nx=living.getPosition().getX()+dx;
@@ -77,7 +77,7 @@ public class Field {
     /*
      * 交换两指定生物的位置，由Living调用，且已经保证位置相邻。
      */
-    public boolean swapLiving(Living living1,Living living2){
+    public boolean swapLiving(Living living1, Living living2){
         assert livingAt(living1.getPosition())==living1;
         assert livingAt(living2.getPosition())==living2;
         if(!living1.getPosition().adjacentWith(living2.getPosition()))
