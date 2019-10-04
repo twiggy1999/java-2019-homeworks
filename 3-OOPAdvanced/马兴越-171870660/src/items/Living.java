@@ -12,7 +12,7 @@ import static java.lang.Math.abs;
 
 public abstract class Living{
     protected Field field;
-    protected Position position;
+    protected final Position position;//此对象不可变
     protected boolean movable;
 
     public Living(Position pos,Field field_){
@@ -94,13 +94,13 @@ public abstract class Living{
     private boolean pathTo(Field passed, Position target, List<Living> called){
         if(position.equals(target))//基本情况，已经移动到位
             return true;
-        Direction direction=new Direction(position,target);
+        Position.Direction direction=position.new Direction(target);
         Position toMove;
         //首先将当前位置标记为走过
         Living flag=new PassedFlag(position,passed);
         passed.addLiving(flag);
         for(int i=0;i<8;i++){
-            toMove=position.adjacentPosition(direction);
+            toMove=direction.adjacentPosition();
             if(!field.Unreachable(toMove) && passed.livingAt(toMove)==null ){
                 moveOrSwap(direction.dx(),direction.dy());
                 if(pathTo(passed,target,called))

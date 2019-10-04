@@ -16,7 +16,7 @@
 所有与场地和位置有关的类构成field包，包含以下类。
 * `field.Field`类。场地类。是所有生物体活动的场地，有`N*N`的正方形场地，每个位置由坐标`(x,y)`确定。
 * `field.Position`类。位置坐标类。在`items.Living`类中记录当前生物体所处的位置，在`field.Field`中作为参数，用于访问指定的位置。
-* `field.Direction`类。邻域方向类。指定以某点为中心的八个方向（东，东北，北，西北，西，西南，南，东南）之一，并计算该方向相对中心位置的偏移量`dx` `dy`。
+* `field.Position.Direction`类。邻域方向类。指定以某点为中心的八个方向（东，东北，北，西北，西，西南，南，东南）之一，并计算该方向相对中心位置的偏移量`dx` `dy`。
 
 ## 设定
 本系统下，我们设定生物体在场地中的移动，每次只能在**八邻域**意义下相邻的格点间完成。我们设定，相邻位置的两个生物体可以交换位置，且此动作一步完成，不需要多余的空间和步骤。
@@ -52,7 +52,7 @@
 
 我们设定葫芦娃布阵由老人家负责指挥，葫芦娃对象由老人家负责构造。由于葫芦娃是最先布阵的，所以只要大娃所处的位置以下有足够的位置，就一定可以布阵成功。首先将大娃调整到指定的位置。然后依次计算出各个葫芦娃的位置，向葫芦娃对象发消息，由葫芦娃对象自己寻找路径移动到该位置。
 
-### `ScopionDemon`类
+### `items.ScorpionDemon`类
 蝎子精类也是`items.Living`的子类。与老人家类似，蝎子精需要指挥喽啰（`items.FollowDemon`）布阵。布阵的实现过程与前者类似，但由于阵型比较复杂，很多位置实际排不出阵型，因此在实施布阵前有一系列的检查和移动操作。以下以“鹤翼”(`Swing`)阵型为例说明，实现的另一个阵型“锋矢”（`Arrow`）是完全类似的。
 
 利用`readyForSwing`方法检查当前空间是否能够排布Swing阵型。原理是依次检查阵型所需要到达的各个位置是否是可到达的。
@@ -72,6 +72,15 @@ public items.Living livingAt(field.Position pos){
 ```java
 field.livingAt(p)==null || field.livingAt(p).getPosition()==p
 ```
+
+### `field.Position`类
+> 2019.10.04重构添加本节内容
+
+使用`Position`类记录每个生物体的位置，作为`Living`的成员。
+
+本次重构中，把`Direction`作为了`Position`的内部类（inner class）。由于程序中`Direction`实例的创建总是存在一个中心，利用内部类的closure引用，可以在`Direction`的方法调用中直接完成对`Position`的操作。
+
+新增了`Direction.adjacentPosition()`和`Direction.aStep()`方法，前者返回按当前对象所示方向移动一步后的位置（而当前的`Position`对象不变），后者将当前的`Position`对象按`Direction`所示方向移动一步。同时取消`Position.adjacentPosition()`方法定义。
 
 ## `UML`类图
 使用`PlantUML`给出类图。在类图中，使用没有附加符号的虚线来表达`关联`关系，即有互发消息的类。即使一个类中存在另一个类的引用，但若它们之间不存在`组合` `聚合` 关系，仍然认为是`关联`关系。例如`items.SnakeDemon`和`items.ScorpionDemon`。

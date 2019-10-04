@@ -4,6 +4,7 @@ package items;
  */
 
 import field.*;
+import javafx.geometry.Pos;
 
 public class ScorpionDemon extends Living {
     private int followCount;
@@ -37,18 +38,18 @@ public class ScorpionDemon extends Living {
             System.out.println("没有空间排布鹤翼阵型！");
             return;
         }
-        Position p=new Position(position.getX(),position.getY());
-        Direction dir=new Direction(Direction.NW);
+        Position p=position.copy();
+        Position.Direction dir=p.new Direction(Position.Direction.NW);
         for(int i=0;i<followCount/2;i++){
-            p=p.adjacentPosition(dir);
+            dir.aStep();
             followDemons[i].walkTowards(p);
             followDemons[i].setMovable(false);
 //            assert followDemons[i].getPosition().equals(p);
         }
-        p=new Position(position.getX(),position.getY());
-        dir=new Direction(Direction.NE);
+        p=position.copy();
+        dir=p.new Direction(Position.Direction.NE);
         for(int i=followCount/2;i<followCount;i++){
-            p=p.adjacentPosition(dir);
+            dir.aStep();
             followDemons[i].walkTowards(p);
             followDemons[i].setMovable(false);
 //            assert followDemons[i].getPosition().equals(p);
@@ -63,17 +64,17 @@ public class ScorpionDemon extends Living {
         int depth=followCount/2;
         //left
         Position p=position.copy();
-        Direction d=new Direction(Direction.NW);
+        Position.Direction d=p.new Direction(Position.Direction.NW);
         for(int i=0;i<depth;i++){
-            p=p.adjacentPosition(d);
+            d.aStep();
             if(!field.inside(p)||
                     field.livingAt(p)!=null&&!field.livingAt(p).isMovable())
                 return false;
         }
-        d=new Direction(Direction.NE);
         p=position.copy();
+        d=p.new Direction(Position.Direction.NE);
         for(int i=0;i<depth;i++){
-            p=p.adjacentPosition(d);
+            d.aStep();
             if(!field.inside(p)||
                     field.livingAt(p)!=null&&!field.livingAt(p).isMovable())
                 return false;
@@ -99,10 +100,10 @@ public class ScorpionDemon extends Living {
         if(readyForSwing())
             return true;
         passed.addLiving(new PassedFlag(position.copy(),passed));
-        Direction dir=new Direction(Direction.S);
+        Position.Direction dir=position.new Direction(Position.Direction.S);
         Position p;
         for(int i=0;i<8;i++){
-            p=position.adjacentPosition(dir);
+            p=dir.adjacentPosition();
             if(field.inside(p) && passed.livingAt(p)==null && moveOrSwap(dir.dx(),dir.dy()))
                 if(findPlaceForSwing(passed))
                     return true;
@@ -133,26 +134,26 @@ public class ScorpionDemon extends Living {
         int swingCount=followCount/2;
         if(swingCount%2==1)swingCount++;
         int mainCount=followCount-swingCount;
-        Position p=new Position(position.getX(),position.getY());
-        Direction d=new Direction(Direction.S);
+        Position p=position.copy();
+        Position.Direction d=p.new Direction(Position.Direction.S);
         for(int i=0;i<mainCount;i++){
-            p=p.adjacentPosition(d);
+            d.aStep();
             followDemons[i].walkTowards(p);
             followDemons[i].setMovable(false);
 //            assert followDemons[i].getPosition().equals(p);
         }
         p=position.copy();
-        d=new Direction(Direction.SW);
+        d=p.new Direction(Position.Direction.SW);
         for(int i=mainCount;i<mainCount+swingCount/2;i++){
-            p=p.adjacentPosition(d);
+            d.aStep();
             followDemons[i].walkTowards(p);
             followDemons[i].setMovable(false);
 //            assert followDemons[i].getPosition().equals(p);
         }
         p=position.copy();
-        d=new Direction(Direction.SE);
+        d=p.new Direction(Position.Direction.SE);
         for(int i=mainCount+swingCount/2;i<mainCount+swingCount;i++){
-            p=p.adjacentPosition(d);
+            d.aStep();
             followDemons[i].walkTowards(p);
             followDemons[i].setMovable(false);
 //            assert followDemons[i].getPosition().equals(p);
@@ -164,24 +165,24 @@ public class ScorpionDemon extends Living {
         int swingCount=followCount/2;
         if(swingCount%2==1)swingCount++;
         int mainCount=followCount-swingCount;
-        Position p=new Position(position.getX(),position.getY());
-        Direction d=new Direction(Direction.S);
+        Position p=position.copy();
+        Position.Direction d=p.new Direction(Position.Direction.S);
         for(int i=0;i<mainCount;i++){
-            p=p.adjacentPosition(d);
+            d.aStep();
             if(field.Unreachable(p))
                 return false;
         }
         p=position.copy();
-        d=new Direction(Direction.SW);
+        d=p.new Direction(Position.Direction.SW);
         for(int i=0;i<swingCount/2;i++){
-            p=p.adjacentPosition(d);
+            d.aStep();
             if(field.Unreachable(p))
                 return false;
         }
         p=position.copy();
-        d=new Direction(Direction.SE);
+        d=p.new Direction(Position.Direction.SE);
         for(int i=0;i<swingCount/2;i++){
-            p=p.adjacentPosition(d);
+            d.aStep();
             if(field.Unreachable(p))
                 return false;
         }
@@ -197,10 +198,10 @@ public class ScorpionDemon extends Living {
         if(readyForArrow())
             return true;
         passed.addLiving(new PassedFlag(position.copy(),passed));
-        Direction dir=new Direction(Direction.N);
+        Position.Direction dir=position.new Direction(Position.Direction.N);
         Position p;
         for(int i=0;i<8;i++){
-            p=position.adjacentPosition(dir);
+            p=dir.adjacentPosition();
             if(field.inside(p) && passed.livingAt(p)==null && moveOrSwap(dir.dx(),dir.dy()))
                 if (findPlaceForArrow(passed))
                     return true;
