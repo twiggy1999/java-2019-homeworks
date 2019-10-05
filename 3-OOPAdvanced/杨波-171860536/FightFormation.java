@@ -52,7 +52,6 @@ class World{
             creatueMap[first][second] = one;
             one.position[0] = first;
             one.position[1] = second;
-            showMap();
             return true;
         }
         else{
@@ -626,14 +625,14 @@ public class FightFormation{
         scorpionMonster.setMovePreventFormation();
         grandfather.choosePlaceToSit();
         snakeMonster.choosePlaceToSit();
-        //World.showMap();
+        World.showMap();
         scorpionMonster.setWildGooseFormation();
         grandfather.choosePlaceToSit();
         snakeMonster.choosePlaceToSit();
-        //World.showMap();
+        World.showMap();
         scorpionMonster.setWingsFormation();
         grandfather.choosePlaceToSit();
         snakeMonster.choosePlaceToSit();
-        //World.showMap();
+        World.showMap();
     }
 }
