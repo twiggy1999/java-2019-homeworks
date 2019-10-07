@@ -21,18 +21,18 @@
     }
     ```
 
-    * **这样的方式实则为结构化方法，高层模块依赖于底层模块，程序中的依赖关系终止于具体的类，违反了*<font color=#aa99ff>DIP</font>*原则。**
+    * **这样的方式实则为结构化方法，高层模块依赖于底层模块，程序中的依赖关系终止于具体的类，违反了DIP原则。**
 
-    * **同时，这样的设计在有新的需求时，需要改动原本已经写好的代码，可维护性差，并没有做到对扩展开放，违反了<font color=#aa99ff>*OCP*</font>原则**
-    * **没有使用基类来统一各个函数，而是为每个子类单独完成函数，违反了*<font color=#aa99ff>LSP</font>*原则**
+    * **同时，这样的设计在有新的需求时，需要改动原本已经写好的代码，可维护性差，并没有做到对扩展开放，违反了OCP原则**
+    * **没有使用基类来统一各个函数，而是为每个子类单独完成函数，违反了LSP原则**
 
     改进后：
 
-    * 将画图抽象出**基类DrawBase**，每个具体需要绘制的人物**继承DrawBase**，这样在有新的需要绘制的人物时只需要从DrawBase中派生出一个新的类即可，遵循了**<font color=#aa99ff>OCP</font>**原则。
+    * 将画图抽象出**基类DrawBase**，每个具体需要绘制的人物**继承DrawBase**，这样在有新的需要绘制的人物时只需要从DrawBase中派生出一个新的类即可，遵循了**OCP**原则。
 
-    * 同时增加**抽象服务类DrawServer**，高层MyPaint**依赖于DrawServer类**，不直接依赖于各个底层类，遵循了**<font color=#aa99ff>DIP</font>**原则。
+    * 同时增加**抽象服务类DrawServer**，高层MyPaint**依赖于DrawServer类**，不直接依赖于各个底层类，遵循了**DIP**原则。
 
-    * DrawServer类中**参数为基类DrawBase对象**，而不是各个具体的派生类，实际调用时用子类型低缓基类型，实现了一个draw函数完成所有具体派生类的绘画，遵循了**<font color=#aa99ff>LSP</font>**原则。
+    * DrawServer类中**参数为基类DrawBase对象**，而不是各个具体的派生类，实际调用时用子类型低缓基类型，实现了一个draw函数完成所有具体派生类的绘画，遵循了**LSP**原则。
 
     * 如下为代码结构示意：
 
@@ -60,7 +60,7 @@
 
         ![](UMLPicture/DrawBaseUML.jpg)
 
-2. 同理，**改进了人物基类Character的移动方式**。原本人物移动直接调用底层方法，违背了***<font color=#aa99ff>DIP，LSP，OCP</font>***原则。改进后，**抽象出接口MoveInterface，向各个方向的移动implements接口，并且增加移动抽象服务类MoveServer，用接口参数MoveInterface统一所有移动，提供给上层Character。**
+2. 同理，**改进了人物基类Character的移动方式**。原本人物移动直接调用底层方法，违背了**DIP，LSP，OCP**原则。改进后，**抽象出接口MoveInterface，向各个方向的移动implements接口，并且增加移动抽象服务类MoveServer，用接口参数MoveInterface统一所有移动，提供给上层Character。**
 
     ```java
     //抽象接口：MoveInterface
