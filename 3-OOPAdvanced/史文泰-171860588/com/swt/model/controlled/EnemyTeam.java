@@ -1,14 +1,11 @@
 package com.swt.model.controlled;
 
+import com.swt.control.FileUtils;
 import com.swt.model.basic.Point;
 import com.swt.model.basic.Picture;
 import com.swt.model.advance.Scorpion;
 import com.swt.model.advance.SmallEnemy;
 import com.swt.model.advance.Snake;
-import javafx.scene.image.Image;
-
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,27 +18,15 @@ public class EnemyTeam {
     public EnemyTeam(List<Point> pointList) throws IOException {
         smallEnemyList = new ArrayList<>();
         //蝎子精，第一个坐标
-        FileInputStream fis = new FileInputStream(new File("SRCFile/Scorpion.jpg"));
-        Image imageScorpion = new Image(fis);
-        scorpion = new Scorpion(pointList.get(0).getPx(), pointList.get(0).getPy(), imageScorpion);
-        fis.close();
+        scorpion = new Scorpion(pointList.get(0).getPx(), pointList.get(0).getPy(), FileUtils.getImage("SRCFile/Scorpion.jpg"));
         //小喽啰
         for(int i = 1; i < pointList.size(); ++i){
-            FileInputStream fis4 = new FileInputStream(new File("SRCFile/0.jpg"));
-            Image image = new Image(fis4);
-            SmallEnemy smallEnemy = new SmallEnemy(pointList.get(i).getPx(), pointList.get(i).getPy(), image);
+            SmallEnemy smallEnemy = new SmallEnemy(pointList.get(i).getPx(), pointList.get(i).getPy(), FileUtils.getImage("SRCFile/0.jpg"));
             smallEnemyList.add(smallEnemy);
-            fis4.close();
         }
-
-        FileInputStream fis2 = new FileInputStream(new File("SRCFile/Snake.jpg"));
-        Image image2 = new Image(fis2);
-        fis2.close();
-        FileInputStream fis3 = new FileInputStream(new File("SRCFile/Form0.jpg"));
-        Image image3 = new Image(fis3);
-        Picture orderPicture = new Picture(new Point(7, 0), image3);
-        snake = new Snake(9, 0, image2, orderPicture);
-        fis3.close();
+        //蛇精
+        Picture orderPicture = new Picture(new Point(7, 0), FileUtils.getImage("SRCFile/Form0.jpg"));
+        snake = new Snake(9, 0, FileUtils.getImage("SRCFile/Snake.jpg"), orderPicture);
     }
 
 //    /**

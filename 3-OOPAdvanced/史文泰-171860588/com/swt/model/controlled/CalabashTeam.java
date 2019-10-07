@@ -1,12 +1,10 @@
 package com.swt.model.controlled;
 
+import com.swt.control.FileUtils;
 import com.swt.model.advance.Calabash;
 import com.swt.model.basic.Color;
 import com.swt.model.basic.Rank;
-import javafx.scene.image.Image;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +15,8 @@ public class CalabashTeam {
     public CalabashTeam() throws IOException {
         this.calabashes = new ArrayList<>();
         for(int i = 0; i < 7; ++i){
-            FileInputStream fis = new FileInputStream(new File("SRCFile/" + (i + 1) + ".jpg"));
-            Image image = new Image(fis);
-            Calabash calabash = new Calabash(Color.values()[i], Rank.values()[i], image);
+            Calabash calabash = new Calabash(Color.values()[i], Rank.values()[i], FileUtils.getImage("SRCFile/" + (i + 1) + ".jpg"));
             calabashes.add(calabash);
-            fis.close();
         }
     }
 

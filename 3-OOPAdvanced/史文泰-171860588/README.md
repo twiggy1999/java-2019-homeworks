@@ -1,5 +1,102 @@
 # 代码说明
 
+### `更新`
+
+1. **绘画部分改进**，**MyPaint**类原本直接操纵底层的各个需要绘图的人物，拥有各种人物的绘图方法，如下所示：
+
+    ```java
+    public class MyPaint extends Canvas{
+        private NMap nMap;                                      //地图
+        private CalabashTeam calabashTeam;                      //葫芦兄弟
+        private EnemyTeam enemyTeam;                            //敌人队伍
+        private GrandFather grandFather;  						//老爷爷
+        …………
+        private void draw(Picture picture, GraphicsContext graphicsContext);	//画出图片
+        private void drawMap();									//画地图
+        private void drawcalabashTeam();						//画葫芦娃队伍
+        private void drawenemyTeam();							//画敌人队伍
+        private void drawSnake();								//画蛇精
+        private void drawGrand();								//画老爷爷
+        …………
+    }
+    ```
+
+    * **这样的方式实则为结构化方法，高层模块依赖于底层模块，程序中的依赖关系终止于具体的类，违反了*<font color=#aa99ff>DIP</font>*原则。**
+
+    * **同时，这样的设计在有新的需求时，需要改动原本已经写好的代码，可维护性差，并没有做到对扩展开放，违反了<font color=#aa99ff>*OCP*</font>原则**
+    * **没有使用基类来统一各个函数，而是为每个子类单独完成函数，违反了*<font color=#aa99ff>LSP</font>*原则**
+
+    改进后：
+
+    * 将画图抽象出**基类DrawBase**，每个具体需要绘制的人物**继承DrawBase**，这样在有新的需要绘制的人物时只需要从DrawBase中派生出一个新的类即可，遵循了**<font color=#aa99ff>OCP</font>**原则。
+
+    * 同时增加**抽象服务类DrawServer**，高层MyPaint**依赖于DrawServer类**，不直接依赖于各个底层类，遵循了**<font color=#aa99ff>DIP</font>**原则。
+
+    * DrawServer类中**参数为基类DrawBase对象**，而不是各个具体的派生类，实际调用时用子类型低缓基类型，实现了一个draw函数完成所有具体派生类的绘画，遵循了**<font color=#aa99ff>LSP</font>**原则。
+
+    * 如下为代码结构示意：
+
+        ```java
+        //基类：DrawBase
+        public class DrawBase{
+            void drawPic(Picture picture);						//绘制一个图片
+            public void draw();									//绘制具体的一个对象，用于重写
+        }
+        //派生类：葫芦娃队伍
+        public class DrawCalabashTeam extends DrawBase{
+            private CalabashTeam calabashTeam;					//需要绘制的对象：葫芦娃队伍
+            public void draw();									//重写方法，绘制葫芦娃逻辑
+        }
+        ………………
+        //绘画服务，提供给上层
+        public class DrawServer{
+            public void draw(DrawBase drawBase){				//使用基类参数，子类替换基类
+                drawBase.draw();
+            }
+        }
+        ```
+
+    * 以下为类图:
+
+        ![](UMLPicture/DrawBaseUML.jpg)
+
+2. 同理，**改进了人物基类Character的移动方式**。原本人物移动直接调用底层方法，违背了***<font color=#aa99ff>DIP，LSP，OCP</font>***原则。改进后，**抽象出接口MoveInterface，向各个方向的移动implements接口，并且增加移动抽象服务类MoveServer，用接口参数MoveInterface统一所有移动，提供给上层Character。**
+
+    ```java
+    //抽象接口：MoveInterface
+    public interface MoveInterface {
+        void move(Picture picture, Point point);				//移动方法，用于重写
+    }
+    //派生类：向左移动
+    public class MoveLeft implements MoveInterface {
+        @Override
+        public void move(Picture picture, Point point);			//重写move方法，向左移动逻辑
+    }
+    …………
+    
+    public class MoveServer{
+        //使用基类参数，子类替换基类
+        public void move(MoveInterface moveInterface, Picture picture, Point point){
+            moveInterface.move(picture, point);
+        }
+    }
+    ```
+
+    以下为类图：
+
+    ![](UMLPicture/MoveInterfaceUML.jpg)
+
+3. 在工具类中**添加读取图片的方法**，简化了代码：
+
+    ```java
+    public class FileUtils{
+        public static List<Point> getPointList(String path);	//根据地址获得阵型坐标信息
+        public static Image getImage(String pathName);			//新增：根据地址读取图片
+    }
+    ```
+
+    
+
 ### 一. 程序结构说明及类图
 
 #### 1. OOPAdvance类
@@ -173,11 +270,11 @@
   
 * MyPaint类属性方法如下：
   
-        | 方法名                                                       | 含义                                                         |
-        | ------------------------------------------------------------ | ------------------------------------------------------------ |
-        | startDraw()                                                  | 开始绘画，启动绘画线程                                       |
-        | draw()                                                       | 对于给定的图片进行绘制                                       |
-        | drawMap/drawcalabashTeam/ drawenemyTeam/drawSnake/drawGrand() | **地图**，**葫芦娃队伍**，**敌人队伍**，**蛇精**，**老爷爷**的具体绘画，均调用draw()方法 |
+    | 方法名                                                       | 含义                                                         |
+    | ------------------------------------------------------------ | ------------------------------------------------------------ |
+    | startDraw()                                                  | 开始绘画，启动绘画线程                                       |
+    | draw()                                                       | 对于给定的图片进行绘制                                       |
+    | drawMap/drawcalabashTeam/ drawenemyTeam/drawSnake/drawGrand() | **地图**，**葫芦娃队伍**，**敌人队伍**，**蛇精**，**老爷爷**的具体绘画，均调用draw()方法 |
     | drawMapStop()                                                | 停止绘画                                                     |
     
 * **类图**
@@ -186,34 +283,34 @@
     
 * 定义**内部类DrawThread**，表示绘画线程：
   
-        ```java
-        /**
-         * 绘画线程
-        */
-        private class DrawThread extends Thread{
-            @Override
-            public void run() {
-                while (isRunning){
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            drawMap();
-                            drawcalabashTeam();
-                            drawenemyTeam();
-                            drawSnake();
-                            drawGrand();
-                        }
-                    });
-                    //画完后休息一段时间，避免阻塞
-                    try {
-                        Thread.sleep(SLEEPTIME);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+    ```java
+    /**
+     * 绘画线程
+    */
+    private class DrawThread extends Thread{
+        @Override
+        public void run() {
+            while (isRunning){
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        drawMap();
+                        drawcalabashTeam();
+                        drawenemyTeam();
+                        drawSnake();
+                        drawGrand();
                     }
+                });
+                //画完后休息一段时间，避免阻塞
+                try {
+                    Thread.sleep(SLEEPTIME);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }
-        ```
+    }
+    ```
 
 #### 7. 整体包结构
 
@@ -239,8 +336,22 @@
             EnemyTeam.java		//敌人队伍类
             GrandFather.java	//老爷爷类
             NMap.java			//地图类
+        - move					//移动
+        	MoveInterface		//移动接口
+        	MoveLeft			//向左移
+        	MoveRight			//向右移
+        	MoveUp				//向上移
+        	MoveDown			//向下移
+        	MoveServer			//移动服务，提供给上层Character
   	- com.swt.view
-  		Paint.java
+  		- draw					//绘画接口
+  			DrawBase			//绘画基类
+  			DrawCalabashTeam	//绘制葫芦娃队伍
+  			DrawEnemyTeam		//绘制敌人队伍
+  			DrawMap				//绘制地图
+  			DrawGrand			//绘制老爷爷
+  			DrawServer			//绘制服务，提供给上层Paint
+  		MyPaint.java
   	- SRCFile				//使用到的图片
   	OOPAdvance.java		//main函数，构建窗口
 ```
@@ -311,8 +422,8 @@
 * **执行方式**
 
 ```bash
-//在cmd中，根目录为：java-2019-homeworks/3-OOPAdvanced/史文泰-171860588
-javac -encoding UTF-8 OOPAdvance
+# 在cmd中，根目录为：java-2019-homeworks/3-OOPAdvanced/史文泰-171860588
+javac -encoding UTF-8 OOPAdvance.java
 java OOPAdvance
 ```
 

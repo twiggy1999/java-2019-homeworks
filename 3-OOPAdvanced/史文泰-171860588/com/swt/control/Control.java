@@ -11,11 +11,8 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.image.Image;
 import javafx.util.Duration;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 public class Control{
@@ -24,33 +21,23 @@ public class Control{
     private CalabashTeam calabashTeam;                      //葫芦兄弟
     private EnemyTeam enemyTeam;                            //敌人队伍
     private GrandFather grandFather;                        //老爷爷
-    private MyPaint myPaint;                                        //画笔
-    private int PointIndex = 1;                                     //下一个阵型
-    private int PointMax = 5;                                       //阵型总数
+    private MyPaint myPaint;                                //画笔
+    private int PointIndex = 1;                             //下一个阵型
+    private int PointMax = 5;                               //阵型总数
 
     public Control(double width, double height) throws IOException {
+        //初始化地图和各个人物
         nMap = new NMap("SRCFile/pic2.jpg", "SRCFile/pic3.jpg");
         calabashTeam = new CalabashTeam();
-        enemyTeam = new EnemyTeam(Formation.getPointList("SRCFile/Point0.txt"));
-        initGrandAndSnake();
+        enemyTeam = new EnemyTeam(FileUtils.getPointList("SRCFile/Point0.txt"));
+        Picture goodPicture = new Picture(new Point(1, 0), FileUtils.getImage("SRCFile/yeye.jpg"));
+        grandFather = new GrandFather(0, 0, FileUtils.getImage("SRCFile/grandFather.jpg"), goodPicture);
+        //初始化画图类
         myPaint = new MyPaint(width, height, nMap, calabashTeam, enemyTeam, grandFather);
+        //开始画图
         myPaint.startDraw();
+        //设置定时器
         setAlarm();
-    }
-
-    /**
-     * 初始化老爷爷和蛇精
-     * @throws IOException
-     */
-    private void initGrandAndSnake() throws IOException {
-        FileInputStream fis0 = new FileInputStream(new File("SRCFile/grandFather.jpg"));
-        Image image0 = new Image(fis0);
-        fis0.close();
-        FileInputStream fis1 = new FileInputStream(new File("SRCFile/yeye.jpg"));
-        Image image1 = new Image(fis1);
-        Picture goodPicture = new Picture(new Point(1, 0), image1);
-        grandFather = new GrandFather(0, 0, image0, goodPicture);
-        fis1.close();
     }
 
     /**
@@ -58,15 +45,12 @@ public class Control{
      */
     private void setAlarm(){
         EventHandler<ActionEvent> eventHandler = e -> {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        enemyTeam.getSnake().Order(enemyTeam, "SRCFile/Point" + PointIndex + ".txt", "SRCFile/Form" + PointIndex + ".jpg");
-                        PointIndex = (PointIndex + 1) % PointMax;
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
+            new Thread(() -> {
+                try {
+                    enemyTeam.getSnake().Order(enemyTeam, "SRCFile/Point" + PointIndex + ".txt", "SRCFile/Form" + PointIndex + ".jpg");
+                    PointIndex = (PointIndex + 1) % PointMax;
+                } catch (IOException ex) {
+                    ex.printStackTrace();
                 }
             }).start();
         };
