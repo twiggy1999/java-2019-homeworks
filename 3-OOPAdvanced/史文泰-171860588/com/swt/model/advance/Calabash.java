@@ -1,21 +1,28 @@
-import SWT.*;
+package com.swt.model.advance;
+
+import com.swt.model.basic.Character;
+import com.swt.model.basic.Color;
+import com.swt.model.basic.Rank;
+import javafx.scene.image.Image;
+
 /**
  * 葫芦娃类
  */
-public class Calabash {
+public class Calabash extends Character {
     private int id;
     private Color color;
     private Rank rank;
-    private int position;
 
     public Calabash(){}
+
     /**
      * 不要使用id进行初始化，葫芦娃出生时应该给予颜色和排行
      * @param color
      * @param rank
      * @param image
      */
-    public Calabash(Color color, Rank rank){
+    public Calabash(Color color, Rank rank, Image image){
+        super(0, rank.ordinal() + 2, image);
         this.color = color;
         this.rank = rank;
         this.id = rank.ordinal();
@@ -29,12 +36,6 @@ public class Calabash {
     public Rank getRank(){
         return this.rank;
     }
-    public int getPosition(){
-        return this.position;
-    }
-    public void setPosition(int position){
-        this.position = position;
-    }
 
     /**
      * 报数
@@ -46,16 +47,5 @@ public class Calabash {
         }else{
             System.out.print(this.rank + " ");
         }
-    }
-
-    /**
-     * 葫芦娃移动
-     * @param movePos   移动到的位置
-     */
-    public void move(int movePos){
-        if(this.position != -1){
-            System.out.println(this.rank + ": " + this.position + "->" + movePos);
-        }
-        this.position = movePos;
     }
 }
