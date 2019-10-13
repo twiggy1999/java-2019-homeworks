@@ -22,30 +22,33 @@
 #### 强合成
 这里认为一旦领导者消亡，消亡的一方被判断为输，则其带领的全部其他生命均会消亡。因此GrandPa类（**爷爷**）和Gourd类（**葫芦娃**）是强合成的关系，Snake类（**蛇精**）和Scorpion（**蝎子精**）、Bandit（**喽啰**）是强合成关系。
 
+~~~ java
     public class Leaders extends Creature{
     	List<Creature> kids = new ArrayList<Creature>();   //领导的队伍
 		……
 	}
+~~~
 
 #### 聚合
 类之间的聚合关系代表着“部分”可以单独存在。在设定中Position和其上的Creature是可以独立存在的。
 	
+~~~java
 	public class Position {
     	Creature creature;          //生物
 		……
 	}
-
+~~~
 还有Leaders可以控制选择阵型，但是二者也可以独立存在。
-
+~~~java
 	public class Leaders extends Creature{
     	Formation formation;                        //队伍阵型
 	}
-
+~~~
 
 
 #### 继承
 游戏中出现的所有生命体具有一定的共性（名字、位置），都可以完成一些常规的操作（报告姓名、报告命令执行结果），因此在设计时抽象出了Creature类定义他们的共有属性和方法。葫芦娃、蝎子精、小喽啰直接继承了Creature类。
-
+~~~java
 	public class Creature {
 	    String name;    //生物名称
 	    int pos_x;      //位置坐标 x
@@ -62,9 +65,9 @@
 	    }
 
 }
-
+~~~
 另外爷爷和蛇精作为双方的领导者，也具有一些其他的共性，例如选择阵型、将阵型放入地图。因此也将这些属性和方法抽象成Leaders类，Leaders类继承Creature类，爷爷和蛇精继承Leaders类。
-
+~~~java
 	public class Leaders extends Creature{
 	    List<Creature> kids = new ArrayList<Creature>();   //领导的队伍
 	    int for_num;                                	   //阵型序号
@@ -96,7 +99,7 @@
 	    //撤回阵型
 	    public void retreat_formation(Map map){	……	}
 	}
-
+~~~
 
 继承关系图：
 
