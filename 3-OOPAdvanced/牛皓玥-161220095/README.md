@@ -12,8 +12,7 @@
 7. 请让蝎子精小喽啰阵营变换一个阵法（长蛇除外），重复4-6步。
 
 ## 类说明
-![](https://i.imgur.com/xFrF00U.png)
-
+![](https://i.imgur.com/1HlaU3M.png)
 
 ## 设计说明
 ### 设计理念
@@ -98,8 +97,8 @@
 	    public void retreat_formation(Map map){	……	}
 	}
 
+
 继承关系图：
 
-![](https://i.imgur.com/LSmYifM.png)
-
+![](https://i.imgur.com/SgrifmK.png)
 
