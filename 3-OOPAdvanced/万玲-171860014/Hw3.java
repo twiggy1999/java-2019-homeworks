@@ -1,5 +1,4 @@
-//import static org.fusesource.jansi.Ansi.*;
-//import static org.fusesource.jansi.Ansi.Color.*;
+
 
 class Being
 {
