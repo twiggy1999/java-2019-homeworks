@@ -50,8 +50,8 @@ public class BattleField{
             y = rand.nextInt(11);
             if(goodGuys[x][y].getName()==null){
                 goodGuys[x][y] = calabashBros[i];
-                goodGuys[x][y].setX(x);
-                goodGuys[x][y].setY(y);
+                // goodGuys[x][y].setX(x);
+                // goodGuys[x][y].setY(y);
             }
         }
     }
