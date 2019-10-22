@@ -27,7 +27,7 @@ Land:草地
 **作业4新增类 OrganismGenerator：** 生物生成器类，输入特定的生物类名，该生成器可以产生一个实例化对象，
 并且返回这个类的对象
 
-**作业4新增泛型接口 Generator<T>{ T next(String classname) }**:参考工厂模式设计的接口
+**作业4新增泛型接口 Generator\<T\>{ T next(String classname) }**:参考工厂模式设计的接口
 
 
 **（2）formation**
@@ -86,14 +86,14 @@ Organism包的类暴露在其他包中，既不符合面向对象的抽象封装
 
 （2）改进：
 
-**·** 在package organism下新增了一个**泛型接口**：public interface Generator<T> {T next(String classname);}
+**·** 在package organism下新增了一个**泛型接口**：public interface Generator\<T> {T next(String classname);}
 
 **·** 新定义了一个生成器类 class OrganismGenerator implements Generator\<Organism\> 在这个类中具有**Class类对象数组**
 types={Land.class,GrandFather.class,Snake.class,Scorpion.class,Soldier.class}，描述的是各个子类的类名
 
 **·** 实现接口 Organism next(String classname),将一个类名classname传入方法中，然后for循环会逐一对比找到合适的子类名
 "if types[i].getName().equals("organism."+classname)"，这里使用了class的getName()方法获取类名的字符串值，如果找到第
-第i个元素满足条件，则创建一个该类的实例。这里用到了**反射**的思路，在运行时通过字符串值才能确定要创建的新对象类型，然后利用getConstructor().newInstance()获取
+i个元素满足条件，则创建一个该类的实例。这里用到了**反射**的思路，在运行时通过字符串值才能确定要创建的新对象类型，然后利用getConstructor().newInstance()获取
 反射类对象，并且返回该对象
 
 **·** 利用该泛型接口，同样可以在package formation下类似地定义生产器类class FormationGenerator implements Generator<Formation>，接口的实现
