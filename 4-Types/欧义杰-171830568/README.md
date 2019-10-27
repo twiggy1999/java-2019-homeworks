@@ -10,12 +10,16 @@
   
 ## hw4重构更新
 
-1.(泛型)使用Vector<Creature>的泛型容器思路不变，泛型边界为Creature，共有5个Vector<Creature>,分别装葫芦娃，爷爷，蛇精，喽啰，蝎子5个类的对象，这些extends Creature的类都能放入Vector中</br>，拿出时均赋值给Creature类对象，通过调用一些抽象方法来达成目标
+1.(泛型)使用Vector<Creature>的泛型容器思路不变，泛型边界为Creature，共有5个Vector<Creature>,分别装葫芦娃，爷爷，蛇精，喽啰，蝎子5个类的对象，这些extends Creature的类都能放入Vector中，拿出时均赋值给Creature类对象，通过调用一些抽象方法来达成目标</br>
 2.(反射)将原来static变量(如皮肤H,Y,S...,)的get方法从abstract方法转为static方法，更符合使用规范。但是外界一般需要使用这些static变量时，只有一个传入的Creature对象，无法通过一个Creature对象直接get这些static信息(在hw3中，由于get函数是abstract,直接object.get即可)，需要得到如HuLuWa,LouLuo这些子类的类名才能调用，因此此时可以使用反射，在运行中动态获得一个creatureclass的Class<?>对象，通过该creatureclass调用getDeclaredMethod("get..."),得到get函数，再使用invoke调用，在invoke调用时传入参数null,表示不通过特定对象调用该方法，即调用static方法</br>
-3.(反射)删除原来的enum CreatureName。该枚举类型原来是为了将"HuLuWa"等类字符串转化为int的数组下标，通过数组下标找到Vector数组中对应的装该类对象的Vector。</br>
-  删除后，使用反射，在下层函数中接受一个String变量(如HuLuWa,LouLuo)，在运行中动态地使用该String变量得到一个Class<?>，从该Class<?>对象中可反射得到带参构造函数(getDeclaredConstructor)，创建该类对象，而且能反射(getDeclaredMethod)得到getOrder方法，得到数组下标。这样通过反射，在一些下层函数的使用中，无需明确用到如“HuLuWa”,"LouLuo"等明显字符串，都使用变量代替，提高了代码抽象，可复用性</br>
+3.(反射)删除原来的enum CreatureName。该枚举类型原来是为了将"HuLuWa"等类字符串转化为int的数组下标，通过数组下标找到Vector数组中对应的装该类对象的Vector。</br>删除后，使用反射，在下层函数中接受一个String变量(如HuLuWa,LouLuo)，在运行中动态地使用该String变量得到一个Class<?>，从该Class<?>对象中可反射得到带参构造函数(getDeclaredConstructor)，创建该类对象，而且能反射(getDeclaredMethod)得到getOrder方法，得到数组下标。这样通过反射，在一些下层函数的使用中，无需明确用到如“HuLuWa”,"LouLuo"等明显字符串，都使用变量代替，提高了代码抽象，可复用性</br>
 4.(重构)将原来杂乱的CreatureControl类中一些功能，变量放入一个新抽象出的类Court(战场)中，存放二维数组的map，以及提供清理，打乱顺序，setget等方法供上层CreatureControl使用</br>
 5.(重构)将单文件分成多文件，main仍放在HuLuWaCourt类中</br>
+
+## 一些踩到的坑
+
+1.反射时需要加上try语句块</br>
+2.通过string反射Class时需要加上包名(.app)<br>
 
 ## 待实现目标
 
