@@ -4,19 +4,19 @@
 * 1、将Battle类的Unit[][]成员改为Plot[][]，每一个Plot对象表示场地上的一块区域，分离生物体和场地<br>
 * 2、在妖怪侧的变阵过程中使用反射，从而可以使用循环，减少代码量
 ```Java
-	Class ctrl = Class.forName("Controller");
-    Method[] method_array = ctrl.getDeclaredMethods();
-    for (Method m : method_array) {
-        if (m.equals(method_array[0])) {
-            ...
-        }
-        else {
-            snake.instruction();
-            Object obj = ctrl.getConstructor().newInstance();
-            m.invoke(obj, battle, camp1);
-            ...
-        }
+Class ctrl = Class.forName("Controller");
+Method[] method_array = ctrl.getDeclaredMethods();
+for (Method m : method_array) {
+    if (m.equals(method_array[0])) {
+        ...
     }
+    else {
+        snake.instruction();
+        Object obj = ctrl.getConstructor().newInstance();
+        m.invoke(obj, battle, camp1);
+        ...
+    }
+}
 ```
 * 3、在Camp类中使用泛型，以配合不同的leader成员。
 ```Java
