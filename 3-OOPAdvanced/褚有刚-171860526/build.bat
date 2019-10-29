@@ -1,6 +1,6 @@
 @echo off
-if not exist .\out\hw3 (
-    javac .\hw3\MainFrame.java -d out -encoding utf8
+if not exist .\out\huluwa (
+    javac .\huluwa\MainFrame.java -d out -encoding utf8
 )
 cd out
-java hw3.MainFrame
+java huluwa.MainFrame
