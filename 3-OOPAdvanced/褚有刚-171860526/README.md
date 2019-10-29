@@ -48,7 +48,7 @@
 
 ## 四、运行截图
 - 生物图片来自网络，侵权即删
-![Runtime Image](https://s2.ax1x.com/2019/09/25/uZowEd.png)
+![Runtime Image](https://s2.ax1x.com/2019/10/29/KfRsfK.png)
 
 ## 五、UML图片
-![uml图片](https://s2.ax1x.com/2019/09/25/uZgUBt.png)
+![uml图片](https://s2.ax1x.com/2019/10/29/KfgyAx.png)
