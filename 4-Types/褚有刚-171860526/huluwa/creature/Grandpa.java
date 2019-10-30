@@ -4,12 +4,11 @@ package huluwa.creature;
 import huluwa.util.Position;
 import huluwa.zhenfa.Zhenfa;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
-public class Grandpa extends Creature implements Cheerable {
+public class Grandpa extends Creature implements Cheerable, Leader {
     public Grandpa() {
         super("爷爷");
 //        super("爷爷", new ImageIcon("pics/爷爷.jpg").getImage());
@@ -34,7 +33,8 @@ public class Grandpa extends Creature implements Cheerable {
     }
 
     // changshe form is allowed
-    public void buZhen(Position[][] positions, ArrayList<Huluwa> huluwas) {
+    @Override
+    public void buZhen(Position[][] positions, ArrayList<? extends Creature> huluwas) {
         Zhenfa.CHANG_SHE.buZhen(positions, huluwas, new Position(1, 1));
     }
 

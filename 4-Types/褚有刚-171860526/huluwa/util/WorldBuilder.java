@@ -1,6 +1,8 @@
 package huluwa.util;
 
 import huluwa.creature.*;
+import huluwa.team.BadTeam;
+import huluwa.team.GoodTeam;
 
 import java.util.ArrayList;
 
@@ -12,12 +14,9 @@ public class WorldBuilder {
     public static HuluWorld buildHuluWorld(int row, int col) {
         HuluWorld huluWorld = new HuluWorld();
 
-        // create creatures
-        ArrayList<Huluwa> huluwas = CreatureFactory.createHuluwas();
-        ArrayList<Minion> minions = CreatureFactory.createMinions();
-        Grandpa grandpa = CreatureFactory.createGrandpa();
-        Scorpion scorpion = CreatureFactory.createScorpion();
-        Snake snake = CreatureFactory.createSnake();
+        // create teams
+        GoodTeam goodTeam = TeamBuilder.buildGoodTeam();
+        BadTeam badTeam = TeamBuilder.buildBadTeam();
 
         // initial creatures' external attributes
         Position[][] positions = new Position[row][col];
@@ -26,18 +25,14 @@ public class WorldBuilder {
                 positions[i][j] = new Position(i, j);
             }
         }
-        grandpa.setPosition(positions[0][0]);
-        snake.setPosition(positions[11][0]);
-        grandpa.buZhen(positions, huluwas);
-        scorpion.buZhen(positions, minions);
 
+        // initial huluWorld
+        goodTeam.setInitialPos(positions);
+        badTeam.setInitialPos(positions);
 
         // direct huluWorld
-        huluWorld.setHuluwas(huluwas);
-        huluWorld.setMinions(minions);
-        huluWorld.setGrandpa(grandpa);
-        huluWorld.setScorpion(scorpion);
-        huluWorld.setSnake(snake);
+        huluWorld.setGoodTeam(goodTeam);
+        huluWorld.setBadTeam(badTeam);
         huluWorld.setPositions(positions);
 
         return huluWorld;

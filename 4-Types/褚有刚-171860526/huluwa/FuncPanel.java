@@ -1,5 +1,7 @@
 package huluwa;
 
+import huluwa.util.ImageLoader;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -54,7 +56,7 @@ public class FuncPanel extends JPanel {
                 dlg.setBounds(500, 500, 500, 185);
 //                dlg.setDefaultCloseOperation(JDialog.EXIT_ON_CLOSE);
                 JLabel figLabel = new JLabel();
-                figLabel.setIcon(new ImageIcon("pics/logo.jpg"));
+                figLabel.setIcon(new ImageIcon(ImageLoader.getImage("logo")));
                 dlg.add(figLabel, BorderLayout.WEST);
                 JLabel label = new JLabel("<html><body><p align=\"center\">" +
                         "Nanjing University Java Course 4th Homework<br/>" +

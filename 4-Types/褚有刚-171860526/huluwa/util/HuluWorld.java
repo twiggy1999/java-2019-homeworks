@@ -1,15 +1,14 @@
 package huluwa.util;
 
 import huluwa.creature.*;
+import huluwa.team.BadTeam;
+import huluwa.team.GoodTeam;
 
 import java.util.ArrayList;
 
 public class HuluWorld {
-    private ArrayList<Huluwa> huluwas;
-    private ArrayList<Minion> minions;
-    private Grandpa grandpa;
-    private Scorpion scorpion;
-    private Snake snake;
+    private GoodTeam goodTeam;
+    private BadTeam badTeam;
     private Position[][] positions;
 
     HuluWorld() {
@@ -17,15 +16,15 @@ public class HuluWorld {
     }
 
     public void sortHuluwa() {
-        grandpa.sortHuluwa(huluwas);
+        goodTeam.sortHuluwa();
     }
 
     public void shufflehuluwa() {
-        grandpa.shuffleHuluwa(huluwas);
+        goodTeam.shuffleHuluwa();
     }
 
-    public String minionsBuZhen() {
-        scorpion.buZhen(positions, minions);
+    public String badTeamBuZhen() {
+        badTeam.buZhen(positions);
         StringBuilder cheerInfo = new StringBuilder();
         for(Creature creature : getAllCreatures()) {
             if(creature instanceof Cheerable) {
@@ -37,32 +36,18 @@ public class HuluWorld {
 
     public ArrayList<Creature> getAllCreatures() {
         ArrayList<Creature> creatures = new ArrayList<>();
-        creatures.addAll(huluwas);
-        creatures.addAll(minions);
-        creatures.add(grandpa);
-        creatures.add(scorpion);
-        creatures.add(snake);
+        creatures.addAll(goodTeam.getAllCreatures());
+        creatures.addAll(badTeam.getAllCreatures());
         return creatures;
     }
 
-    void setHuluwas(ArrayList<Huluwa> huluwas) {
-        this.huluwas = huluwas;
+
+    void setGoodTeam(GoodTeam goodTeam) {
+        this.goodTeam = goodTeam;
     }
 
-    void setMinions(ArrayList<Minion> minions) {
-        this.minions = minions;
-    }
-
-    void setGrandpa(Grandpa grandpa) {
-        this.grandpa = grandpa;
-    }
-
-    void setScorpion(Scorpion scorpion) {
-        this.scorpion = scorpion;
-    }
-
-    void setSnake(Snake snake) {
-        this.snake = snake;
+    void setBadTeam(BadTeam badTeam) {
+        this.badTeam = badTeam;
     }
 
     void setPositions(Position[][] positions) {

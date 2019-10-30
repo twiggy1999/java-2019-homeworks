@@ -42,7 +42,7 @@ public class BoardPanel extends JPanel {
     }
 
     public void buZhen(JTextArea info) {
-        info.append(huluWorld.minionsBuZhen());
+        info.append(huluWorld.badTeamBuZhen());
     }
 
     @Override

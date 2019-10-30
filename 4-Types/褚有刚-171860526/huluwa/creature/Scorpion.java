@@ -4,17 +4,17 @@ package huluwa.creature;
 import huluwa.util.Position;
 import huluwa.zhenfa.Zhenfa;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Scorpion extends Creature{
+public class Scorpion extends Creature implements Leader {
     public Scorpion() {
         super("蝎子精");
 //        super("蝎子精", new ImageIcon("pics/蝎子精.jpg").getImage());
     }
 
-    public void buZhen(Position[][] positions, ArrayList<Minion> minions) {
+    @Override
+    public void buZhen(Position[][] positions, ArrayList<? extends Creature> minions) {
         ArrayList<Creature> creatures = new ArrayList<>();
         creatures.add(this);
         creatures.addAll(minions);
