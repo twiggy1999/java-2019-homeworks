@@ -64,7 +64,7 @@ public class Team<T1 extends Creature,T2 extends Creature> {
 
 为了方便对代码进行管理以及明确各java文件的作用，将其分为`creature`, `formation`, `god`, `map`, `team`五个package，如下图所示：
 
-<img src="4-Types/闫雨呼-161220154/1.png" alt="image-20191030145830713" style="zoom:50%;" />
+<img src="./1.png" alt="image-20191030145830713" style="zoom:50%;" />
 
 ### 代码细节优化
 
