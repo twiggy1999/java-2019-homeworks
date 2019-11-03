@@ -44,7 +44,7 @@ public class BattleField {
 	public Creature[][] info;//存储战场上所有生物的信息
 	private int size;//战场的宽度，代表题设中的N
 	BattleField(int x);//构造函数
-	private void printMark(Creature c);//打印生物体
+	private void printMark(Creature c);//打印表示不同类型的生物体
 	public int getSize();
 	public boolean isAvailable(int x, int y);//判断某个位置是否可以占领
 	public void printBattleField();//打印整个战场的状态
@@ -107,7 +107,7 @@ public class Tactic {
 有两个不同的阵营：**葫芦娃阵营、蝎子精阵营**，继承自抽象类**阵营**。
 
 *不同的派生类，其构造函数不同。*
-*不同的生物体派生类之间，id属性不同（代表身份不同），其表示自己的方法也有不同（打印出不同的字符）。*
+*不同的生物体派生类之间，属性有所不同（葫芦娃类具有颜色属性）。*
 *不同的阵营派生类之间，加入战场方法不同，获取的阵法知识不同，且蝎子精阵营多出一个变阵的方法。*
 
 ### 组合
