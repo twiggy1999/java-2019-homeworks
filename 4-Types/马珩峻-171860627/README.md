@@ -34,4 +34,4 @@ Unit中实现接口Move中的moveToDestination和stepTo方法（但由于本例�
 
 UML图
 ================
-![UMLpic](CalabashBrother.png)
+![UMLpic](https://github.com/UnableToCode/java-2019-homeworks/blob/master/4-Types/%E9%A9%AC%E7%8F%A9%E5%B3%BB-171860627/CalabashBrother.png)
