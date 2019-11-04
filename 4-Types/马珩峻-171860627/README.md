@@ -34,4 +34,4 @@ Unit中实现接口Move中的moveToDestination和stepTo方法（但由于本例�
 
 UML图
 ================
-![avatar](./CalabashBrother.png)
+![UMLpic](CalabashBrother.jpg)
