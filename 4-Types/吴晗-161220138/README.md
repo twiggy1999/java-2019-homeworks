@@ -17,4 +17,4 @@
 反射运用于角色、棋盘、阵型实例的构造，通过构造器构造任意一个类的对象，并且调用这些对象的方法。可以在运行时进行类型检查，需要抛出一些异常
 ## 设计理念
 这次实验就像是象棋，也像是自走棋游戏。角色在棋盘中自由地移动，最后排成有规则的阵列。角色是”活“的，移动是一步一步移动的，被挡住时也会像现实中一样请求对方让路。棋盘类是比较死板的，基本负责记录棋盘中数据的变化，并不会去干涉角色移动。阵型就近似于现实中的我们，去给角色（棋子）指定位置移动，也不会干涉角色具体怎么移动。
-![image](https://github.com/wwuuhan/java-2019-homeworks/blob/master/3-OOPAdvanced/吴晗-161220138/plantUMLclass.png)
+![image](https://github.com/wwuuhan/java-2019-homeworks/blob/master/4-Types/吴晗-161220138/plantUMLclass_homework4.png)
