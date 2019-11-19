@@ -15,7 +15,7 @@
 8. 图形化框架限定使用JavaFX。
 
 
-![阵法](http://www.jingduzhisheng.com/wsxs/201609/12/W020160912537837823809.jpg)
+![阵法](https://i2.kknews.cc/SIG=2ujhb64/22q60003r1740q794523.jpg)
 
 
 额外要求：
