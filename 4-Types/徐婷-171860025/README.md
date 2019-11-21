@@ -1,4 +1,4 @@
-# homework 3
+# homework 4
 
 ## 需求分析
 
@@ -97,7 +97,7 @@ Snake，Damon继承自SnakeSide, 表示蛇精和其它妖怪。
 
 每一轮阵列变化后，需要每一队的啦啦队员进行加油，通过getInterfaces判断是否为Cheerer接口，再通过invoke函数调用cheer方法，实现加油的功能，从中可以看出，还使用了**异常处理**的机制。
 
-![image-20191121191318247](.\figures\reflection.png)
+![image-20191121191318247](./figures/reflection.PNG)
 
 ## 泛型
 
@@ -105,6 +105,6 @@ Snake，Damon继承自SnakeSide, 表示蛇精和其它妖怪。
 
 以鹤翼阵列为例：
 
-![image-20191121192027424](./figures/heYi.png)
+![image-20191121192027424](./figures/heYi.PNG)
 
 同时，HuluwaTeam和SnakeTeam中的生物也是通过List来存放，也使用了泛型的机制。
