@@ -95,7 +95,10 @@ public class Controller implements Initializable {
                             }catch (InterruptedException e){
                                 throw new RuntimeException(e);
                             }
-                            if(ground.whoWin()!= Status.RUNNING)break;
+                            if(ground.whoWin()!= Status.RUNNING){
+                                draw();
+                                break;
+                            }
                         }
                     }
                 }));

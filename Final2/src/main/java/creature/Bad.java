@@ -20,7 +20,7 @@ public abstract class Bad extends Creature{
 
                     }
                     try {
-                        TimeUnit.SECONDS.sleep(5);
+                        TimeUnit.SECONDS.sleep(3);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }

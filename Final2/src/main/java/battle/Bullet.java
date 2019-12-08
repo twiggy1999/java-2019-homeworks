@@ -41,7 +41,7 @@ public class Bullet implements Runnable{
                 }
             }
             try {
-                TimeUnit.MILLISECONDS.sleep(500);
+                TimeUnit.MILLISECONDS.sleep(250);
             }catch (InterruptedException e){
                 throw new RuntimeException(e);
             }

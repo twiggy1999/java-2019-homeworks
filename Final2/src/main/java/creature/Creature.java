@@ -75,6 +75,10 @@ public abstract class Creature implements Runnable{
                         int x1 = x+moveX[i];
                         int y1 = y+moveY[i];
                         if(canMove(x1, y1)){
+                            //没有敌人，3/4概率不动
+                            if(!ground.hasEnemy(Creature.this, y1)){
+                                if(25<rand.nextInt(100))continue;
+                            }
                             ground.setCreature(null, x, y);
                             ground.setCreature(Creature.this, x1, y1);
                             x = x1;

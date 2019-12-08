@@ -90,4 +90,16 @@ public class Ground {
         }
         return false;
     }
+    public boolean hasEnemy(Creature c, int y){
+        for(int i = 0;i<W;i++){
+            Creature t = cells[y][i].getCreature();
+            if(t!=null && t.getState()== State.LIVE) {
+                if (c instanceof Good && t instanceof Bad)
+                    return true;
+                if (c instanceof Bad && t instanceof Good)
+                    return true;
+            }
+        }
+        return false;
+    }
 }
