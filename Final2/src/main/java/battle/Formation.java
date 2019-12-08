@@ -1,5 +1,5 @@
-package sample.formation;
-import sample.creatures.*;
+package battle;
+import creature.*;
 
 import java.lang.reflect.Array;
 import java.util.*;

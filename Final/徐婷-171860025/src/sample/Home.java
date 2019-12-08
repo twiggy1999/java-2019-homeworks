@@ -4,21 +4,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import javafx.event.ActionEvent;
 import javafx.scene.image.Image;
-import javafx.scene.layout.*;
 import sample.creatures.*;
 import sample.formation.Formation;
 import sample.ground.Ground;
 import sample.position.Position;
-
-
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 
 public class Home implements Initializable {
 
@@ -38,16 +33,18 @@ public class Home implements Initializable {
     @FXML
     private TextField saveTextField;
 
-    private Image myBI= new Image("file:///C:/Users/Mizar/Pictures/a.jpg",780,620,false,true);
-    //private Image myBI =new Image("file:///C:\\Users\\Mizar\\CS\\Java\\java projects\\java-2019-homeworks\\Final\\徐婷-171860025\\figures\\DEAD.jpg");
-
+    //private Image myBI= new Image("file:///C:/Users/Mizar/Pictures/a.jpg",780,620,false,true);
+    private Image myBI =new Image("file:///C:\\Users\\Mizar\\CS\\Java\\java projects\\java-2019-homeworks\\Final\\徐婷-171860025\\figures\\background.jpg");
+    private String arrangeGood = "changShe";
+    private String arrangeBad = "fangYuan";
     private static GoodTeam goods;
     private static BadTeam bads;
     private static Ground ground;
     public void draw(){
-        //System.out.println(canvas.getHeight()+" "+canvas.getWidth());
         GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.clearRect(0,0,1200, 720);
         gc.drawImage(myBI, 0,0,1200, 720);
+
         for(Good good: goods.getTeamMember()){
             if(good.getState()==State.DEAD) {
                 Position pos = Config.calculatePos(good.getPos());
@@ -76,15 +73,10 @@ public class Home implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources){
-        //添加背景图
-
-
-        //GraphicsContext gc = canvas.getGraphicsContext2D();
-        //gc.drawImage(myBI, 0,0,Config.WIDTH, Config.HEIGHT);
-        //Image image= new Image("file:///C:/Users/Mizar/Pictures/timg.jpg",780,620,false,true);
-        //gc.drawImage(image, 0,0,Config.WIDTH, Config.HEIGHT);
-        goods = Formation.changSheGood();
-        bads = Formation.fangYuanBad();
+        goods = new GoodTeam();
+        bads = new BadTeam(25);
+        Formation.changShe(goods.getSoldier());
+        Formation.fangYuan(bads.getSoldier());
         ground = new Ground(goods, bads);
         ground.update();
         goods.getTeamMember().get(0).setGround(ground);
@@ -92,11 +84,33 @@ public class Home implements Initializable {
 
     }
     public void pressSelectButton(ActionEvent event){
-        System.out.println("press Select Button");
+
+
+    }
+    class MyDialog extends Dialog{
+        public MyDialog() {
+            super();
+            RadioButton []g;
+            g = new RadioButton[5];
+            g[0] = new RadioButton("鹤翼");
+            g[1] = new RadioButton("雁行");
+            g[2] = new RadioButton("衡轭");
+            g[3] = new RadioButton("长蛇");
+            g[4] = new RadioButton("锋矢");
+            RadioButton []b;
+            b = new RadioButton[8];
+            b[0] = new RadioButton("鹤翼");
+            b[1] = new RadioButton("雁行");
+            b[2] = new RadioButton("衡轭");
+            b[3] = new RadioButton("长蛇");
+            b[4] = new RadioButton("鱼鳞");
+            b[5] = new RadioButton("方円");
+            b[6] = new RadioButton("偃月");
+            b[7] = new RadioButton("锋矢");
+        }
+
     }
     public void pressStartButton(ActionEvent event){
-//        draw();
-//        if(true)return;
         for(Bad bad: bads.getTeamMember()){
             Thread t = new Thread(bad);
             t.start();

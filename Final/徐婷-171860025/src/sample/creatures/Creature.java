@@ -1,7 +1,5 @@
 package sample.creatures;
 
-import javafx.geometry.Pos;
-import sample.ground.Cell;
 import javafx.scene.image.Image;
 import sample.ground.Ground;
 import sample.position.Position;
@@ -20,12 +18,9 @@ public abstract class Creature implements Runnable{
     //所有生物共享一个全局信息
     protected static Ground ground;
     protected static Lock lock = new ReentrantLock();
-
+    protected static String deadImage = "file:///C:\\Users\\Mizar\\CS\\Java\\java projects\\java-2019-homeworks\\Final\\徐婷-171860025\\figures\\DEAD.png";
     public void setState(State state){
-        /**
-         * 死掉了image要改
-         */
-        image = new Image("file:///C:\\Users\\Mizar\\CS\\Java\\java projects\\java-2019-homeworks\\Final\\徐婷-171860025\\figures\\DEAD.jpg");
+        if(state==State.DEAD)image = new Image(deadImage);
         this.state = state;
     }
     public void setPos(Position pos){
@@ -45,6 +40,7 @@ public abstract class Creature implements Runnable{
 
     public void walk(){
         Position to = ground.findNearestEnemy(this);
+        if(to==null)return;
         int toX = to.getX();
         int toY = to.getY();
         int fromX = this.getX();
@@ -99,18 +95,12 @@ public abstract class Creature implements Runnable{
     }
 
     public void run(){
-        while(true) {
+        while(state!=State.DEAD) {
             lock.lock();
-            if (state != State.DEAD) {
-                walk();
-                pk();
-
-                //ground.print();
-                System.out.println(this+" ");
-            }
+            walk();
+            pk();
             lock.unlock();
             try {
-                //Thread.yield();
                 TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
@@ -127,7 +117,6 @@ public abstract class Creature implements Runnable{
     }
 
 
-
     /**decorator pattern*/
     public void setX(int x){
         pos.setX(x);
@@ -138,6 +127,4 @@ public abstract class Creature implements Runnable{
     public int getX(){return pos.getX();}
     public int getY(){return pos.getY();}
     public Image getImage(){return image;}
-
-
 }

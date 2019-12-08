@@ -27,7 +27,8 @@ public class Ground {
         for(Bad bad: bads.getTeamMember()){
             int x = bad.getX();
             int y = bad.getY();
-            cells[x][y].setCreature(bad);
+            if(x!=-1&&y!=-1)
+                cells[x][y].setCreature(bad);
         }
     }
 
@@ -52,6 +53,7 @@ public class Ground {
             c.setCreature(good);
         }
         for(Bad bad: bads.getTeamMember()){
+            if(bad.getX()!=-1&& bad.getY()!=-1)
             cells[bad.getX()][bad.getY()].setCreature(bad);
         }
     }
@@ -61,16 +63,16 @@ public class Ground {
         int dir[]={-1, 1};
         for(int i = 0;i< 2;i++){
             int j = y+dir[i];
-            if(j>=0&&j<M&&creature instanceof Good && cells[x][j].getLiveCreature() instanceof Bad)
+            if(j>=0&&j<M&&creature instanceof Good && cells[x][j].getLiveCreature() instanceof Bad&&cells[x][j].getCreature().getState()==State.LIVE)
                 return cells[x][j].getCreature();
-            if(j>=0&&j<M&&creature instanceof Bad && cells[x][j].getLiveCreature() instanceof Good)
+            if(j>=0&&j<M&&creature instanceof Bad && cells[x][j].getLiveCreature() instanceof Good&& cells[x][j].getCreature().getState()==State.LIVE)
                 return cells[x][j].getCreature();
         }
         for(int i = 0;i< 2;i++){
             int j = x+dir[i];
-            if(j>=0&&j<N&&creature instanceof Good && cells[j][y].getLiveCreature() instanceof Bad)
+            if(j>=0&&j<N&&creature instanceof Good && cells[j][y].getLiveCreature() instanceof Bad&& cells[j][y].getCreature().getState()==State.LIVE)
                 return cells[j][y].getCreature();
-            if(j>=0&&j<N&&creature instanceof Bad && cells[j][y].getLiveCreature() instanceof Good)
+            if(j>=0&&j<N&&creature instanceof Bad && cells[j][y].getLiveCreature() instanceof Good&&cells[j][y].getCreature().getState()==State.LIVE)
                 return cells[j][y].getCreature();
         }
         return null;
@@ -101,14 +103,5 @@ public class Ground {
     public Creature getCreature(int i, int j){
         return cells[i][j].getCreature();
     }
-    public void print(){
-        for(int i = 0;i<N;i++){
-            for(int j = 0;j<M;j++){
-                Creature c = cells[i][j].getCreature();
-                if(c==null)System.out.print("  ");
-                else System.out.println(c.name);
-            }
-            System.out.println();
-        }
-    }
+
 }
