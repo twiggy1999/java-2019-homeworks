@@ -2,6 +2,3 @@
 *.xml
 *.iml
 *.html
-
-.vscode
-.DS_Store
