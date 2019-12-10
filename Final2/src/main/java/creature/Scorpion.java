@@ -3,7 +3,10 @@ package creature;
 import javafx.scene.image.Image;
 
 public class Scorpion extends Bad {
+    protected static Image liveImage = new Image("Scorpion.png");
     public Scorpion(){
-        liveImage = new Image("Scorpion.png");
+    }
+    public Image getLiveImage(){
+        return liveImage;
     }
 }

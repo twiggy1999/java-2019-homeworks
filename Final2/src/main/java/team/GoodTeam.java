@@ -2,24 +2,27 @@ package team;
 
 import battle.Formation;
 import battle.Ground;
-import creature.CalabashBros;
-import creature.Creature;
-import creature.Grandpa;
+import creature.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 
-public class GoodTeam extends Team {
+public class GoodTeam extends Team implements Serializable {
     private Grandpa cheerer = new Grandpa();
     private List<CalabashBros> soldiers = new ArrayList<CalabashBros>();
     //TODO FORMATION
     public GoodTeam(){
-        for(int i = 0;i<7;i++){
-            soldiers.add(new CalabashBros(i+1));
-        }
+        soldiers.add(new First());
+        soldiers.add(new Second());
+        soldiers.add(new Third());
+        soldiers.add(new Fourth());
+        soldiers.add(new Fifth());
+        soldiers.add(new Sixth());
+        soldiers.add(new Seventh());
         Formation.changShe(soldiers);
         Ground.getInstance().update(this);
     }
@@ -36,5 +39,11 @@ public class GoodTeam extends Team {
         ret.add(cheerer);
         ret.addAll(1, soldiers);
         return ret;
+    }
+    public void copy(GoodTeam t){
+        cheerer.copy(t.cheerer);
+        for(int i = 0;i<soldiers.size();i++){
+            soldiers.get(i).copy(t.soldiers.get(i));
+        }
     }
 }

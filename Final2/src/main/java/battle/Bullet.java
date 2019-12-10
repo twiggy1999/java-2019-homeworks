@@ -2,20 +2,29 @@ package battle;
 
 import config.Config;
 import creature.Creature;
+import creature.Good;
 import creature.State;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
+import java.io.Serializable;
 import java.util.concurrent.TimeUnit;
 
-public class Bullet implements Runnable{
-    private int direction;  // 1 -1
+public class Bullet implements Runnable, Serializable {
+    private transient int direction;  // 1 -1
     private int x, y;
     enum Status{flying, hit, over};
     private Status status;
-    private Image flyImage;
-    private Image hitImage;
+    private transient Image flyImage;
+    private transient Image hitImage;
     private Creature from;
+    public void copy(Bullet b){
+        this.x = b.x;
+        this.y = b.y;
+        this.status = b.status;
+        this.from = b.from;
+    }
+    public Bullet(){}
     public Bullet(int x, int y, int direction, Image flyImage, Image hitImage, Creature from){
         this.x = x;
         this.y = y;
@@ -29,6 +38,10 @@ public class Bullet implements Runnable{
         Ground ground = Ground.getInstance();
         while(status!= Status.over){
             synchronized (ground){
+                if(status==Status.hit) {
+                    status = Status.over;
+                    break;
+                }
                 this.x+= direction;
                 if(!ground.inGround(this.x, this.y)){
                     status = Status.over;
@@ -36,19 +49,20 @@ public class Bullet implements Runnable{
                 }
                 Creature c = ground.getCreature(this.x, this.y);
                 if(c!=null&&c.isEnemy(from)&&c.getState()== State.LIVE){
+                     System.out.println("Bullet "+x+" "+y+" hit: "+c.getClass().getSimpleName()+": "+c.getX()+" "+c.getY());
                     c.beAttacked(from);
                     status = Status.hit;
                 }
             }
             try {
-                TimeUnit.MILLISECONDS.sleep(250);
+                TimeUnit.MILLISECONDS.sleep(500);
             }catch (InterruptedException e){
                 throw new RuntimeException(e);
             }
-            if(status==Status.hit)
-                status = Status.over;
         }
-        ground.removeBullet(this);
+        synchronized (ground) {
+            ground.removeBullet(this);
+        }
     }
 
 
@@ -57,6 +71,8 @@ public class Bullet implements Runnable{
     }
     private Image getImage(){
         Image ret ;
+        if(flyImage==null)flyImage = from.getFlyImage();
+        if(hitImage==null)hitImage = from.getHitImage();
         if(status==Status.flying)
             ret = flyImage;
         else if(status== Status.hit)

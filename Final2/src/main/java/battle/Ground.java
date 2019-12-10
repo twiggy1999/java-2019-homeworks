@@ -11,6 +11,7 @@ import team.Team;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Ground {
     private Cell[][] cells ;
@@ -45,6 +46,9 @@ public class Ground {
         cells[y][x].setCreature(c);
     }
     public Creature getCreature(int x, int y){
+         if(y<0||y>=H||x<0||x>=W)return null;
+         Creature c = cells[y][x].getCreature();
+         if(c!=null)System.out.println("ground "+c.getClass().getSimpleName()+" from cell "+x+" "+y+" from creature "+c.getX()+" "+c.getY());
         return cells[y][x].getCreature();
     }
     public static Ground getInstance(){return instance;}
@@ -89,6 +93,45 @@ public class Ground {
             }
         }
         return false;
+    }
+    public int findEnemy(Creature c){
+        int y = 0;
+        Random rand = new Random();
+        int pos = rand.nextInt(100);
+        if(pos<50) {
+            for (int i = c.getY() - 1; i >= 0; i--) {
+                for (int j = 0; j < W; j++) {
+                    Creature t = cells[i][j].getCreature();
+                    if (t != null && t.getState() == State.LIVE) {
+                        if (c instanceof Good && t instanceof Bad) {
+                            y = -1;
+                            return y;
+                        }
+                        if (c instanceof Bad && t instanceof Good) {
+                            y = -1;
+                            return y;
+                        }
+                    }
+                }
+            }
+        }else if(pos>50) {
+            for (int i = c.getY() + 1; i < H; i++) {
+                for (int j = 0; j < W; j++) {
+                    Creature t = cells[i][j].getCreature();
+                    if (t != null && t.getState() == State.LIVE) {
+                        if (c instanceof Good && t instanceof Bad) {
+                            y = 1;
+                            break;
+                        }
+                        if (c instanceof Bad && t instanceof Good) {
+                            y = 1;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return y;
     }
     public boolean hasEnemy(Creature c, int y){
         for(int i = 0;i<W;i++){

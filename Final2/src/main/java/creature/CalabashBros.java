@@ -2,10 +2,10 @@ package creature;
 
 import javafx.scene.image.Image;
 
-public class CalabashBros extends Good {
-    private int rank;
+public abstract class CalabashBros extends Good {
+    protected int rank;
+    public abstract Image getLiveImage();
     public CalabashBros(int rank){
         this.rank = rank;
-        liveImage = new Image("Brother"+rank+".png");
     }
 }
