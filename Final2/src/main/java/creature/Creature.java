@@ -112,13 +112,13 @@ public abstract class Creature implements Runnable, Serializable {
                             ground.setCreature(Creature.this, x, y+incre);
                             y = y+incre;
                         }else*/ if(canMove(x1, y1)){
-                            System.out.println("before "+x+" "+y+" "+ground.getCreature(x,y).getClass().getSimpleName());
+                            //System.out.println("before "+x+" "+y+" "+ground.getCreature(x,y).getClass().getSimpleName());
                             ground.setCreature(null, x, y);
                             ground.setCreature(Creature.this, x1, y1);
-                            System.out.println("after "+x+" "+y+" "+ ((ground.getCreature(x, y)==null)?"":ground.getCreature(x,y).getClass().getSimpleName()));
+                            //System.out.println("after "+x+" "+y+" "+ ((ground.getCreature(x, y)==null)?"":ground.getCreature(x,y).getClass().getSimpleName()));
                             x = x1;
                             y = y1;
-                            System.out.println("over "+x+" "+y+" "+ground.getCreature(x,y).getClass().getSimpleName());
+                            //System.out.println("over "+x+" "+y+" "+ground.getCreature(x,y).getClass().getSimpleName());
                         }
                     }
                     try{

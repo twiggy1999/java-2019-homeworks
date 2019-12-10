@@ -13,7 +13,8 @@ import java.util.concurrent.Executors;
 public class BadTeam extends Team implements Serializable {
     private Snake cheerer = new Snake();
     private List<Bad> soldiers = new ArrayList<Bad>();
-
+    private static BadTeam instance;
+    public static BadTeam getInstance(){return instance;}
     //TODO FORMATION
     public BadTeam(){
         soldiers.add(new Scorpion());
@@ -22,6 +23,7 @@ public class BadTeam extends Team implements Serializable {
         }
         Formation.fangYuan(soldiers);
         Ground.getInstance().update(this);
+        instance = this;
     }
     public void run(){
         ExecutorService exec = Executors.newCachedThreadPool();

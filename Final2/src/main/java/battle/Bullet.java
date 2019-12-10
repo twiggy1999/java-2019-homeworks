@@ -6,6 +6,9 @@ import creature.Good;
 import creature.State;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import team.BadTeam;
+import team.GoodTeam;
+import team.Team;
 
 import java.io.Serializable;
 import java.util.concurrent.TimeUnit;
@@ -13,11 +16,14 @@ import java.util.concurrent.TimeUnit;
 public class Bullet implements Runnable, Serializable {
     private transient int direction;  // 1 -1
     private int x, y;
-    enum Status{flying, hit, over};
+    enum Status{flying, hit, over}
     private Status status;
     private transient Image flyImage;
     private transient Image hitImage;
     private Creature from;
+    private static transient Ground ground = Ground.getInstance();
+    private static transient GoodTeam goodTeam = GoodTeam.getInstance();
+    private static transient BadTeam badTeam = BadTeam.getInstance();
     public void copy(Bullet b){
         this.x = b.x;
         this.y = b.y;
@@ -35,7 +41,6 @@ public class Bullet implements Runnable, Serializable {
         this.from = from;
     }
     public void run(){
-        Ground ground = Ground.getInstance();
         while(status!= Status.over){
             synchronized (ground){
                 if(status==Status.hit) {
@@ -47,11 +52,20 @@ public class Bullet implements Runnable, Serializable {
                     status = Status.over;
                     break;
                 }
-                Creature c = ground.getCreature(this.x, this.y);
+                /*Creature c = ground.getCreature(this.x, this.y);
                 if(c!=null&&c.isEnemy(from)&&c.getState()== State.LIVE){
                      System.out.println("Bullet "+x+" "+y+" hit: "+c.getClass().getSimpleName()+": "+c.getX()+" "+c.getY());
                     c.beAttacked(from);
                     status = Status.hit;
+                }*/
+                Team t;
+                if(from instanceof Good)t = badTeam;
+                else t = goodTeam;
+                for(Creature c: t.getTeamMembers()){
+                    if(c.getState()==State.LIVE&&c.getX() == x&&c.getY()==y){
+                        c.beAttacked(from);
+                        status = Status.hit;
+                    }
                 }
             }
             try {

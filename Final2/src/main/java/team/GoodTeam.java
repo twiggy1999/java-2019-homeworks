@@ -14,6 +14,8 @@ import java.util.concurrent.Executors;
 public class GoodTeam extends Team implements Serializable {
     private Grandpa cheerer = new Grandpa();
     private List<CalabashBros> soldiers = new ArrayList<CalabashBros>();
+    private transient static GoodTeam instance;
+    public static GoodTeam getInstance(){return instance;}
     //TODO FORMATION
     public GoodTeam(){
         soldiers.add(new First());
@@ -25,6 +27,7 @@ public class GoodTeam extends Team implements Serializable {
         soldiers.add(new Seventh());
         Formation.changShe(soldiers);
         Ground.getInstance().update(this);
+        instance = this;
     }
     public void run(){
         ExecutorService exec = Executors.newCachedThreadPool();

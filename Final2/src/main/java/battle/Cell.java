@@ -3,7 +3,7 @@ package battle;
 import creature.Creature;
 
 public class Cell {
-    private volatile Creature creature;
+    private Creature creature;
     public Creature getCreature(){return creature;}
     public void setCreature(Creature c){creature = c;}
 }

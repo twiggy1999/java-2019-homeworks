@@ -44,12 +44,15 @@ public class Ground {
     }
     public void setCreature(Creature c, int x, int y){
         cells[y][x].setCreature(c);
+        Creature t = cells[y][x].getCreature();
+        if(c!=t){
+            System.err.println("c != t");
+        }
     }
     public Creature getCreature(int x, int y){
          if(y<0||y>=H||x<0||x>=W)return null;
          Creature c = cells[y][x].getCreature();
-         if(c!=null)System.out.println("ground "+c.getClass().getSimpleName()+" from cell "+x+" "+y+" from creature "+c.getX()+" "+c.getY());
-        return cells[y][x].getCreature();
+         return cells[y][x].getCreature();
     }
     public static Ground getInstance(){return instance;}
     public void addBullet(Bullet b){

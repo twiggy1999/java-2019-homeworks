@@ -7,4 +7,5 @@ import java.util.List;
 
 public abstract class Team implements Runnable{
     public abstract List<Creature> getTeamMembers();
+
 }
