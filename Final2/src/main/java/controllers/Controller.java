@@ -63,12 +63,12 @@ public class Controller implements Initializable {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.drawImage(backGround, 0, 0, Config.WIDTH, Config.HEIGHT);
         List<Object> ret = new ArrayList<Object>();
-        GoodTeam g1 = new GoodTeam();
+        /*GoodTeam g1 = new GoodTeam();
         BadTeam b1 = new BadTeam();
-        List<Bullet> bulletList = new ArrayList<Bullet>();
+        List<Bullet> bulletList = new ArrayList<Bullet>();*/
         synchronized (ground) {
-            g1.copy(good);
-            b1.copy(bad);
+            /*g1.copy(good);
+            b1.copy(bad);*/
             drawCreature(good, State.DEAD);
             drawCreature(bad, State.DEAD);
             drawCreature(good, State.LIVE);
@@ -77,11 +77,11 @@ public class Controller implements Initializable {
                 bullet.draw(canvas.getGraphicsContext2D());
                 Bullet b = new Bullet();
                 b.copy(bullet);
-                bulletList.add(b);
+                //bulletList.add(b);
             }
-            ret.add(g1);
+            /*ret.add(g1);
             ret.add(b1);
-            ret.add(bulletList);
+            ret.add(bulletList);*/
         }
         return ret;
     }

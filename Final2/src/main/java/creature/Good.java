@@ -16,10 +16,11 @@ public abstract class Good extends Creature{
             public void run() {
                 while(state==State.LIVE&&ground.whoWin()== Status.RUNNING){
                     synchronized (ground) {
+                        System.out.println(ground+" : "+this+" Shoot start");
                         Bullet b = new Bullet(Good.this.x, Good.this.y, 1, bulletImage, hitImage, Good.this);
                         ground.addBullet(b);
                         new Thread(b).start();
-
+                        System.out.println(ground+" : "+this+" Shoot end");
                     }
                     try{
                         TimeUnit.SECONDS.sleep(3);

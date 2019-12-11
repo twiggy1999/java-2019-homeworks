@@ -16,9 +16,11 @@ public abstract class Bad extends Creature{
             public void run() {
                 while(state==State.LIVE&&ground.whoWin()== Status.RUNNING) {
                     synchronized (ground) {
+                        System.out.println(ground+" : "+this+" Shoot start");
                         Bullet b = new Bullet(Bad.this.x, Bad.this.y, -1, bulletImage, hitImage, Bad.this);
                         ground.addBullet(b);
                         new Thread(b).start();
+                        System.out.println(ground+" : "+this+" Shoot end");
                     }
                     try {
                         TimeUnit.SECONDS.sleep(3);

@@ -43,13 +43,16 @@ public class Bullet implements Runnable, Serializable {
     public void run(){
         while(status!= Status.over){
             synchronized (ground){
+                System.out.println(ground+" : "+this+" Bullet start");
                 if(status==Status.hit) {
                     status = Status.over;
+                    System.out.println(ground+" : "+this+" Bullet end");
                     break;
                 }
                 this.x+= direction;
                 if(!ground.inGround(this.x, this.y)){
                     status = Status.over;
+                    System.out.println(ground+" : "+this+" Bullet end");
                     break;
                 }
                 /*Creature c = ground.getCreature(this.x, this.y);
@@ -67,6 +70,7 @@ public class Bullet implements Runnable, Serializable {
                         status = Status.hit;
                     }
                 }
+                System.out.println(ground+" : "+this+" Bullet end");
             }
             try {
                 TimeUnit.MILLISECONDS.sleep(500);

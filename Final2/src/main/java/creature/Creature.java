@@ -27,28 +27,6 @@ public abstract class Creature implements Runnable, Serializable {
     protected transient static Ground ground = Ground.getInstance();
     protected transient int direction;
     //TODO: 后期修改
-    public void writeExternal(ObjectOutput out){
-        try {
-            out.writeObject(state);
-            out.writeInt(x);
-            out.writeInt(y);
-            out.writeInt(attack);
-            out.writeInt(health);
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-    public void readExternal(ObjectInput in){
-        try {
-            state = (State) in.readObject();
-            x = in.readInt();
-            y = in.readInt();
-            attack = in.readInt();
-            health = in.readInt();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
     public void copy(Creature c){
         this.state = c.state;
         this.x = c.x;
@@ -99,6 +77,7 @@ public abstract class Creature implements Runnable, Serializable {
                 while(state==State.LIVE&&ground.whoWin()== Status.RUNNING){
                     Random rand = new Random();
                     synchronized (ground){
+                        System.out.println(ground+" : "+this+" Creature move start");
 //                        if(ground.hasEnemy(Creature.this)) {
 //                            //0.75的概率不动
 //                            if(25<rand.nextInt(100)) continue;
@@ -120,6 +99,7 @@ public abstract class Creature implements Runnable, Serializable {
                             y = y1;
                             //System.out.println("over "+x+" "+y+" "+ground.getCreature(x,y).getClass().getSimpleName());
                         }
+                        System.out.println(ground+" : "+this+" Creature move end");
                     }
                     try{
                         TimeUnit.SECONDS.sleep(3);
