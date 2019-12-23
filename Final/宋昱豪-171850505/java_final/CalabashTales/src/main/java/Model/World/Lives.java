@@ -125,69 +125,6 @@ public class Lives implements Runnable{
 
         }).start();
     }
-   /* public void BFSWalk()
-    {
-        Lives life=this;
-        int dir=direction.nextInt(5);
-        Position dst=null;
-        Position old=new Position(position);
-
-        synchronized (ground)
-        {
-            for(int i=1;i<BattleGround.M;i++)
-            {
-                for(int j=0;j<9;j++)
-                {
-                    if((ground[i][j].GetIsOccupied()==true)&&(ground[i][j].GetWho().attributes.group!=life.attributes.group))
-                    {
-                        dst=new Position(ground[i][j].GetWho().position);
-                        break;
-                    }
-                }
-            }
-            for(int i=0;i<8;i++)
-            {
-                if((dst.x+rx[i]>=0)&&(dst.y+ry[i]>=0)&&(dst.y+ry[i]<BattleGround.N)&&(dst.x+rx[i]<BattleGround.M)&&(ground[dst.x+rx[i]][dst.y+ry[i]].GetIsOccupied()==false))
-                {
-                    dst.x=dst.x+rx[i];
-                    dst.y=dst.y+ry[i];
-                    walk(dst);
-                    break;
-                }
-            }
-
-        }
-        for(int i=0;i<8;i++)
-        {
-            if((position.x+rx[i]>=0)&&(position.y+ry[i]>=0)&&(position.y+ry[i]<BattleGround.N)&&(position.x+rx[i]<BattleGround.M)&&(ground[position.x+rx[i]][position.y+ry[i]].GetIsOccupied()==true))
-            {
-                Lives Object=ground[position.x+rx[i]][position.y+ry[i]].GetWho();
-                if(Object.attributes.group!=this.attributes.group)
-                {
-                    attack(Object);
-                }
-            }
-        }
-        Platform.runLater(new Runnable(){
-            public void run(){
-                ImageView cView = life.myAppearance;
-                Label bView = life.myHp;
-                Timeline t = new Timeline();
-                t.getKeyFrames().addAll(
-                        new KeyFrame(Duration.ZERO,new KeyValue(cView.xProperty(),old.x*50)),
-                        new KeyFrame(new Duration(500),new KeyValue(cView.xProperty(), life.position.x *50)),
-                        new KeyFrame(Duration.ZERO,new KeyValue(cView.yProperty(),old.y*50+10)),
-                        new KeyFrame(new Duration(500),new KeyValue(cView.yProperty(),life.position.y*50+10)),
-                        new KeyFrame(Duration.ZERO,new KeyValue(bView.translateXProperty(),old.x *50+5)),
-                        new KeyFrame(new Duration(500),new KeyValue(bView.translateXProperty(),life.position.x *50+5)),
-                        new KeyFrame(Duration.ZERO,new KeyValue(bView.translateYProperty(),old.y*50-6)),
-                        new KeyFrame(new Duration(500),new KeyValue(bView.translateYProperty(),life.position.y*50-6))
-
-                );
-                t.play();
-            }
-        });
-    }*/
     public void deadlyWalk()
     {
         Lives life=this;
@@ -248,18 +185,18 @@ public class Lives implements Runnable{
         }
         Platform.runLater(new Runnable(){
             public void run(){
-                ImageView cView = life.myAppearance;
-                Label bView = life.myHp;
+                ImageView myAppearance1 = life.myAppearance;
+                Label myHp1 = life.myHp;
                 Timeline t = new Timeline();
                 t.getKeyFrames().addAll(
-                        new KeyFrame(Duration.ZERO,new KeyValue(cView.xProperty(),old.x*50)),
-                        new KeyFrame(new Duration(500),new KeyValue(cView.xProperty(), life.position.x *50)),
-                        new KeyFrame(Duration.ZERO,new KeyValue(cView.yProperty(),old.y*50+10)),
-                        new KeyFrame(new Duration(500),new KeyValue(cView.yProperty(),life.position.y*50+10)),
-                        new KeyFrame(Duration.ZERO,new KeyValue(bView.translateXProperty(),old.x *50+5)),
-                        new KeyFrame(new Duration(500),new KeyValue(bView.translateXProperty(),life.position.x *50+5)),
-                        new KeyFrame(Duration.ZERO,new KeyValue(bView.translateYProperty(),old.y*50-6)),
-                        new KeyFrame(new Duration(500),new KeyValue(bView.translateYProperty(),life.position.y*50-6))
+                        new KeyFrame(Duration.ZERO,new KeyValue(myAppearance1.xProperty(),old.x*50)),
+                        new KeyFrame(new Duration(500),new KeyValue(myAppearance1.xProperty(), life.position.x *50)),
+                        new KeyFrame(Duration.ZERO,new KeyValue(myAppearance1.yProperty(),old.y*50+10)),
+                        new KeyFrame(new Duration(500),new KeyValue(myAppearance1.yProperty(),life.position.y*50+10)),
+                        new KeyFrame(Duration.ZERO,new KeyValue(myHp1.translateXProperty(),old.x *50+5)),
+                        new KeyFrame(new Duration(500),new KeyValue(myHp1.translateXProperty(),life.position.x *50+5)),
+                        new KeyFrame(Duration.ZERO,new KeyValue(myHp1.translateYProperty(),old.y*50-6)),
+                        new KeyFrame(new Duration(500),new KeyValue(myHp1.translateYProperty(),life.position.y*50-6))
 
                 );
                 t.play();
@@ -347,18 +284,18 @@ public class Lives implements Runnable{
         }
         Platform.runLater(new Runnable(){
             public void run(){
-                ImageView cView = life.myAppearance;
-                Label bView = life.myHp;
+                ImageView myAppearance1 = life.myAppearance;
+                Label myHp1 = life.myHp;
                 Timeline t = new Timeline();
                 t.getKeyFrames().addAll(
-                        new KeyFrame(Duration.ZERO,new KeyValue(cView.xProperty(),old.x*50)),
-                        new KeyFrame(new Duration(500),new KeyValue(cView.xProperty(), life.position.x *50)),
-                        new KeyFrame(Duration.ZERO,new KeyValue(cView.yProperty(),old.y*50+10)),
-                        new KeyFrame(new Duration(500),new KeyValue(cView.yProperty(),life.position.y*50+10)),
-                        new KeyFrame(Duration.ZERO,new KeyValue(bView.translateXProperty(),old.x *50+5)),
-                        new KeyFrame(new Duration(500),new KeyValue(bView.translateXProperty(),life.position.x *50+5)),
-                        new KeyFrame(Duration.ZERO,new KeyValue(bView.translateYProperty(),old.y*50-6)),
-                        new KeyFrame(new Duration(500),new KeyValue(bView.translateYProperty(),life.position.y*50-6))
+                        new KeyFrame(Duration.ZERO,new KeyValue(myAppearance1.xProperty(),old.x*50)),
+                        new KeyFrame(new Duration(500),new KeyValue(myAppearance1.xProperty(), life.position.x *50)),
+                        new KeyFrame(Duration.ZERO,new KeyValue(myAppearance1.yProperty(),old.y*50+10)),
+                        new KeyFrame(new Duration(500),new KeyValue(myAppearance1.yProperty(),life.position.y*50+10)),
+                        new KeyFrame(Duration.ZERO,new KeyValue(myHp1.translateXProperty(),old.x *50+5)),
+                        new KeyFrame(new Duration(500),new KeyValue(myHp1.translateXProperty(),life.position.x *50+5)),
+                        new KeyFrame(Duration.ZERO,new KeyValue(myHp1.translateYProperty(),old.y*50-6)),
+                        new KeyFrame(new Duration(500),new KeyValue(myHp1.translateYProperty(),life.position.y*50-6))
 
                 );
                 t.play();
@@ -396,7 +333,6 @@ public class Lives implements Runnable{
 
             this.attributes.Hp-=ack;
             int Hp=this.attributes.Hp;
-            //System.out.print("cuurent jhp="+this.attributes.Hp);
             Platform.runLater(new Runnable(){
                 public void run()
                 {

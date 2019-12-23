@@ -30,8 +30,11 @@ public class BattleGround implements  Runnable{
             }
         }
     }
-    public BattleGround() throws FileNotFoundException, UnsupportedEncodingException {
-        out= new BufferedWriter(new OutputStreamWriter(new FileOutputStream("d:\\存档.txt"),"Unicode"));
+    public BattleGround(File file) throws FileNotFoundException, UnsupportedEncodingException {
+        if(file!=null)
+        {
+            out= new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file),"Unicode"));
+        }
         for(int i=0;i<M;i++)
         {
             for(int j=0;j<N;j++)

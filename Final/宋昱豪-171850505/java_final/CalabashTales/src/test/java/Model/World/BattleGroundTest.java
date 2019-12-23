@@ -3,6 +3,7 @@ package Model.World;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 
@@ -13,7 +14,8 @@ public class BattleGroundTest {
     BattleGround b;
     @Before
     public void Set() throws FileNotFoundException, UnsupportedEncodingException {
-        b=new BattleGround();
+        File file=new File("D:/存档.txt");
+        b=new BattleGround(file);
     }
     @Test
     public void clear() {
