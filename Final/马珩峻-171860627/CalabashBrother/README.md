@@ -89,3 +89,13 @@ src.test.java.cn.mhj中为单元测试文件
 战场线程Battlefield中战斗开始后采用CountDownLatch计数器来阻塞该线程，等待所有战斗单位的子线程结束。而子线程通过线程池管理运行。
 
 ### 运行结果展示
+菜单界面  
+![Menu](https://raw.githubusercontent.com/UnableToCode/java-2019-homeworks/master/Final/%E9%A9%AC%E7%8F%A9%E5%B3%BB-171860627/CalabashBrother/example_pic/Menu.png)  
+阵法选择界面  
+![Select](https://raw.githubusercontent.com/UnableToCode/java-2019-homeworks/master/Final/%E9%A9%AC%E7%8F%A9%E5%B3%BB-171860627/CalabashBrother/example_pic/selectFormation.png)  
+战斗界面  
+![battle](https://raw.githubusercontent.com/UnableToCode/java-2019-homeworks/master/Final/%E9%A9%AC%E7%8F%A9%E5%B3%BB-171860627/CalabashBrother/example_pic/battle.png)  
+战斗结束
+![end](https://raw.githubusercontent.com/UnableToCode/java-2019-homeworks/master/Final/%E9%A9%AC%E7%8F%A9%E5%B3%BB-171860627/CalabashBrother/example_pic/end.png)  
+录像选择
+![reply](https://raw.githubusercontent.com/UnableToCode/java-2019-homeworks/master/Final/%E9%A9%AC%E7%8F%A9%E5%B3%BB-171860627/CalabashBrother/example_pic/reply.png)  
