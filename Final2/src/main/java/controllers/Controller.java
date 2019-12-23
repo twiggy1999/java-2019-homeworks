@@ -53,35 +53,35 @@ public class Controller implements Initializable {
     private Image backGround;
 
     public void initialize(URL location, ResourceBundle resources){
-        Image bg = new Image("home.jpg");
+        Image bg = new Image("home.png");
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.drawImage(bg, 0, 0, Config.WIDTH, Config.HEIGHT);
 
     }
 
-    private List<Object> draw(ObjectOutputStream output) {
+    private List<Object> draw(final Ground ground1) {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.drawImage(backGround, 0, 0, Config.WIDTH, Config.HEIGHT);
-        List<Object> ret = new ArrayList<Object>();
-        /*GoodTeam g1 = new GoodTeam();
+        List<Object> ret = new ArrayList<>();
+        GoodTeam g1 = new GoodTeam();
         BadTeam b1 = new BadTeam();
-        List<Bullet> bulletList = new ArrayList<Bullet>();*/
-        synchronized (ground) {
-            /*g1.copy(good);
-            b1.copy(bad);*/
+        List<Bullet> bulletList = new ArrayList<>();
+        synchronized (ground1) {
+            g1.copy(good);
+            b1.copy(bad);
             drawCreature(good, State.DEAD);
             drawCreature(bad, State.DEAD);
             drawCreature(good, State.LIVE);
             drawCreature(bad, State.LIVE);
-            for (Bullet bullet : ground.getBullets()) {
+            for (Bullet bullet : ground1.getBullets()) {
                 bullet.draw(canvas.getGraphicsContext2D());
                 Bullet b = new Bullet();
                 b.copy(bullet);
-                //bulletList.add(b);
+                bulletList.add(b);
             }
-            /*ret.add(g1);
+            ret.add(g1);
             ret.add(b1);
-            ret.add(bulletList);*/
+            ret.add(bulletList);
         }
         return ret;
     }
@@ -98,15 +98,15 @@ public class Controller implements Initializable {
 
     public void pressStartButton(ActionEvent event){
         ground = new Ground();
-        good = new GoodTeam();
-        bad = new BadTeam();
+        good = new GoodTeam(true);
+        bad = new BadTeam(true);
         backGround = new Image("background.jpg");
         new Thread(new Runnable() {
             public void run() {
                 ExecutorService exec = Executors.newCachedThreadPool();
                 exec.execute(good);
                 exec.execute(bad);
-                final List<Object>ret = new ArrayList<Object>();
+                final List<Object>ret = new ArrayList<>();
                 final ObjectOutputStream output;
                 try {
                      output = new ObjectOutputStream(
@@ -118,7 +118,7 @@ public class Controller implements Initializable {
                     public void run() {
                         while(true) {
                             List<Object> t;
-                            t = draw(output);
+                            t = draw(ground);
                             ret.add(t);
                             try{
                                 TimeUnit.MILLISECONDS.sleep(100);
@@ -127,7 +127,7 @@ public class Controller implements Initializable {
                             }
                             synchronized (ground) {
                                 if (ground.whoWin() != Status.RUNNING) {
-                                    ret.add(draw(output));
+                                    ret.add(draw(ground));
                                     System.out.println(ground.whoWin());
                                     try {
                                         output.writeObject(ret);
@@ -167,13 +167,6 @@ public class Controller implements Initializable {
                     GoodTeam g = (GoodTeam) lst.get(0);
                     BadTeam b = (BadTeam)lst.get(1);
                     List<Bullet>list = (List<Bullet>)lst.get(2);
-//                    try {
-//                        g = (GoodTeam) input.readObject();
-//                        b = (BadTeam)input.readObject();
-//                        list = (List<Bullet>)input.readObject();
-//                    }catch (Exception e){
-//                        throw new RuntimeException(e);
-//                    }
                     GraphicsContext gc = canvas.getGraphicsContext2D();
                     gc.drawImage(backGround, 0, 0, Config.WIDTH, Config.HEIGHT);
                     drawCreature(g, State.DEAD);

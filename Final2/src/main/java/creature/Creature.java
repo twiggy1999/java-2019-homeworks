@@ -24,7 +24,7 @@ public abstract class Creature implements Runnable, Serializable {
     //每个生物要判断移动的位置，必须要知道关于全局的信息
     //所有生物共享一个全局信息
     protected transient static Image deadImage = new Image("DEAD.png");
-    protected transient static Ground ground = Ground.getInstance();
+    protected transient static final Ground ground = Ground.getInstance();
     protected transient int direction;
     //TODO: 后期修改
     public void copy(Creature c){

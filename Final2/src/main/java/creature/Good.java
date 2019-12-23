@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class Good extends Creature{
     private transient static Image bulletImage = new Image("bulletGood.png");
-    private transient static Image hitImage= new Image("hitBad.png");
+    private transient static Image hitImage= new Image("hitBad.gif");
     public Image getHitImage(){return hitImage;}
     public Image getFlyImage(){return bulletImage;}
     protected void shootThread(){

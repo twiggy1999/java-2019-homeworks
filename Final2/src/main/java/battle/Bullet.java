@@ -21,7 +21,7 @@ public class Bullet implements Runnable, Serializable {
     private transient Image flyImage;
     private transient Image hitImage;
     private Creature from;
-    private static transient Ground ground = Ground.getInstance();
+    private static transient final Ground ground = Ground.getInstance();
     private static transient GoodTeam goodTeam = GoodTeam.getInstance();
     private static transient BadTeam badTeam = BadTeam.getInstance();
     public void copy(Bullet b){

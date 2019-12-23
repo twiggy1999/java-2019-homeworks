@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
 
 public class BadTeam extends Team implements Serializable {
     private Snake cheerer = new Snake();
-    private List<Bad> soldiers = new ArrayList<Bad>();
+    private List<Bad> soldiers = new ArrayList<>();
     private static BadTeam instance;
     public static BadTeam getInstance(){return instance;}
     //TODO FORMATION
@@ -23,6 +23,9 @@ public class BadTeam extends Team implements Serializable {
         }
         Formation.fangYuan(soldiers);
         Ground.getInstance().update(this);
+    }
+    public BadTeam(boolean b){
+        this();
         instance = this;
     }
     public void run(){
@@ -34,7 +37,7 @@ public class BadTeam extends Team implements Serializable {
         exec.shutdown();
     }
     public List<Creature> getTeamMembers(){
-        List<Creature> ret = new ArrayList<Creature>();
+        List<Creature> ret = new ArrayList<>();
         ret.add(cheerer);
         ret.addAll(1, soldiers);
         return ret;
