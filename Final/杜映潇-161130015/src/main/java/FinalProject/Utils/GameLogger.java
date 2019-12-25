@@ -1,4 +1,4 @@
-package FinalProject.Utils;
+package finalproject.utils;
 
 import java.io.File;
 import java.io.FileWriter;

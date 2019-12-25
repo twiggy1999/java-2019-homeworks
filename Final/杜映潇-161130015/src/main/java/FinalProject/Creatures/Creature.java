@@ -1,7 +1,7 @@
-package FinalProject.Creatures;
+package finalproject.creatures;
 
-import FinalProject.Utils.GameLogger;
-import FinalProject.Utils.Logger;
+import finalproject.utils.GameLogger;
+import finalproject.utils.Logger;
 
 public abstract class Creature {
     private static class Position {

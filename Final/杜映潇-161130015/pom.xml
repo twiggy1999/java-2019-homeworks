@@ -28,7 +28,7 @@
 
                     <archive>
                         <manifest>
-                            <mainClass>FinalProject.Main</mainClass>
+                            <mainClass>finalproject.Main</mainClass>
                         </manifest>
                     </archive>
 

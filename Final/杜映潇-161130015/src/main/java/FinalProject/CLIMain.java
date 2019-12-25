@@ -1,10 +1,10 @@
-package FinalProject;
+package finalproject;
 
-import FinalProject.Controller.GameController;
-import FinalProject.Utils.CreatureFactory;
-import FinalProject.Utils.Factory;
-import FinalProject.WorldMap.CalabashWorld;
-import FinalProject.WorldMap.World;
+import finalproject.controller.GameController;
+import finalproject.utils.CreatureFactory;
+import finalproject.utils.Factory;
+import finalproject.worldmap.CalabashWorld;
+import finalproject.worldmap.World;
 
 public class CLIMain {
     public static void main(String[] args) {

@@ -2,13 +2,15 @@
 
 ## 编译运行方法
 
-`mvn package`  
-`cd target`  
-`java -jar Java-Final-1.0.jar`
+```shell
+mvn clean
+mvn package
+java -jar target/Java-Final-1.0.jar
+```
 
 ## 程序使用方法
 
-执行上面的`java -jar Java-Final-1.0.jar`命令后，会弹出程序的开始界面：
+执行上面的`java -jar target/Java-Final-1.0.jar`命令后，会弹出程序的开始界面：
 
 ![主界面](./pic/main.png)
 
@@ -40,7 +42,7 @@
 
 大作业要求使用 `JavaFX` 作为图形化框架，在前端进行图形化界面的设计时，我主要利用了 `JavaFX` 的 `fxml` 文件进行布局的设计。由于需求为实现一个葫芦娃大战妖精的程序，因此考虑将程序设计为 2D 上帝视角的表现方式，在战斗进行时，机位处于战场的正上方。
 
-为了实现所有的需求，我们一共需要四个不同的界面，分别为根界面、战斗或回放界面、战斗或回放结果展示界面以及日志文件选取界面。因此，我一共使用了四个 `fxml` 文件，其在`src/main/resources/FXML`目录下，其对应的 `Controller` 类在 `FXView` 这个包中。
+为了实现所有的需求，我们一共需要四个不同的界面，分别为根界面、战斗或回放界面、战斗或回放结果展示界面以及日志文件选取界面。因此，我一共使用了四个 `fxml` 文件，其在`src/main/resources/FXML`目录下，其对应的 `Controller` 类在 `fxview` 这个包中。
 
 #### 根界面（RootLayout.fxml）
 

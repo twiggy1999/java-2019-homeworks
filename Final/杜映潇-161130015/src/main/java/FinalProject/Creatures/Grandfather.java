@@ -1,4 +1,4 @@
-package FinalProject.Creatures;
+package finalproject.creatures;
 
 public class Grandfather extends CalabashSide {
     private static Grandfather grandfather = new Grandfather();

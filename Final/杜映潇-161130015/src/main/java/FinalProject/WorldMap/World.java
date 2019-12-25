@@ -1,6 +1,6 @@
-package FinalProject.WorldMap;
+package finalproject.worldmap;
 
-import FinalProject.Creatures.*;
+import finalproject.creatures.*;
 
 import java.util.ArrayList;
 import java.util.List;

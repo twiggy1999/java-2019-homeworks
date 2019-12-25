@@ -1,7 +1,7 @@
-package FinalProject.Controller;
+package finalproject.controller;
 
-import FinalProject.Creatures.Creature;
-import FinalProject.WorldMap.World;
+import finalproject.creatures.Creature;
+import finalproject.worldmap.World;
 
 
 public class Task implements Runnable {

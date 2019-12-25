@@ -1,4 +1,4 @@
-package FinalProject.Creatures;
+package finalproject.creatures;
 
 public class Snake extends GoblinSide {
     private static Snake snake = new Snake();

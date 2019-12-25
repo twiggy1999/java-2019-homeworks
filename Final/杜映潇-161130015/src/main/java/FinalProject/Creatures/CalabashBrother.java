@@ -1,4 +1,4 @@
-package FinalProject.Creatures;
+package finalproject.creatures;
 
 import java.util.Comparator;
 

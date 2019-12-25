@@ -1,12 +1,12 @@
-package FinalProject.Controller;
+package finalproject.controller;
 
-import FinalProject.Creatures.Creature;
-import FinalProject.Creatures.Grandfather;
-import FinalProject.Creatures.Scorpion;
-import FinalProject.Creatures.Snake;
-import FinalProject.FXView.BattleFieldController;
-import FinalProject.Utils.Factory;
-import FinalProject.WorldMap.World;
+import finalproject.creatures.Creature;
+import finalproject.creatures.Grandfather;
+import finalproject.creatures.Scorpion;
+import finalproject.creatures.Snake;
+import finalproject.fxview.BattleFieldController;
+import finalproject.utils.Factory;
+import finalproject.worldmap.World;
 
 import java.io.*;
 import java.util.*;
@@ -28,7 +28,7 @@ public class GameController {
         /* We will place calabash brother on the second column */
         int columnIndex = 1;
         for (int i = 0; i < NUMCALABASHBROTHER; i++) {
-            world.place(factory.generate("FinalProject.Creatures.CalabashBrother#" + i), i, columnIndex);
+            world.place(factory.generate("finalproject.creatures.CalabashBrother#" + i), i, columnIndex);
             tasks.add(new Task(world.getCreature(i, columnIndex), world));
         }
     }
@@ -40,7 +40,7 @@ public class GameController {
         world.place(Scorpion.getScorpionObject(), 0, columnIndex);
         tasks.add(new Task(Scorpion.getScorpionObject(), world));
         for (int i = 0; i < NUMGOBLINS; i++) {
-            world.place(factory.generate("FinalProject.Creatures.Goblin"), i + 1, columnIndex - columnBias);
+            world.place(factory.generate("finalproject.creatures.Goblin"), i + 1, columnIndex - columnBias);
             tasks.add(new Task(world.getCreature(i + 1, columnIndex - columnBias), world));
             columnBias = columnBias == 1 ? 0 : 1;
         }

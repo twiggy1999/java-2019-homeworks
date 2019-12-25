@@ -1,8 +1,8 @@
-package FinalProject.FXView;
+package finalproject.fxview;
 
-import FinalProject.Creatures.Creature;
-import FinalProject.Utils.GameLogger;
-import FinalProject.Utils.Logger;
+import finalproject.creatures.Creature;
+import finalproject.utils.GameLogger;
+import finalproject.utils.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 

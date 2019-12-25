@@ -1,4 +1,4 @@
-package FinalProject.Utils;
+package finalproject.utils;
 
 public interface Logger {
     void do_logging();

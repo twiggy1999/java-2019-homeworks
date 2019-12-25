@@ -1,8 +1,8 @@
-package FinalProject.FXView;
+package finalproject.fxview;
 
-import FinalProject.Creatures.Creature;
-import FinalProject.Main;
-import FinalProject.WorldMap.World;
+import finalproject.creatures.Creature;
+import finalproject.Main;
+import finalproject.worldmap.World;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;

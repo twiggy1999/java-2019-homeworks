@@ -1,9 +1,9 @@
-import FinalProject.Controller.CreatureController;
-import FinalProject.Creatures.CalabashBrother;
-import FinalProject.Creatures.Creature;
-import FinalProject.Creatures.Goblin;
-import FinalProject.WorldMap.CalabashWorld;
-import FinalProject.WorldMap.World;
+import finalproject.controller.CreatureController;
+import finalproject.creatures.CalabashBrother;
+import finalproject.creatures.Creature;
+import finalproject.creatures.Goblin;
+import finalproject.worldmap.CalabashWorld;
+import finalproject.worldmap.World;
 import org.junit.*;
 
 import java.lang.reflect.Method;

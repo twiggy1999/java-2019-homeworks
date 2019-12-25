@@ -1,6 +1,6 @@
-package FinalProject.WorldMap;
+package finalproject.worldmap;
 
-import FinalProject.Creatures.Creature;
+import finalproject.creatures.Creature;
 
 public class Grid<T extends Creature> {
     private T creature;

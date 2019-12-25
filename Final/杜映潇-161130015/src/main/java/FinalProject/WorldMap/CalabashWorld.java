@@ -1,4 +1,4 @@
-package FinalProject.WorldMap;
+package finalproject.worldmap;
 
 
 public class CalabashWorld extends World {

@@ -1,4 +1,4 @@
-package FinalProject.Creatures;
+package finalproject.creatures;
 
 public class Goblin extends GoblinSide {
     public Goblin() {
