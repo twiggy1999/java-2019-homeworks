@@ -2,9 +2,7 @@
 
 ## 游戏展示
 
-<video id="video" controls="" preload="none">
-    <source id="mp4" src="resource/game.mp4" type="video/mp4">
-</video>
+由于视频占容量过大，视频文件存储在resource/game压缩文件下，请打开自行查看。
 
 ## 游戏使用手册
 * 开始战斗按钮： 点击后开始游戏；
