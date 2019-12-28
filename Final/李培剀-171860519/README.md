@@ -4,6 +4,7 @@
 游戏界面分为3个版块。主版块显示游戏画面。下方版块显示操作说明。右侧版块显示游戏运行动态和战斗日志。
 ### 2. 单位
 游戏中的单位有生物(Creature)和弹道(Trajectory)两大类。Creature衍生出Good和Bad两个类，即两大阵营，再由这两个类衍生出各个具体角色。Creature由Generator
+
 name | dsa | dsads
 -|-|-
 dsa | dsa | dsad
