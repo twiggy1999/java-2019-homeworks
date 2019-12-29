@@ -27,6 +27,7 @@ Snake | Bad | 100 | 50 | 0.10 | SnakeTrajectory | Long-range. Especially hunt Gr
   假设攻击方为A，被攻击方为B。  
   a) 任意一方每失去3%的生命值，减少1%的Damage。  
   b) 对A而言，若B邻接的格子（最多8格）有A的友军，A将获得以该友军Converging Bonus为系数的对Damage的加成（夹击加成）。若有多个友军，则按叠乘加成。若友军与B只有顶点相邻，则该友军带来的加成效果减半。例：B周围有A的3个友军，其中2个边相邻，1个只有顶点相邻，则加成后  
+  
   $(2+3)$
 
 ### 4. 操作  
