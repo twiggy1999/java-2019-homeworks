@@ -29,7 +29,7 @@ Snake | Bad | 100 | 50 | 0.10 | SnakeTrajectory | Long-range. Especially hunt Gr
   b) 对A而言，若B邻接的格子（最多8格）有A的友军，A将获得以该友军Converging Bonus为系数的对Damage的加成（夹击加成）。若有多个友军，则按叠乘加成。若友军与B只有顶点相邻，则该友军带来的加成效果减半。例：小喽啰B周围有葫芦娃A的3个友军，其中2个边相邻，1个只有顶点相邻，则加成后  
   **A.realDamage = A.Damage * (1 + 0.20) * (1 + 0.20) * (1 + 0.20 * 0.5)**  
   c) 若A是葫芦娃，当爷爷活着时，他将获得10%的Damage加成。
-  d) 经上述3步得到A.realDamage和B.realDamage。  
+  d) 经上述3步得到A.realDamage和B.realDamage，分别记为a和b。设最终伤害为D。设随机值P，范围为[0, 1)。当a>=b时，有如下公式。  
   ![](http://latex.codecogs.com/gif.latex?\\sigma=\sqrt{\frac{1}{n}{\sum_{k=1}^n(x_i-\bar{x})^2}})
 
 ### 4. 操作  
