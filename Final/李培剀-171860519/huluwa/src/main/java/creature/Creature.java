@@ -436,46 +436,54 @@ public abstract class Creature implements Runnable {
         }
     }
 
-    public double getConvergingCoefficient() { // 计算（作为被攻击者受到的）夹击加成。共边有全额加成，共顶点不共边有半额加成。
+    public double getConvergingCoefficient(Creature attacker) { // 计算（作为被攻击者受到的）夹击加成。共边有全额加成，共顶点不共边有半额加成。
         double coefficient = 1;
         if (ground.getPosition(position.getRow() - 1, position.getCol()) != null &&
                 ground.getPosition(position.getRow() - 1, position.getCol()).getCreature() != null &&
+                ground.getPosition(position.getRow() - 1, position.getCol()).getCreature() != attacker &&
                 ground.getPosition(position.getRow() - 1, position.getCol()).getCreature().isEnemyTo(this))
             coefficient *= (1 + ground.getPosition(position.getRow() - 1, position.getCol()).getCreature().convergingBonus);
 
         if (ground.getPosition(position.getRow() + 1, position.getCol()) != null &&
                 ground.getPosition(position.getRow() + 1, position.getCol()).getCreature() != null &&
+                ground.getPosition(position.getRow() + 1, position.getCol()).getCreature() != attacker &&
                 ground.getPosition(position.getRow() + 1, position.getCol()).getCreature().isEnemyTo(this))
             coefficient *= (1 + ground.getPosition(position.getRow() + 1, position.getCol()).getCreature().convergingBonus);
 
         if (ground.getPosition(position.getRow(), position.getCol() - 1) != null &&
                 ground.getPosition(position.getRow(), position.getCol() - 1).getCreature() != null &&
+                ground.getPosition(position.getRow(), position.getCol() - 1).getCreature() != attacker &&
                 ground.getPosition(position.getRow(), position.getCol() - 1).getCreature().isEnemyTo(this))
             coefficient *= (1 + ground.getPosition(position.getRow(), position.getCol() - 1).getCreature().convergingBonus);
 
         if (ground.getPosition(position.getRow(), position.getCol() + 1) != null &&
                 ground.getPosition(position.getRow(), position.getCol() + 1).getCreature() != null &&
+                ground.getPosition(position.getRow(), position.getCol() + 1).getCreature() != attacker &&
                 ground.getPosition(position.getRow(), position.getCol() + 1).getCreature().isEnemyTo(this))
             coefficient *= (1 + ground.getPosition(position.getRow(), position.getCol() + 1).getCreature().convergingBonus);
 
 
         if (ground.getPosition(position.getRow() - 1, position.getCol() + 1) != null &&
                 ground.getPosition(position.getRow() - 1, position.getCol() + 1).getCreature() != null &&
+                ground.getPosition(position.getRow() - 1, position.getCol() + 1).getCreature() != attacker &&
                 ground.getPosition(position.getRow() - 1, position.getCol() + 1).getCreature().isEnemyTo(this))
             coefficient *= (1 + 0.5 * ground.getPosition(position.getRow() - 1, position.getCol() + 1).getCreature().convergingBonus);
 
         if (ground.getPosition(position.getRow() + 1, position.getCol() + 1) != null &&
                 ground.getPosition(position.getRow() + 1, position.getCol() + 1).getCreature() != null &&
+                ground.getPosition(position.getRow() + 1, position.getCol() + 1).getCreature() != attacker &&
                 ground.getPosition(position.getRow() + 1, position.getCol() + 1).getCreature().isEnemyTo(this))
             coefficient *= (1 + 0.5 * ground.getPosition(position.getRow() + 1, position.getCol() + 1).getCreature().convergingBonus);
 
         if (ground.getPosition(position.getRow() + 1, position.getCol() - 1) != null &&
                 ground.getPosition(position.getRow() + 1, position.getCol() - 1).getCreature() != null &&
+                ground.getPosition(position.getRow() + 1, position.getCol() - 1).getCreature() != attacker &&
                 ground.getPosition(position.getRow() + 1, position.getCol() - 1).getCreature().isEnemyTo(this))
             coefficient *= (1 + 0.5 * ground.getPosition(position.getRow() + 1, position.getCol() - 1).getCreature().convergingBonus);
 
         if (ground.getPosition(position.getRow() - 1, position.getCol() - 1) != null &&
                 ground.getPosition(position.getRow() - 1, position.getCol() - 1).getCreature() != null &&
+                ground.getPosition(position.getRow() - 1, position.getCol() - 1).getCreature() != attacker &&
                 ground.getPosition(position.getRow() - 1, position.getCol() - 1).getCreature().isEnemyTo(this))
             coefficient *= (1 + 0.5 * ground.getPosition(position.getRow() - 1, position.getCol() - 1).getCreature().convergingBonus);
 
