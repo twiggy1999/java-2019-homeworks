@@ -6,10 +6,10 @@ Dependencies:
 ![Dependencies](./Dependencies.png)
 
 ## 一、游戏介绍
-### 1. 界面
+### - 1. 界面
 游戏界面分为3个版块。主版块显示游戏画面。下方版块显示操作说明。右侧版块显示游戏运行动态和战斗日志。
 
-### 2. 单位
+### - 2. 单位
 游戏中的单位有生物(Creature)和弹道(Trajectory)两大类。Creature衍生出Good和Bad两个类，即两大阵营，再由这两个类衍生出各个具体角色。Creature由Generator产生。Trajectory类代表了生物的攻击行为，由TrajectoryFactory产生，除爷爷(Grandpa)之外每个生物内部都有一个TrajectoryFactory，因为根据设定爷爷没有攻击行为。
 下表列出了各个生物体的属性及默认值。可在attributes.xml文件中对属性值进行修改。
 
@@ -21,13 +21,13 @@ Scorpion | Bad | 150 | 20 | 0.15 | ScorpionTrajectory | Melee. Tanky. Fight agai
 Creep | Bad | 100 | 10 | 0.10 | CreepTrajectory | Melee. Fight against Huluwa.
 Snake | Bad | 100 | 50 | 0.10 | SnakeTrajectory | Long-range. Especially hunt Grandpa.
 
-### 3. 伤害计算
+### - 3. 伤害计算
 1) 蛇精对爷爷的攻击造成等于蛇精Damage的纯粹伤害。
 2) 葫芦娃和蝎子精小喽啰之间的交锋造成的伤害按如下方式计算：
 1)) dsad
 2)) dsad
 
-### 4. 操作  
+### - 4. 操作  
 1) I. 初始化战斗。将所有生物以满血状态布置到战斗场地上。战场左侧为Good阵营，右侧为Bad阵营。葫芦娃们和蝎子精带领着的小喽啰们分别以8种阵型中的随机一种列阵，朝向相对。爷爷和蛇精分别在各自阵营的大后方。正在战斗和正在回放时无法初始化。
 2) Space. 开始战斗。当且仅当战斗已经初始化之后才能开始。战斗期间无法进行其他操作。任意一方获胜时战斗自动结束。
 3) S. 保存战斗。当且仅当战斗结束之后才能保存。默认保存至save目录下的.hlwb(Huluwa Battle file)文件。
