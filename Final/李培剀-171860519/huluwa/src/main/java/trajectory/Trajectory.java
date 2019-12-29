@@ -36,8 +36,8 @@ public abstract class Trajectory {
         this.target = target;
         this.targetPosition = target.getPosition();
         this.isGrandpaDead = isGrandpaDead;
-        this.attackerDamageCoefficient = 1 - (attacker.getCurHealth() / attacker.getMaxHealth() + 2) / 3;
-        this.targetDamageCoefficient = 1 - (target.getCurHealth() / target.getMaxHealth() + 2) / 3;
+        this.attackerDamageCoefficient = (attacker.getCurHealth() / attacker.getMaxHealth() + 2) / 3;
+        this.targetDamageCoefficient = (target.getCurHealth() / target.getMaxHealth() + 2) / 3;
         this.convergingCoefficient = target.getConvergingCoefficient(this.attacker);
         this.grandpaBuff = 0.1;
         this.speed = 10;
