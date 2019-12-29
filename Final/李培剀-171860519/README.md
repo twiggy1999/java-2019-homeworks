@@ -23,7 +23,7 @@ Snake | Bad | 100 | 50 | 0.10 | SnakeTrajectory | Long-range. Especially hunt Gr
 
 ### 3. 伤害计算
 1) 蛇精对爷爷的攻击造成等于蛇精Damage的纯粹伤害。
-2) 葫芦娃和蝎子精小喽啰之间的交锋造成的伤害按如下方式计算：
+2) 葫芦娃和蝎子精小喽啰之间的交锋造成的伤害按如下方式计算：  
 khkjhk
 
 ### 4. 操作  
