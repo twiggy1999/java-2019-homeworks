@@ -1,5 +1,11 @@
 # Huluwa Battle
-## 游戏介绍
+## 〇、序：使用说明
+Project SDK: 1.8(java version "1.8.0_231")
+Project Language Level: >= 8
+Dependencies: 
+![Dependencies]()
+
+## 一、游戏介绍
 ### 1. 界面
 游戏界面分为3个版块。主版块显示游戏画面。下方版块显示操作说明。右侧版块显示游戏运行动态和战斗日志。
 
