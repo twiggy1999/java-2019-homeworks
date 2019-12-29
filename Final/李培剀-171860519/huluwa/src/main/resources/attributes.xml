@@ -13,7 +13,7 @@
       <maxHealth>150</maxHealth>
     </Scorpion>
     <Creep>
-      <damage>10</damage>
+      <damage>11</damage>
       <convergingBonus>0.10</convergingBonus>
       <maxHealth>100</maxHealth>
     </Creep>
