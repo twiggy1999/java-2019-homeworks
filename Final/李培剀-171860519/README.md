@@ -1,9 +1,9 @@
 # Huluwa Battle
 ## 〇、序：使用说明
-Project SDK: 1.8(java version "1.8.0_231")
-Project Language Level: >= 8
+Project SDK: 1.8(java version "1.8.0_231")  
+Project Language Level: >= 8  
 Dependencies: 
-![Dependencies]()
+![Dependencies](./Dependencies.png)
 
 ## 一、游戏介绍
 ### 1. 界面
