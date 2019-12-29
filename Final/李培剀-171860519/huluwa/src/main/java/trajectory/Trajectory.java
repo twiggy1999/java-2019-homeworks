@@ -38,12 +38,12 @@ public abstract class Trajectory {
         this.isGrandpaDead = isGrandpaDead;
         this.attackerDamageCoefficient = 1 - (attacker.getMaxHealth() - attacker.getCurHealth()) / 3 / attacker.getMaxHealth();
         this.targetDamageCoefficient = 1 - (target.getMaxHealth() - target.getCurHealth()) / 3 / target.getMaxHealth();
-        this.convergingCoefficient = target.getConvergingCoefficient();
+        this.convergingCoefficient = target.getConvergingCoefficient(this.attacker);
         this.grandpaBuff = 0.1;
         this.speed = 10;
         this.liveTime = 0;
         if (attacker instanceof Good)
-            this.attackerRealDamage = attacker.getDamage() * attackerDamageCoefficient * (1 + (isGrandpaDead ? 0 : grandpaBuff));
+            this.attackerRealDamage = attacker.getDamage() * attackerDamageCoefficient * convergingCoefficient * (1 + (isGrandpaDead ? 0 : grandpaBuff));
         else
             this.attackerRealDamage = attacker.getDamage() * attackerDamageCoefficient;
         if (target instanceof Good)
@@ -51,9 +51,9 @@ public abstract class Trajectory {
         else
             this.targetRealDamage = target.getDamage() * targetDamageCoefficient;
         if (attackerRealDamage >= targetRealDamage)
-            finalDamage = (24 + 12 * Math.random()) * (Math.pow(attackerRealDamage / targetRealDamage + 3, 4) / 512 + 0.5) * convergingCoefficient;
+            finalDamage = (24 + 12 * Math.random()) * (Math.pow(attackerRealDamage / targetRealDamage + 3, 4) / 512 + 0.5);
         else
-            finalDamage = (24 + 12 * Math.random()) / (Math.pow(targetRealDamage / attackerRealDamage + 3, 4) / 512 + 0.5) * convergingCoefficient;
+            finalDamage = (24 + 12 * Math.random()) / (Math.pow(targetRealDamage / attackerRealDamage + 3, 4) / 512 + 0.5);
         if (target.getCurHealth() <= finalDamage)
             target.setCanAttack(false);
     }
