@@ -31,9 +31,9 @@ Snake | Bad | 100 | 50 | 0.10 | SnakeTrajectory | Long-range. Especially hunt Gr
   c) 若A是葫芦娃，当爷爷活着时，他将获得10%的Damage加成。  
   d) 经上述3步得到A.realDamage和B.realDamage，分别记为a和b。设最终伤害为D。设随机值P，范围为\[0, 1)。  
   当a>=b时，有如下公式：  
-  ![damage expression](http://latex.codecogs.com/gif.latex?D=(24+12P)\*(\frac{(\frac{a}{b}+3)^4}{512}+0.5))  
+  ![damage expression1](http://latex.codecogs.com/gif.latex?D=(24+12P)\*(\frac{(\frac{a}{b}+3)^4}{512}+0.5))  
   当a<b时，有如下公式：  
-  ![damage expression](http://latex.codecogs.com/gif.latex?D={24+12P}\/({\frac{(\frac{b}{a}+3)^4}{512}+0.5))
+  ![damage expression2](http://latex.codecogs.com/gif.latex?D={24+12P}/({\frac{(\frac{b}{a}+3)^4}{512}+0.5))
 
 ### 4. 操作  
 1) I. 初始化战斗。将所有生物以满血状态布置到战斗场地上。战场左侧为Good阵营，右侧为Bad阵营。葫芦娃们和蝎子精带领着的小喽啰们分别以8种阵型中的随机一种列阵，朝向相对。爷爷和蛇精分别在各自阵营的大后方。正在战斗和正在回放时无法初始化。
