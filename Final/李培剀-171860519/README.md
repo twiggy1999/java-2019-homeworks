@@ -55,6 +55,6 @@ Snake | Bad | 100 | 50 | 0.10 | SnakeTrajectory | Long-range. Especially hunt Gr
 ## 二、实现
 ### 1. GUI和Controller
 该应用通过javafx.application.Application实现。主类继承Application，重载其void start(Stage primaryStage)方法，通过Stage和Scene进行界面布置。  
-使用Javafx Builder绘制应用的界面，得到GUI.fxml，在主类的start中用FXMLLoader加载该文件，布置到应用中。
+使用Javafx Builder绘制应用的界面，得到GUI.fxml，在主类的start中用FXMLLoader加载该文件，布置到应用中。  
 对GUI.fxml的控制通过BattleController类实现，BattleController是用户界面和后台代码的交接处。它拥有displayCanvas，即展示游戏运行动画的“画布”，通过以@FXML注释的initialize()方法进行初始化：播放bgm、构造战斗场地Ground、添加键盘事件监听和处理、获取displayCanvas上的GraphicsContext（类似于“画笔”）以及绘制游戏背景。它有5个方法分别对应前述5种操作。它还有一个内部类KeyEventHandler，作用顾名思义。此外，它还有logWriter和logReader，用于战斗日志的存取。
 
