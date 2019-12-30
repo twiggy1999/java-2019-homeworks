@@ -66,7 +66,7 @@ Formulation类用于生成生物体并将其列阵。Formulation中的方法均�
 ![Formulation](./Formulation.png)
 
 ### 3. Ground, Position及战斗细节
-每个Position相当于一个格子，Ground中有一个16x23的Position数组。  
+每个Position相当于一个格子，Ground中有一个16x23的Position数组。每个Position可以容纳一个活体生物和多个死亡生物，活体生物有碰撞体积，死亡生物没有碰撞体积。当一个Position上同时有活体生物和死亡生物时，优先显示活体生物；没有活体生物但有多个死亡生物时，优先显示最新死亡的生物的死亡图片。  
 GroundInit中，用反射机制随机调用Formulation中的“阵法”，生成各个生物并列阵。  
 GroundStart中，用Excutors.newCachedThreadPool()新建线程池，执行所有的生物体线程。  
 GroundClear中，停止所有线程，移除所有生物和弹道，清空场地，重置状态符。  
@@ -76,3 +76,5 @@ Ground中的display和displayTrajectory方法分别用于绘制生物和弹道�
 ### 4. LogWriter和LogReader
 LogWriter用于存档，和BattleController中的save()结合使用。LogWriter中有logs用于记录战斗日志。战斗初始化时，将刷新周期写入logs。在战斗中，每次刷新画面时，将当前时刻各个生物的位置和血量百分比以及各个弹道的位置写入日志中，该行为伴随在display和displayTrajectory中。各单位状态记录完成后，写入“stop”，作为当前帧结束的标志。最后战斗结束时，写入胜利方。战斗结束时，战斗日志都记录在了LogWriter中，用户此时可以按S键进行保存，将日志写入.hlwb文件；也可以不保存。  
 LogReader用于加载，和BattleController中的load()结合使用。LogReader中有logs用于存储读入的战斗日志。当用户按L键并选择好存档后，调用readIn(File)，在该方法中用BufferedReader读入日志，并将isReplaying置为true。随后自动开始回放。读入刷新周期，创建Timeline，每隔一个刷新周期传入一幅关键帧，该帧用refreshReplay(String[])解析并绘制。load()同时还创建一个线程每个刷新周期判断一次回放是否结束。
+
+## 三、测试
