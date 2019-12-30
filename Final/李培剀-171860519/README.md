@@ -11,7 +11,7 @@ Dependencies:
 
 ### 2. 单位
 游戏中的单位有生物(Creature)和弹道(Trajectory)两大类。Creature衍生出Good和Bad两个类，即两大阵营，再由这两个类衍生出各个具体角色。Creature由Generator产生。Trajectory类代表了生物的攻击行为，由TrajectoryFactory产生，除爷爷(Grandpa)之外每个生物内部都有一个TrajectoryFactory，因为根据设定爷爷没有攻击行为。
-下表列出了各个生物体的属性及默认值。可在attributes.xml文件中对属性值进行修改，Max health不能超过300。
+下表列出了各个生物体的属性及默认值。可在attributes.xml文件中对属性值进行修改，Max health不能超过1000。
 
 Creature | Parent class | Maximum health | Damage | Converging Bonus | Trajectory | Remarks
 -|-|-|-|-|-|-
