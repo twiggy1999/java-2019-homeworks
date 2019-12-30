@@ -58,7 +58,7 @@ Snake | Bad | 100 | 50 | 0.10 | SnakeTrajectory | Long-range. Especially hunt Gr
 使用Javafx Builder绘制应用的界面，得到GUI.fxml，在主类的start中用FXMLLoader加载该文件，布置到应用中。  
 对GUI.fxml的控制通过BattleController类实现，BattleController是用户界面和后台代码的交接处。它拥有displayCanvas，即展示游戏运行动画的“画布”，通过以@FXML注释的initialize()方法进行初始化：播放bgm、构造战斗场地Ground、添加键盘事件监听和处理、获取displayCanvas上的GraphicsContext（类似于“画笔”）以及绘制游戏背景。它有5个主要的方法分别对应前述5种操作：init() start() save() load() setMusicVolume(char)。它还有一个内部类KeyEventHandler，执行EventHandler<KeyEvent>接口，作用顾名思义。此外，它还有logWriter和logReader，用于战斗日志的存取。
 在start()中，利用Timeline辅助绘制动画，在Timeline添加关键帧KeyFrame，每个刷新周期（设置为10ms）移动一次所有的Trajectory并刷新一次动画。与此同时开启一个线程，每个刷新周期判断一次是否有一方获胜，若有胜者则放出胜利画面并停止动画。  
-在右侧板块中，用TextArea显示战斗日志。
+在右侧版块中，用TextArea显示战斗日志。
 
 ### 2. Formulation和FormSeqAnnotation
 Formulation类用于生成生物体并将其列阵。Formulation中的方法均用自定义的@FormSeqAnnotation(int)注释，为其标记序号，在init时用于随机布阵。  
