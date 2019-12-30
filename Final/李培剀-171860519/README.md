@@ -44,6 +44,7 @@ Snake | Bad | 100 | 50 | 0.10 | SnakeTrajectory | Long-range. Especially hunt Gr
 2) Space. 开始战斗。当且仅当战斗已经初始化之后才能开始。战斗期间无法进行其他操作。任意一方获胜时战斗自动结束。
 3) S. 保存战斗。当且仅当战斗结束之后才能保存。默认保存至save目录下的.hlwb(Huluwa Battle file)文件。
 4) L. 加载战斗。只要不在进行战斗且不在进行回放就可以加载。读取.hlwb文件，然后自动开始回放。
+5) ↑和↓. 调节bgm音量。初始音量为14，单次调节间隔为2，最大100，最小0。
 
 ### 5. 规则
 战斗场地(Ground)由16x23的格子(Position)组成，一个格子仅能容纳一个活体生物，可以容纳多个生物尸体。即活体生物有碰撞体积，尸体没有碰撞体积。葫芦娃、蝎子精和小喽啰可以在整个场地内移动，爷爷和蛇精只能在他们初始的列里上下移动，相恨相杀。葫芦娃、蝎子精和小喽啰是战斗的主体；爷爷是光环怪，给葫芦娃攻击力加成（类似于复仇之魂的被动），没有攻击能力，被蛇精追杀，全程都在躲避蛇精的攻击；蛇精对爷爷发动密集的追踪攻击，在默认设置下需要且仅需2次攻击即可击杀爷爷。当葫芦娃全部阵亡时，Bad阵营获胜；当蝎子精和小喽啰全部阵亡时，Good阵营获胜。（在代码中已经避免了同归于尽的情况）
@@ -52,4 +53,7 @@ Snake | Bad | 100 | 50 | 0.10 | SnakeTrajectory | Long-range. Especially hunt Gr
 ![ShowBattle](./ShowBattle.png)
 
 ## 二、实现
-
+### 1. GUI和Controller
+该应用通过javafx.application.Application实现。主类继承Application，重载其void start(Stage primaryStage)方法，通过Stage和Scene进行界面布置。  
+使用Javafx Builder绘制应用的界面，得到GUI.fxml，在主类的start中用FXMLLoader加载该文件，布置到应用中。
+对GUI.fxml的控制通过BattleController类实现。
