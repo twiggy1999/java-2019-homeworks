@@ -15,10 +15,10 @@ Dependencies:
 
 Creature | Parent class | Maximum health | Damage | Converging Bonus | Trajectory | Remarks
 -|-|-|-|-|-|-
-Huluwa | Good | 100 | 24 | 0.20 | HuluwaTrajectory | Melee. Fight against Scorpion and Creep.
+Huluwa | Good | 100 | 48 | 0.20 | HuluwaTrajectory | Melee. Fight against Scorpion and Creep.
 Grandpa | Good | 100 | 10 | 0.10 | - | Can't attack. Provide 10% damage bonus for Huluwa if alive. Try to dodge Snake's attack.
-Scorpion | Bad | 150 | 20 | 0.15 | ScorpionTrajectory | Melee. Tanky. Fight against Huluwa.
-Creep | Bad | 100 | 10 | 0.10 | CreepTrajectory | Melee. Fight against Huluwa.
+Scorpion | Bad | 150 | 40 | 0.15 | ScorpionTrajectory | Melee. Tanky. Fight against Huluwa.
+Creep | Bad | 100 | 21 | 0.10 | CreepTrajectory | Melee. Fight against Huluwa.
 Snake | Bad | 100 | 50 | 0.10 | SnakeTrajectory | Long-range. Especially hunt Grandpa.
 
 ### 3. 伤害计算
