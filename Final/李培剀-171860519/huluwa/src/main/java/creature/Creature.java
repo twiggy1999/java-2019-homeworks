@@ -377,7 +377,7 @@ public abstract class Creature implements Runnable {
 
     protected Creature getTarget() {
         Creature target = null;
-        double minCurHealth = 300.1;
+        double minCurHealth = 1000.1;
         if (ground.getPosition(position.getRow(), position.getCol() + 1) != null &&
                 ground.getPosition(position.getRow(), position.getCol() + 1).getCreature() != null &&
                 ground.getPosition(position.getRow(), position.getCol() + 1).getCreature().isEnemyTo(this)) {
