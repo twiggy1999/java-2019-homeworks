@@ -78,4 +78,7 @@ Ground中的display和displayTrajectory方法分别用于绘制生物和弹道�
 LogWriter用于存档，和BattleController中的save()结合使用。LogWriter中有logs用于记录战斗日志。战斗初始化时，将刷新周期写入logs。在战斗中，每次刷新画面时，将当前时刻各个生物的位置和血量百分比以及各个弹道的位置写入日志中，该行为伴随在display和displayTrajectory中。各单位状态记录完成后，写入“stop”，作为当前帧结束的标志。最后战斗结束时，写入胜利方。战斗结束时，战斗日志都记录在了LogWriter中，用户此时可以按S键进行保存，将日志写入.hlwb文件；也可以不保存。  
 LogReader用于加载，和BattleController中的load()结合使用。LogReader中有logs用于存储读入的战斗日志。当用户按L键并选择好存档后，调用readIn(File)，在该方法中用BufferedReader读入日志，并将isReplaying置为true。随后自动开始回放。读入刷新周期，创建Timeline，每隔一个刷新周期传入一幅关键帧，该帧用refreshReplay(String[])解析并绘制。load()同时还创建一个线程每个刷新周期判断一次回放是否结束。
 
+### 5. Background Music
+用Media解析mp3资源文件，然后用MediaPlayer播放。
+
 ## 三、测试
