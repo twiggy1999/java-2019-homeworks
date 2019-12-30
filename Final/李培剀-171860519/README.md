@@ -61,5 +61,5 @@ Snake | Bad | 100 | 50 | 0.10 | SnakeTrajectory | Long-range. Especially hunt Gr
 
 ### 2. Formulation和FormSeqAnnotation
 Formulation类用于生成生物体并将其列阵。Formulation中的方法均用自定义的@FormSeqAnnotation(int)注释，为其标记序号，在init时用于随机布阵。  
-![FormSeqAnnotation](./FormSeqAnnotation.png)
+![FormSeqAnnotation](./FormSeqAnnotation.png)  
 ![Formulation](./Formulation.png)
