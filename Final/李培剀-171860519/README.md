@@ -67,6 +67,7 @@ Formulation类用于生成生物体并将其列阵。Formulation中的方法均�
 
 ### 3. Ground, Position及战斗细节
 每个Position相当于一个格子，Ground中有一个16x23的Position数组。每个Position可以容纳一个活体生物和多个死亡生物，活体生物有碰撞体积，死亡生物没有碰撞体积。当一个Position上同时有活体生物和死亡生物时，优先显示活体生物；没有活体生物但有多个死亡生物时，优先显示最新死亡的生物的死亡图片。  
+战场中的生物数量设定为：葫芦娃7个、蝎子精1个、小喽啰19个、爷爷和蛇精各1个。
 GroundInit中，用反射机制随机调用Formulation中的“阵法”，生成各个生物并列阵。  
 GroundStart中，用Excutors.newCachedThreadPool()新建线程池，执行所有的生物体线程。  
 GroundClear中，停止所有线程，移除所有生物和弹道，清空场地，重置状态符。  
