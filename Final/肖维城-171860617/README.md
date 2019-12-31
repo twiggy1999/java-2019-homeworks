@@ -20,20 +20,20 @@ maven: junit4.12, hamcrest-core-1.3.jar
 
 ## 类的介绍
 
-类名 |  |
-- | :-: | -:
-Creature | 生物类，作为Hulu和Monster类的父类 |  
-Hulu| 葫芦的定义，继承自Creature，实现了Runnable接口 |   
-Monster| 妖精的类定义，继承Creature，实现了Runnable接口 |  
-HuluBros | 葫芦兄弟类, 将葫芦兄弟以及爷爷作为一个集体定义的一个类, Hulu类作为静态内部类 |  
-Monsters | 将妖精集体定义为一个类，Monster是其静态内部类 |  
-Position | 位置类，表示二维地图的位置，左上角为(0,0) |  
-Player | 实现回放功能，继承了Runnable接口 |  
-Recorder | 实现记录功能，继承Runnable接口 |  
-Formation | 阵型类，根据阵型字符串将HuluBros和Monsters排列阵型 |  
-Index | 用于生物id和其ImageView的下标索引类，使用单例模式 |  
-BattleField | 战场模拟类，使用单例模式|  
-Main | main函数定义，程序入口，处理键盘事件 |  
+| 类名 |  |
+| --- | :---: | ---:
+| Creature | 生物类，作为Hulu和Monster类的父类 |  
+| Hulu| 葫芦的定义，继承自Creature，实现了Runnable接口 |   
+| Monster| 妖精的类定义，继承Creature，实现了Runnable接口 |  
+| HuluBros | 葫芦兄弟类, 将葫芦兄弟以及爷爷作为一个集体定义的一个类, Hulu类作为静态内部类 |  
+| Monsters | 将妖精集体定义为一个类，Monster是其静态内部类 |  
+| Position | 位置类，表示二维地图的位置，左上角为(0,0) |  
+| Player | 实现回放功能，继承了Runnable接口 |  
+| Recorder | 实现记录功能，继承Runnable接口 |  
+| Formation | 阵型类，根据阵型字符串将HuluBros和Monsters排列阵型 |  
+| Index | 用于生物id和其ImageView的下标索引类，使用单例模式 |  
+| BattleField | 战场模拟类，使用单例模式|  
+| Main | main函数定义，程序入口，处理键盘事件 |  
 
 UML类图：
 ![](uml.png)
