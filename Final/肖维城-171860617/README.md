@@ -21,7 +21,7 @@ maven: junit4.12, hamcrest-core-1.3.jar
 ## 类的介绍
 
 类名 |  |
--|-|-
+- | :-: | -:
 Creature | 生物类，作为Hulu和Monster类的父类 |
 Hulu| 葫芦的定义，继承自Creature，实现了Runnable接口 |
 Monster| 妖精的类定义，继承Creature，实现了Runnable接口 |
