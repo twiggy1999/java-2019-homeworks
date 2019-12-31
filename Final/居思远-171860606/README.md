@@ -2,11 +2,11 @@
 
 #### 最终实现界面：
 
-![1577800428267](C:\Users\10112\AppData\Roaming\Typora\typora-user-images\1577800428267.png)
+![](https://github.com/jsy-ics/picture/blob/master/1577800428267.png)
 
-![1577801322434](C:\Users\10112\AppData\Roaming\Typora\typora-user-images\1577801322434.png)
+![](https://github.com/jsy-ics/picture/blob/master/1577801278584.png)
 
-![1577801278584](C:\Users\10112\AppData\Roaming\Typora\typora-user-images\1577801278584.png)
+![](https://github.com/jsy-ics/picture/blob/master/1577801322434.png)
 
 按下开始游戏按钮开始战斗，葫芦娃阵营和蛇精阵营自动寻敌进行战斗。采用的寻敌算法为寻找最近的敌人进行移动。不同阵营的两方相遇时发生战斗，两者以一个概率决定生死。
 
@@ -20,7 +20,7 @@
 
 UML类图
 
-![355435](C:\Users\10112\Desktop\355435.png)
+![](https://github.com/jsy-ics/picture/blob/master/355435.png)
 
 主要实现方法：
 
@@ -28,7 +28,7 @@ UML类图
 
 多线程：每个生物作为一个线程，进行自己的寻敌和战斗程序。为了保证多线程之间的安全，采用synchronized关键字进行同步，限定每个线程对数据的修改（我的程序中是对地图信息的修改）。生物类的有关多线程的操作基本都写在重写的run里。
 
-![1577803781348](C:\Users\10112\AppData\Roaming\Typora\typora-user-images\1577803781348.png)
+![](https://github.com/jsy-ics/picture/blob/master/1577803781348.png)
 
 #### 课程相关：
 
