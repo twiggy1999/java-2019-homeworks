@@ -82,3 +82,9 @@ LogReader用于加载，和BattleController中的load()结合使用。LogReader�
 用Media解析mp3资源文件，然后用MediaPlayer播放。
 
 ## 三、测试
+测试工具为Junit。
+### 1. Formulation测试
+测试Formulation中的使用借助注释实现的排序方法是否能将“阵法”正确排序。  
+![formTest](./formTest.png)
+
+### 2. Ground和Creature部分方法的测试
