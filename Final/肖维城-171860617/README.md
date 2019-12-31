@@ -41,10 +41,11 @@ UML类图：
 **Creature类**
 
 ![](Creature.png)
-icon表示生物图标；
-healthPoint表示生物血量；
-manaPoint表示生物攻击力；
-id用于指示当前生物表示哪一个生物；
+
+icon表示生物图标；  
+healthPoint表示生物血量；  
+manaPoint表示生物攻击力；   
+id用于指示当前生物表示哪一个生物；   
 
 ## 设计思路
 
@@ -105,7 +106,9 @@ Formation中的setFormation()为泛型方法，传入HuluBros或者Monsters对�
 ### 游戏入口
 
 javaFx应用入口将调用start()：
+
 ![](start.png)
+
 在start()中监听键盘事件并调用相应函数；
 
 ### 游戏流程说明
