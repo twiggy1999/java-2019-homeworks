@@ -85,6 +85,10 @@ LogReader用于加载，和BattleController中的load()结合使用。LogReader�
 测试工具为Junit。
 ### 1. Formulation测试
 测试Formulation中的使用借助注释实现的排序方法是否能将“阵法”正确排序。  
+测试通过。  
 ![formTest](./formTest.png)
 
 ### 2. Ground和Creature部分方法的测试
+用葫芦娃、蝎子精和小喽啰各一个进行测试。首先测试Creature的isEnemyTo方法。然后测试Ground的getNearestEnemy, isMovable和isOccupied。接下来移动葫芦娃，再测试移动后isOccupied和getNearestEnemy是否正确。最后杀死葫芦娃，测试死亡状态是否正确，以及判断胜者的whoWins是否正确。  
+测试通过。  
+![methodsTest](./methodsTest.png)
