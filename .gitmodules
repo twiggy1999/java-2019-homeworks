@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-[submodule "张兰兰-171860031"]
-	path = 张兰兰-171860031
-	url = https://github.com/twiggy1999/myhomework
-[submodule "Final/张兰兰-171860031"]
-	path = Final/张兰兰-171860031
-	url = https://github.com/twiggy1999/myhomework
-=======
 [submodule "Final/牛皓玥-161220095"]
 	path = Final/牛皓玥-161220095
 	url = https://github.com/NiuHaoYue98/GourdGame-v2.git
->>>>>>> eeea74c1f4f7d3bff907cc573e50b1ae9ae3249e
