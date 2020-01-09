@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 [submodule "Final/史文泰-171860588"]
 	path = Final/史文泰-171860588
 	url = https://github.com/TamakiRinko/CalabashGame
+=======
+[submodule "Final/黄诗涵-171860033"]
+	path = Final/黄诗涵-171860033
+	url = https://github.com/hshzjnh/javaFinalHW
+>>>>>>> 2d65b23ce71c75b62882dcaa16dac54969c30b23
